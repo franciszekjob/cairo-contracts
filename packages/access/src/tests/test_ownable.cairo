@@ -28,8 +28,6 @@ fn setup() -> ComponentState {
 //
 // initializer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer_owner() {
@@ -57,8 +55,6 @@ fn test_initializer_zero_owner() {
 //
 // assert_only_owner
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_only_owner() {
@@ -78,8 +74,6 @@ fn test_assert_only_owner_when_not_owner() {
 //
 // _transfer_ownership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__transfer_ownership() {
@@ -92,8 +86,6 @@ fn test__transfer_ownership() {
     let current_owner = state.Ownable_owner.read();
     assert_eq!(current_owner, OTHER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__transfer_ownership_resets_pending_owner() {
@@ -112,8 +104,6 @@ fn test__transfer_ownership_resets_pending_owner() {
 //
 // transfer_ownership & transferOwnership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_ownership() {
@@ -142,8 +132,6 @@ fn test_transfer_ownership_from_nonowner() {
     start_cheat_caller_address(test_address(), OTHER);
     state.transfer_ownership(OTHER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferOwnership() {
@@ -176,8 +164,6 @@ fn test_transferOwnership_from_nonowner() {
 //
 // renounce_ownership & renounceOwnership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounce_ownership() {
@@ -198,8 +184,6 @@ fn test_renounce_ownership_from_nonowner() {
     start_cheat_caller_address(test_address(), OTHER);
     state.renounce_ownership();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounceOwnership() {
