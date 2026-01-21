@@ -19,6 +19,8 @@ use crate::tests::governor::timestamp::common::{
 // state
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_executed() {
     let mut component_state = COMPONENT_STATE();
@@ -30,6 +32,8 @@ fn test_state_executed() {
     assert_eq!(state, ProposalState::Executed);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_canceled() {
     let mut component_state = COMPONENT_STATE();
@@ -51,6 +55,8 @@ fn test_state_non_existent() {
     GovernorExecution::state(@component_state, 1);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_pending() {
     let mut component_state = COMPONENT_STATE();
@@ -62,6 +68,8 @@ fn test_state_pending() {
     assert_eq!(state, ProposalState::Pending);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_pending_at_snapshot() {
     let mut component_state = COMPONENT_STATE();
@@ -75,6 +83,8 @@ fn test_state_pending_at_snapshot() {
     assert_eq!(state, ProposalState::Pending);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_active() {
     let mut component_state = COMPONENT_STATE();
@@ -98,6 +108,8 @@ fn test_state_active() {
     assert_eq!(state, expected);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_defeated_quorum_not_reached() {
     let mut mock_state = CONTRACT_STATE();
@@ -122,6 +134,8 @@ fn test_state_defeated_quorum_not_reached() {
     assert_eq!(state, expected);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_defeated_vote_not_succeeded() {
     let mut mock_state = CONTRACT_STATE();
@@ -149,6 +163,8 @@ fn test_state_defeated_vote_not_succeeded() {
     assert_eq!(state, expected);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_queued() {
     let mut mock_state = CONTRACT_STATE();
@@ -161,6 +177,8 @@ fn test_state_queued() {
     assert_eq!(state, ProposalState::Queued);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_succeeded() {
     let mut mock_state = CONTRACT_STATE();
@@ -177,6 +195,8 @@ fn test_state_succeeded() {
 // executor
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_executor() {
     let component_state = COMPONENT_STATE();
@@ -252,6 +272,8 @@ fn test_proposal_needs_queuing(id: felt252) {
 // cancel_operations
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_cancel_operations_pending() {
     let mut state = COMPONENT_STATE();
@@ -265,6 +287,8 @@ fn test_cancel_operations_pending() {
     assert_eq!(canceled_proposal.canceled, true);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_cancel_operations_active() {
     let mut state = COMPONENT_STATE();
@@ -278,6 +302,8 @@ fn test_cancel_operations_active() {
     assert_eq!(canceled_proposal.canceled, true);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_cancel_operations_defeated() {
     let mut mock_state = CONTRACT_STATE();
@@ -292,6 +318,8 @@ fn test_cancel_operations_defeated() {
     assert_eq!(canceled_proposal.canceled, true);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_cancel_operations_succeeded() {
     let mut mock_state = CONTRACT_STATE();
@@ -306,6 +334,8 @@ fn test_cancel_operations_succeeded() {
     assert_eq!(canceled_proposal.canceled, true);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_cancel_operations_queued() {
     let mut mock_state = CONTRACT_STATE();

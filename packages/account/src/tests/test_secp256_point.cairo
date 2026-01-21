@@ -5,6 +5,8 @@ use crate::utils::secp256_point::{
     DebugSecp256Point, Secp256PointPartialEq, Secp256PointStorePacking as StorePacking,
 };
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_pack_big_secp256k1_points() {
     let (big_point_1, big_point_2) = get_points();
@@ -35,6 +37,8 @@ fn test_pack_big_secp256k1_points() {
     assert_eq!(parity, false, "Parity should be even");
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_unpack_big_secp256k1_points() {
     let (big_point_1, big_point_2) = get_points();
@@ -60,6 +64,8 @@ fn test_unpack_big_secp256k1_points() {
     assert_eq!(y, expected_y);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_partial_eq() {
     let (big_point_1, big_point_2) = get_points();

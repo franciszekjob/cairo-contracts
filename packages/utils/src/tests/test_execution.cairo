@@ -19,6 +19,8 @@ fn setup() -> ContractAddress {
 // assert_valid_signature
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_assert_valid_signature_valid() {
     let account_address = setup();

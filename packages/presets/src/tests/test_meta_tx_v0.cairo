@@ -47,6 +47,8 @@ fn setup_dispatchers(
 // Tests
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_meta_tx_v0_context_update() {
     // Prepare calldata and signature

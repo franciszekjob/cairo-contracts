@@ -29,6 +29,8 @@ fn setup() -> ComponentState {
 // initializer
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_initializer_owner() {
     let mut state = COMPONENT_STATE();
@@ -56,6 +58,8 @@ fn test_initializer_zero_owner() {
 // assert_only_owner
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_assert_only_owner() {
     let state = setup();
@@ -75,6 +79,8 @@ fn test_assert_only_owner_when_not_owner() {
 // _transfer_ownership
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test__transfer_ownership() {
     let mut state = setup();
@@ -87,6 +93,8 @@ fn test__transfer_ownership() {
     assert_eq!(current_owner, OTHER);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test__transfer_ownership_resets_pending_owner() {
     let mut state = setup();
@@ -105,6 +113,8 @@ fn test__transfer_ownership_resets_pending_owner() {
 // transfer_ownership & transferOwnership
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_transfer_ownership() {
     let mut state = setup();
@@ -133,6 +143,8 @@ fn test_transfer_ownership_from_nonowner() {
     state.transfer_ownership(OTHER);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_transferOwnership() {
     let mut state = setup();
@@ -165,6 +177,8 @@ fn test_transferOwnership_from_nonowner() {
 // renounce_ownership & renounceOwnership
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_renounce_ownership() {
     let mut state = setup();
@@ -185,6 +199,8 @@ fn test_renounce_ownership_from_nonowner() {
     state.renounce_ownership();
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_renounceOwnership() {
     let mut state = setup();

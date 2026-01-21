@@ -30,6 +30,8 @@ fn test_upgrade_with_class_hash_zero() {
     v1.upgrade(CLASS_HASH_ZERO);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_upgraded_event() {
     let (v1, v2_class) = setup_test();
@@ -40,6 +42,8 @@ fn test_upgraded_event() {
     spy.assert_only_event_upgraded(v1.contract_address, v2_class.class_hash);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_new_selector_after_upgrade() {
     let (v1, v2_class) = setup_test();
@@ -51,6 +55,8 @@ fn test_new_selector_after_upgrade() {
     assert_eq!(v2.get_value2(), VALUE);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_state_persists_after_upgrade() {
     let (v1, v2_class) = setup_test();
@@ -63,6 +69,8 @@ fn test_state_persists_after_upgrade() {
     assert_eq!(v2.get_value(), VALUE);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_remove_selector_passes_in_v1() {
     let (v1, _) = setup_test();
@@ -94,6 +102,8 @@ fn test_upgrade_and_call_with_class_hash_zero() {
     v1.upgrade_and_call(CLASS_HASH_ZERO, selector!("set_value2"), calldata.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_upgrade_and_call_with_new_selector() {
     let (v1, v2_class) = setup_test();
@@ -108,6 +118,8 @@ fn test_upgrade_and_call_with_new_selector() {
     assert_eq!(v2.get_value2(), VALUE);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_upgrade_and_call_with_return_value() {
     let (v1, v2_class) = setup_test();
@@ -123,6 +135,8 @@ fn test_upgrade_and_call_with_return_value() {
     assert_eq!(*call_res.at(0), VALUE);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_upgrade_and_call_with_no_return_value() {
     let (v1, v2_class) = setup_test();

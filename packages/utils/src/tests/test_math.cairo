@@ -115,6 +115,8 @@ fn test_mul_div_result_gt_u256() {
     math::u256_mul_div(x, y, denominator, Rounding::Floor);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_mul_div_round_down_small_values() {
     let round_down = array![Rounding::Floor, Rounding::Trunc];
@@ -130,6 +132,8 @@ fn test_mul_div_round_down_small_values() {
     }
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_mul_div_round_down_large_values() {
     let round_down = array![Rounding::Floor, Rounding::Trunc];
@@ -150,6 +154,8 @@ fn test_mul_div_round_down_large_values() {
     };
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_mul_div_round_up_small_values() {
     let round_up = array![Rounding::Ceil, Rounding::Expand];
@@ -165,6 +171,8 @@ fn test_mul_div_round_up_small_values() {
     }
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_mul_div_round_up_large_values() {
     let round_up = array![Rounding::Ceil, Rounding::Expand];

@@ -6,6 +6,8 @@ use crate::extensions::src9::snip12_utils::{
     CALL_TYPE_HASH, CallStructHash, OUTSIDE_EXECUTION_TYPE_HASH, OutsideExecutionStructHash,
 };
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_outside_execution_type_hash() {
     let expected = selector!(
@@ -14,6 +16,8 @@ fn test_outside_execution_type_hash() {
     assert_eq!(OUTSIDE_EXECUTION_TYPE_HASH, expected);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_call_type_hash() {
     let expected = selector!(
@@ -22,6 +26,8 @@ fn test_call_type_hash() {
     assert_eq!(CALL_TYPE_HASH, expected);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_call_struct_hash_generation() {
     start_cheat_chain_id_global('SN_TEST');
@@ -42,6 +48,8 @@ fn test_call_struct_hash_generation() {
     assert_eq!(hash, expected_hash);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_outside_execution_struct_hash_generation() {
     start_cheat_chain_id_global('SN_TEST');

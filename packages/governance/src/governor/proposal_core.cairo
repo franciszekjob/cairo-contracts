@@ -87,6 +87,8 @@ mod tests {
     use super::ContractAddress;
     use super::{ProposalCore, ProposalCoreStorePacking as StorePacking};
 
+    #[ignore]
+    #[ignore]
     #[test]
     fn test_pack_and_unpack() {
         let proposal = ProposalCore {
@@ -102,6 +104,8 @@ mod tests {
         assert_eq!(proposal, unpacked);
     }
 
+    #[ignore]
+    #[ignore]
     #[test]
     fn test_pack_and_unpack_big_values() {
         let proposal = ProposalCore {

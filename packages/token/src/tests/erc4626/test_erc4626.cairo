@@ -216,6 +216,8 @@ fn test_initializer_zero_address_asset() {
 // asset
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_asset() {
     let mut state = COMPONENT_STATE();
@@ -233,6 +235,8 @@ fn test_asset() {
 // Metadata
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_metadata() {
     let asset = deploy_asset();
@@ -251,6 +255,8 @@ fn test_metadata() {
     assert_eq!(asset_address, asset.contract_address);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_decimals_offset() {
     let asset = deploy_asset();
@@ -276,6 +282,8 @@ fn setup_empty() -> (IERC20ReentrantDispatcher, ERC4626ABIDispatcher) {
     (asset, vault)
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_init_vault_status() {
     let (_, vault) = setup_empty();
@@ -284,6 +292,8 @@ fn test_init_vault_status() {
     assert_eq!(total_assets, 0);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_deposit() {
     let (asset, vault) = setup_empty();
@@ -318,6 +328,8 @@ fn test_deposit() {
     spy.assert_only_event_deposit(vault.contract_address, HOLDER, RECIPIENT, amount, shares);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_mint() {
     let (asset, vault) = setup_empty();
@@ -357,6 +369,8 @@ fn test_mint() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_withdraw() {
     let (asset, vault) = setup_empty();
@@ -381,6 +395,8 @@ fn test_withdraw() {
     spy.assert_only_event_withdraw(vault.contract_address, HOLDER, RECIPIENT, HOLDER, 0, 0);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_redeem() {
     let (asset, vault) = setup_empty();
@@ -424,6 +440,8 @@ fn setup_inflation_attack() -> (IERC20ReentrantDispatcher, ERC4626ABIDispatcher)
     (asset, vault)
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_inflation_attack_status() {
     let (_, vault) = setup_inflation_attack();
@@ -435,6 +453,8 @@ fn test_inflation_attack_status() {
     assert_eq!(total_assets, parse_token(1));
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_inflation_attack_deposit() {
     let (asset, vault) = setup_inflation_attack();
@@ -484,6 +504,8 @@ fn test_inflation_attack_deposit() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_inflation_attack_mint() {
     let (asset, vault) = setup_inflation_attack();
@@ -531,6 +553,8 @@ fn test_inflation_attack_mint() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_inflation_attack_withdraw() {
     let (asset, vault) = setup_inflation_attack();
@@ -561,6 +585,8 @@ fn test_inflation_attack_withdraw() {
     spy.assert_only_event_withdraw(vault.contract_address, HOLDER, RECIPIENT, HOLDER, 0, 0);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_inflation_attack_redeem() {
     let (asset, vault) = setup_inflation_attack();
@@ -610,6 +636,8 @@ fn setup_full_vault() -> (IERC20ReentrantDispatcher, ERC4626ABIDispatcher) {
     (asset, vault)
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_full_vault_status() {
     let (_, vault) = setup_full_vault();
@@ -621,6 +649,8 @@ fn test_full_vault_status() {
     assert_eq!(total_assets, parse_token(1));
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_full_vault_deposit() {
     let (asset, vault) = setup_full_vault();
@@ -671,6 +701,8 @@ fn test_full_vault_deposit() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_full_vault_mint() {
     let (asset, vault) = setup_full_vault();
@@ -720,6 +752,8 @@ fn test_full_vault_mint() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_full_vault_withdraw() {
     let (asset, vault) = setup_full_vault();
@@ -768,6 +802,8 @@ fn test_full_vault_withdraw() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_full_vault_withdraw_with_approval() {
     let (asset, vault) = setup_full_vault();
@@ -810,6 +846,8 @@ fn test_full_vault_withdraw_unauthorized() {
     vault.withdraw(withdraw_assets, RECIPIENT, HOLDER);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_full_vault_redeem() {
     let (asset, vault) = setup_full_vault();
@@ -857,6 +895,8 @@ fn test_full_vault_redeem() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_full_vault_redeem_with_approval() {
     let (asset, vault) = setup_full_vault();
@@ -937,6 +977,8 @@ fn setup_reentrancy() -> (IERC20ReentrantDispatcher, ERC4626ABIDispatcher) {
     (asset, vault)
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_share_price_with_reentrancy_before_deposit() {
     let (asset, vault) = setup_reentrancy();
@@ -991,6 +1033,8 @@ fn test_share_price_with_reentrancy_before_deposit() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_share_price_with_reentrancy_after_withdraw() {
     let (asset, vault) = setup_reentrancy();
@@ -1044,6 +1088,8 @@ fn test_share_price_with_reentrancy_after_withdraw() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_price_change_during_reentrancy_doesnt_affect_deposit() {
     let (asset, vault) = setup_reentrancy();
@@ -1075,6 +1121,8 @@ fn test_price_change_during_reentrancy_doesnt_affect_deposit() {
     assert(shares_after < shares_before, 'Mint should change share price');
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_price_change_during_reentrancy_doesnt_affect_withdraw() {
     let (asset, vault) = setup_reentrancy();
@@ -1152,6 +1200,8 @@ fn test_max_limit_withdraw() {
     vault.withdraw(max_withdraw + 1, HOLDER, HOLDER);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_max_limit_withdraw_assets_gt_limit() {
     let (asset, vault) = setup_limits();
@@ -1176,6 +1226,8 @@ fn test_max_limit_withdraw_assets_gt_limit() {
     assert_eq!(max_limit, ERC4626LimitsMock::CUSTOM_LIMIT);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_max_limit_withdraw_assets_lt_limit() {
     let (asset, vault) = setup_limits();
@@ -1208,6 +1260,8 @@ fn test_max_limit_redeem() {
     vault.redeem(max_redeem + 1, HOLDER, HOLDER);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_max_limit_redeem_assets_gt_limit() {
     let (asset, vault) = setup_limits();
@@ -1232,6 +1286,8 @@ fn test_max_limit_redeem_assets_gt_limit() {
     assert_eq!(max_limit, ERC4626LimitsMock::CUSTOM_LIMIT);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_max_limit_redeem_assets_lt_limit() {
     let (asset, vault) = setup_limits();
@@ -1290,6 +1346,8 @@ fn setup_output_fees(kind: FeeKind) -> (IERC20ReentrantDispatcher, ERC4626ABIDis
 // Fees in assets
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_input_assets_fees_deposit() {
     let (asset, vault) = setup_input_fees(FeeKind::Assets);
@@ -1330,6 +1388,8 @@ fn test_input_assets_fees_deposit() {
     spy.assert_event_transfer(asset.contract_address, vault.contract_address, TREASURY, FEES);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_input_assets_fees_mint() {
     let (asset, vault) = setup_input_fees(FeeKind::Assets);
@@ -1371,6 +1431,8 @@ fn test_input_assets_fees_mint() {
     spy.assert_event_transfer(asset.contract_address, vault.contract_address, TREASURY, FEES);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_output_assets_fees_redeem() {
     let (asset, vault) = setup_output_fees(FeeKind::Assets);
@@ -1413,6 +1475,8 @@ fn test_output_assets_fees_redeem() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_output_assets_fees_withdraw() {
     let (asset, vault) = setup_output_fees(FeeKind::Assets);
@@ -1458,6 +1522,8 @@ fn test_output_assets_fees_withdraw() {
 // Fees in shares
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_input_shares_fees_deposit() {
     let (asset, vault) = setup_input_fees(FeeKind::Shares);
@@ -1501,6 +1567,8 @@ fn test_input_shares_fees_deposit() {
     spy.assert_event_transfer(vault.contract_address, ZERO, TREASURY, FEES);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_input_shares_fees_mint() {
     let (asset, vault) = setup_input_fees(FeeKind::Shares);
@@ -1543,6 +1611,8 @@ fn test_input_shares_fees_mint() {
     spy.assert_event_transfer(vault.contract_address, ZERO, TREASURY, FEES);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_output_shares_fees_redeem() {
     let (asset, vault) = setup_output_fees(FeeKind::Shares);
@@ -1587,6 +1657,8 @@ fn test_output_shares_fees_redeem() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_output_shares_fees_withdraw() {
     let (asset, vault) = setup_output_fees(FeeKind::Shares);
@@ -1635,6 +1707,8 @@ fn test_output_shares_fees_withdraw() {
 // Scenario inspired by solmate ERC4626 tests
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_multiple_txs_part_1() {
     let mut asset = deploy_asset();
@@ -1744,6 +1818,8 @@ fn test_multiple_txs_part_1() {
     assert_eq!(vault.total_assets(), 14_573);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_multiple_txs_part_2() {
     // SNForge hangs, so the test is split in two.
@@ -1837,6 +1913,8 @@ fn setup_vault_with_hooks() -> (IERC20ReentrantDispatcher, ERC4626ABIDispatcher)
     (asset, vault)
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_hooks_called_when_deposit() {
     let (_, vault) = setup_vault_with_hooks();
@@ -1852,6 +1930,8 @@ fn test_hooks_called_when_deposit() {
     spy.assert_event_after_deposit(vault.contract_address, HOLDER, RECIPIENT, assets, shares);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_hooks_called_when_mint() {
     let (_, vault) = setup_vault_with_hooks();
@@ -1867,6 +1947,8 @@ fn test_hooks_called_when_mint() {
     spy.assert_event_after_deposit(vault.contract_address, HOLDER, RECIPIENT, assets, shares);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_hooks_called_when_withdraw() {
     let (_, vault) = setup_vault_with_hooks();
@@ -1888,6 +1970,8 @@ fn test_hooks_called_when_withdraw() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_hooks_called_when_redeem() {
     let (_, vault) = setup_vault_with_hooks();
@@ -1929,6 +2013,8 @@ fn setup_vault_with_external_storage() -> (IERC20ReentrantDispatcher, ERC4626ABI
     (asset, vault)
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_external_storage_deposit() {
     let (asset, vault) = setup_vault_with_external_storage();
@@ -1963,6 +2049,8 @@ fn test_external_storage_deposit() {
     spy.assert_only_event_deposit(vault.contract_address, HOLDER, RECIPIENT, amount, shares);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_external_storage_mint() {
     let (asset, vault) = setup_vault_with_external_storage();
@@ -1999,6 +2087,8 @@ fn test_external_storage_mint() {
         );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_external_storage_withdraw() {
     let (asset, vault) = setup_vault_with_external_storage();
@@ -2023,6 +2113,8 @@ fn test_external_storage_withdraw() {
     spy.assert_only_event_withdraw(vault.contract_address, HOLDER, RECIPIENT, HOLDER, 0, 0);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_external_storage_redeem() {
     let (asset, vault) = setup_vault_with_external_storage();

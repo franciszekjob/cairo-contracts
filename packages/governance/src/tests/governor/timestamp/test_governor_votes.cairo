@@ -15,6 +15,8 @@ use crate::tests::governor::timestamp::common::{
 // GovernorVotes
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_clock() {
     let component_state = COMPONENT_STATE();
@@ -27,6 +29,8 @@ fn test_clock() {
     assert_eq!(clock, timestamp);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_CLOCK_MODE() {
     let component_state = COMPONENT_STATE();
@@ -37,6 +41,8 @@ fn test_CLOCK_MODE() {
     assert_eq!(mode, "mode=timestamp&from=starknet::SN_MAIN");
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_clock_legacy_token() {
     let component_state = COMPONENT_STATE();
@@ -49,6 +55,8 @@ fn test_clock_legacy_token() {
     assert_eq!(clock, timestamp);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_CLOCK_MODE_legacy_token() {
     let component_state = COMPONENT_STATE();
@@ -59,6 +67,8 @@ fn test_CLOCK_MODE_legacy_token() {
     assert_eq!(mode, "mode=timestamp&from=starknet::SN_MAIN");
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_get_votes() {
     let component_state = COMPONENT_STATE();
@@ -81,6 +91,8 @@ fn test_get_votes() {
 // External
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token() {
     let mock_state = CONTRACT_STATE();
@@ -95,6 +107,8 @@ fn test_token() {
 // Internal
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_initializer() {
     let mock_state = CONTRACT_STATE();

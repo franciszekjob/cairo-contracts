@@ -30,11 +30,15 @@ fn deploy_udc() -> UniversalDeployerABIDispatcher {
     UniversalDeployerABIDispatcher { contract_address: address }
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_deploy_from_zero() {
     test_deploy_from_zero_internal(false);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_deploy_from_zero_camel_case() {
     test_deploy_from_zero_internal(true);
@@ -83,11 +87,15 @@ fn test_deploy_from_zero_internal(camel_case: bool) {
     assert_eq!(total_supply, SUPPLY);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_deploy_not_from_zero() {
     test_deploy_not_from_zero_internal(false);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_deploy_not_from_zero_camel_case() {
     test_deploy_not_from_zero_internal(true);

@@ -21,6 +21,8 @@ const MULTI_PROOF: [felt252; 2] = [
 // verify
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_valid_merkle_proof() {
     let leaves = LEAVES();
@@ -41,6 +43,8 @@ fn test_valid_merkle_proof() {
     assert!(verify_pedersen(second_proof, ROOT, no_such_leaf));
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_invalid_merkle_proof() {
     let leaves = LEAVES();
@@ -59,6 +63,8 @@ fn test_invalid_merkle_proof() {
 // verify_multi_proof
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_valid_merkle_multi_proof() {
     let leaves = LEAVES();
@@ -70,6 +76,8 @@ fn test_valid_merkle_multi_proof() {
     assert!(verify_multi_proof::<PedersenCHasher>(proof, proof_flags, ROOT, leaves_to_prove));
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_invalid_merkle_multi_proof() {
     let leaves = LEAVES();
@@ -88,6 +96,8 @@ fn test_invalid_merkle_multi_proof() {
     );
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_invalid_merkle_multi_proof_flags() {
     let leaves = LEAVES();

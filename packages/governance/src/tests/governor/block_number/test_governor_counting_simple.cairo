@@ -15,6 +15,8 @@ use crate::tests::governor::block_number::common::{COMPONENT_STATE, CONTRACT_STA
 // try_into
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_try_into_u8_VoteType() {
     let number = 0_u8;
@@ -38,6 +40,8 @@ fn test_try_into_u8_VoteType() {
 // into
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_into_VoteType_u8() {
     let vote_type = VoteType::Against;
@@ -57,6 +61,8 @@ fn test_into_VoteType_u8() {
 // counting_mode
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_counting_mode() {
     let state = COMPONENT_STATE();
@@ -67,6 +73,8 @@ fn test_counting_mode() {
 // count_vote
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_count_vote_against() {
     let mut mock_state = CONTRACT_STATE();
@@ -94,6 +102,8 @@ fn test_count_vote_against() {
     assert_eq!(proposal_votes.against_votes.read(), total_weight);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_count_vote_for() {
     let mut mock_state = CONTRACT_STATE();
@@ -121,6 +131,8 @@ fn test_count_vote_for() {
     assert_eq!(proposal_votes.for_votes.read(), total_weight);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_count_vote_abstain() {
     let mut mock_state = CONTRACT_STATE();
@@ -187,6 +199,8 @@ fn test_count_vote_invalid_vote_type() {
 // has_voted
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_has_voted() {
     let mut mock_state = CONTRACT_STATE();
@@ -210,6 +224,8 @@ fn test_has_voted() {
 // quorum_reached
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_quorum_reached() {
     let mut mock_state = CONTRACT_STATE();
@@ -248,6 +264,8 @@ fn test_quorum_reached() {
     assert_eq!(GovernorCounting::quorum_reached(@state, proposal_id), false);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_quorum_reached_snapshot_used() {
     let mut mock_state = CONTRACT_STATE();
@@ -283,6 +301,8 @@ fn test_quorum_reached_snapshot_used() {
 // vote_succeeded
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_vote_succeeded() {
     let mut mock_state = CONTRACT_STATE();

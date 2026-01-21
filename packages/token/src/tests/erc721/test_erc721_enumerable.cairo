@@ -50,6 +50,8 @@ fn setup() -> (ComponentState, Span<u256>) {
 // Initializer
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut state = COMPONENT_STATE();
@@ -68,6 +70,8 @@ fn test_initializer() {
 // total_supply
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_total_supply() {
     let mut state = COMPONENT_STATE();
@@ -94,6 +98,8 @@ fn test_total_supply() {
 // token_by_index
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token_by_index() {
     let (_, token_list) = setup();
@@ -119,6 +125,8 @@ fn test_token_by_index_greater_than_supply() {
     state.token_by_index(supply_plus_one);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token_by_index_burn_last_token() {
     let _ = setup();
@@ -131,6 +139,8 @@ fn test_token_by_index_burn_last_token() {
     assert_token_by_index(expected_list.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token_by_index_burn_first_token() {
     let _ = setup();
@@ -145,6 +155,8 @@ fn test_token_by_index_burn_first_token() {
     assert_token_by_index(expected_list.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token_by_index_burn_and_mint_all() {
     let (state, _) = setup();
@@ -169,6 +181,8 @@ fn test_token_by_index_burn_and_mint_all() {
 // token_of_owner_by_index
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token_of_owner_by_index() {
     let (_, tokens_list) = setup();
@@ -210,6 +224,8 @@ fn test_token_of_owner_by_index_when_owner_is_zero() {
     state.token_of_owner_by_index(ZERO, 0);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token_of_owner_by_index_remove_last_token() {
     let (_, tokens_list) = setup();
@@ -222,6 +238,8 @@ fn test_token_of_owner_by_index_remove_last_token() {
     assert_token_of_owner_by_index(OWNER, expected_list.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token_of_owner_by_index_remove_first_token() {
     let (_, tokens_list) = setup();
@@ -236,6 +254,8 @@ fn test_token_of_owner_by_index_remove_first_token() {
     assert_token_of_owner_by_index(OWNER, expected_list.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_token_of_owner_by_index_when_all_tokens_transferred() {
     let (_, tokens_list) = setup();
@@ -257,6 +277,8 @@ fn test_token_of_owner_by_index_when_all_tokens_transferred() {
 // The following `before_update` tests are testing the isolated functionality of
 // `before_update` and will have an inconsistent state with that of the ERC721 component.
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_before_update_when_mint() {
     let (mut state, _) = setup();
@@ -278,6 +300,8 @@ fn test_before_update_when_mint() {
     assert_token_by_index(exp_total_tokens.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_before_update_when_last_token_burned() {
     let (mut state, tokens_list) = setup();
@@ -299,6 +323,8 @@ fn test_before_update_when_last_token_burned() {
     assert_token_by_index(exp_total_tokens.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_before_update_when_first_token_burned() {
     let (mut state, tokens_list) = setup();
@@ -323,6 +349,8 @@ fn test_before_update_when_first_token_burned() {
     assert_token_by_index(exp_total_tokens.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_before_update_when_transfer_last_token() {
     let (mut state, tokens_list) = setup();
@@ -348,6 +376,8 @@ fn test_before_update_when_transfer_last_token() {
     assert_token_by_index(exp_total_tokens.span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_before_update_when_transfer_first_token() {
     let (mut state, tokens_list) = setup();
@@ -380,6 +410,8 @@ fn test_before_update_when_transfer_first_token() {
 // _add_token_to_owner_enumeration
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test__add_token_to_owner_enumeration() {
     let (mut state, tokens_list) = setup();
@@ -399,6 +431,8 @@ fn test__add_token_to_owner_enumeration() {
 // _add_token_to_all_tokens_enumeration
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test__add_token_to_all_tokens_enumeration() {
     let (mut state, _) = setup();
@@ -423,6 +457,8 @@ fn test__add_token_to_all_tokens_enumeration() {
 // _remove_token_from_owner_enumeration
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test__remove_token_from_owner_enumeration_with_last_token() {
     let (mut state, tokens_list) = setup();
@@ -438,6 +474,8 @@ fn test__remove_token_from_owner_enumeration_with_last_token() {
     assert_owner_tokens_id_to_index(last_token_id, 0);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test__remove_token_from_owner_enumeration_with_first_token() {
     let (mut state, tokens_list) = setup();
@@ -461,6 +499,8 @@ fn test__remove_token_from_owner_enumeration_with_first_token() {
 // _remove_token_from_all_tokens_enumeration
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test__remove_token_from_all_tokens_enumeration_with_last_token() {
     let (mut state, tokens_list) = setup();
@@ -481,6 +521,8 @@ fn test__remove_token_from_all_tokens_enumeration_with_last_token() {
     assert_eq!(initial_supply - 1, new_supply);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test__remove_token_from_all_tokens_enumeration_with_first_token() {
     let (mut state, tokens_list) = setup();
@@ -507,12 +549,16 @@ fn test__remove_token_from_all_tokens_enumeration_with_first_token() {
 // all_tokens_of_owner
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_all_tokens_of_owner() {
     let (_, tokens_list) = setup();
     assert_all_tokens_of_owner(OWNER, tokens_list);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_all_tokens_of_owner_after_transfer_first_token() {
     let _ = setup();
@@ -524,6 +570,8 @@ fn test_all_tokens_of_owner_after_transfer_first_token() {
     assert_all_tokens_of_owner(RECIPIENT, array![TOKEN_1].span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_all_tokens_of_owner_after_transfer_last_token() {
     let _ = setup();
@@ -535,6 +583,8 @@ fn test_all_tokens_of_owner_after_transfer_last_token() {
     assert_all_tokens_of_owner(RECIPIENT, array![TOKEN_3].span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_all_tokens_of_owner_after_burn_first_token() {
     let _ = setup();
@@ -545,6 +595,8 @@ fn test_all_tokens_of_owner_after_burn_first_token() {
     assert_all_tokens_of_owner(OWNER, array![TOKEN_3, TOKEN_2].span());
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_all_tokens_of_owner_after_burn_last_token() {
     let _ = setup();

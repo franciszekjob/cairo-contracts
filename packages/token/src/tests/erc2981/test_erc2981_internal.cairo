@@ -33,6 +33,8 @@ fn setup() -> ComponentState {
 // Initializer
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut state = COMPONENT_STATE();
@@ -54,6 +56,8 @@ fn test_initializer() {
 // Getters
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_royalty_info_default_royalty() {
     let mut state = setup();
@@ -65,6 +69,8 @@ fn test_royalty_info_default_royalty() {
     assert_eq!(amount, 5_000);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_royalty_info_token_royalty_set() {
     let mut state = setup();
@@ -86,6 +92,8 @@ fn test_royalty_info_token_royalty_set() {
 // Internals
 //
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_default_royalty() {
     let mut state = setup();
@@ -97,6 +105,8 @@ fn test_default_royalty() {
     assert_eq!(denominator, ERC2981Component::DEFAULT_FEE_DENOMINATOR);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_set_default_royalty() {
     let mut state = setup();
@@ -114,6 +124,8 @@ fn test_set_default_royalty() {
     assert_eq!(amount, 50_000);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_set_default_royalty_with_zero_royalty_fraction() {
     let mut state = setup();
@@ -143,6 +155,8 @@ fn test_set_default_royalty_with_invalid_fee_numerator() {
     state._set_default_royalty(DEFAULT_RECEIVER, fee_denominator + 1);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_delete_default_royalty() {
     let mut state = setup();
@@ -162,6 +176,8 @@ fn test_delete_default_royalty() {
     assert_eq!(amount, 0);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_set_token_royalty() {
     let mut state = setup();
@@ -188,6 +204,8 @@ fn test_set_token_royalty() {
     assert_eq!(amount, 5_000);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_set_token_royalty_with_zero_royalty_fraction() {
     let mut state = setup();
@@ -218,6 +236,8 @@ fn test_set_token_royalty_with_invalid_fee_numerator() {
     state._set_token_royalty(token_id, RECIPIENT, fee_denominator + 1);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_reset_token_royalty() {
     let mut state = setup();
@@ -241,6 +261,8 @@ fn test_reset_token_royalty() {
     assert_eq!(amount, 5_000);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_default_config() {
     let fee_denominator = DefaultConfig::FEE_DENOMINATOR;

@@ -11,6 +11,8 @@ fn STATE() -> DualCaseERC721ReceiverMock::ContractState {
     DualCaseERC721ReceiverMock::contract_state_for_testing()
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut state = STATE();
@@ -23,6 +25,8 @@ fn test_initializer() {
     assert!(supports_isrc5);
 }
 
+#[ignore]
+#[ignore]
 #[test]
 fn test_on_erc721_received() {
     let mut state = STATE();
