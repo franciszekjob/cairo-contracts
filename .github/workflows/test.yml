@@ -47,9 +47,9 @@ jobs:
         run: scarb fmt --check --workspace
 
       - name: Run tests
+        # run: snforge test --partition '${{ matrix.partition }}/3' --workspace --features fuzzing --fuzzer-runs 200
         run: |
           set -o pipefail
-          # snforge test --partition '${{ matrix.partition }}/3' --workspace --features fuzzing --fuzzer-runs 200
           snforge test --workspace --features fuzzing --fuzzer-runs 200
           status=${PIPESTATUS[0]}
           if [ "$status" -ne 0 ]; then
