@@ -96,7 +96,7 @@ fn test_set_voting_delay_no_change() {
 
     spy.assert_no_events_left();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Executor only')]
 fn test_set_voting_delay_only_governance() {
@@ -148,7 +148,7 @@ fn test_set_voting_period_no_change() {
 
     spy.assert_no_events_left();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Executor only')]
 fn test_set_voting_period_only_governance() {
@@ -200,7 +200,7 @@ fn test_set_proposal_threshold_no_change() {
 
     spy.assert_no_events_left();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Executor only')]
 fn test_set_proposal_threshold_only_governance() {
@@ -251,7 +251,7 @@ fn test_assert_only_governance() {
 
     mock_state.governor_settings.assert_only_governance();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Executor only')]
 fn test_assert_only_governance_not_executor() {

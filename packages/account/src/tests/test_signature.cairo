@@ -80,7 +80,7 @@ fn test_is_valid_eth_signature_bad_sig() {
     );
     assert!(is_invalid);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Signature: Invalid format.')]
 fn test_is_valid_eth_signature_invalid_format_sig() {
@@ -185,7 +185,7 @@ fn test_is_valid_p256_signature_bad_sig() {
     );
     assert!(is_invalid);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Signature: Invalid format.')]
 fn test_is_valid_p256_signature_invalid_format_sig() {

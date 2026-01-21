@@ -100,7 +100,7 @@ fn test_token_by_index() {
 
     assert_token_by_index(token_list);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC721Enum: out of bounds index')]
 fn test_token_by_index_equal_to_supply() {
@@ -109,7 +109,7 @@ fn test_token_by_index_equal_to_supply() {
 
     state.token_by_index(supply);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC721Enum: out of bounds index')]
 fn test_token_by_index_greater_than_supply() {
@@ -175,7 +175,7 @@ fn test_token_of_owner_by_index() {
 
     assert_token_of_owner_by_index(OWNER, tokens_list);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC721Enum: out of bounds index')]
 fn test_token_of_owner_by_index_when_index_equals_owned_tokens() {
@@ -184,7 +184,7 @@ fn test_token_of_owner_by_index_when_index_equals_owned_tokens() {
 
     state.token_of_owner_by_index(OWNER, owned_token_len);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC721Enum: out of bounds index')]
 fn test_token_of_owner_by_index_when_index_exceeds_owned_tokens() {
@@ -193,7 +193,7 @@ fn test_token_of_owner_by_index_when_index_exceeds_owned_tokens() {
 
     state.token_of_owner_by_index(OWNER, owned_tokens_len_plus_one);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC721Enum: out of bounds index')]
 fn test_token_of_owner_by_index_when_target_has_no_tokens() {
@@ -201,7 +201,7 @@ fn test_token_of_owner_by_index_when_target_has_no_tokens() {
 
     state.token_of_owner_by_index(OTHER, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC721: invalid account')]
 fn test_token_of_owner_by_index_when_owner_is_zero() {

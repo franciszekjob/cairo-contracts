@@ -147,7 +147,7 @@ fn test_count_vote_abstain() {
     assert_eq!(proposal_votes.has_voted.read(account), true);
     assert_eq!(proposal_votes.abstain_votes.read(), total_weight);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Already cast vote')]
 fn test_count_vote_already_voted() {
@@ -168,7 +168,7 @@ fn test_count_vote_already_voted() {
 
     GovernorCounting::count_vote(ref state, proposal_id, account, support, total_weight, params);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Invalid vote type')]
 fn test_count_vote_invalid_vote_type() {

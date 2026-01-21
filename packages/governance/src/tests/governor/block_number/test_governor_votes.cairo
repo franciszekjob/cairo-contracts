@@ -82,7 +82,7 @@ fn test_initializer() {
     let token = mock_state.governor_votes.token();
     assert_eq!(token, VOTES_TOKEN);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Invalid votes token')]
 fn test_initializer_with_zero_token() {

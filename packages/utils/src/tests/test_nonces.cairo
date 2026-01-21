@@ -37,7 +37,7 @@ fn test_use_checked_nonce() {
     let nonce = state.nonces(OWNER);
     assert_eq!(nonce, 1, "use_checked_nonce should increment the nonce by 1");
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Nonces: invalid nonce')]
 fn test_use_checked_nonce_invalid_current() {

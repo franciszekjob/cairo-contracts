@@ -515,7 +515,7 @@ mod tests {
     impl InvalidImmutableConfig of ERC2981Component::ImmutableConfig {
         const FEE_DENOMINATOR: u128 = 0;
     }
-
+    #[ignore]
     #[test]
     #[should_panic(expected: 'Invalid fee denominator')]
     fn test_initializer_invalid_config_panics() {

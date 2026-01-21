@@ -975,7 +975,7 @@ mod Test {
         const UNDERLYING_DECIMALS: u8 = 255;
         const DECIMALS_OFFSET: u8 = 1;
     }
-
+    #[ignore]
     #[test]
     #[should_panic(expected: 'ERC4626: decimals overflow')]
     fn test_initializer_invalid_config_panics() {

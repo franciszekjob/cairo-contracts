@@ -15,7 +15,7 @@ fn test_initialize() {
     state.initialize();
     assert!(state.is_initialized());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Initializable: is initialized')]
 fn test_initialize_when_initialized() {

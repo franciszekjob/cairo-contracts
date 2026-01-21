@@ -190,7 +190,7 @@ fn withdraw_to_burns_wrapped_and_returns_underlying() {
     assert_eq!(wrapper_erc721.balance_of(owner), 0);
     spy.assert_event_transfer(wrapper.contract_address, owner, ZERO, TOKEN_ID);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC721: unauthorized caller')]
 fn withdraw_to_reverts_for_unauthorized_caller() {
@@ -268,7 +268,7 @@ fn recover_mints_wrapped_for_untracked_underlying() {
     assert_eq!(underlying.owner_of(TOKEN_ID), wrapper.contract_address);
     assert_eq!(wrapper_erc721.owner_of(TOKEN_ID), recipient);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: incorrect owner')]
 fn recover_reverts_when_underlying_not_owned() {

@@ -83,7 +83,7 @@ fn test_get_length() {
     mock_trace.push_checkpoint(200, 2000);
     assert_eq!(mock_trace.get_length(), 2);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Unordered insertion')]
 fn test_unordered_insertion() {

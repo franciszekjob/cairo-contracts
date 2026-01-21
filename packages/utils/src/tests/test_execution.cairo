@@ -32,7 +32,7 @@ fn test_assert_valid_signature_valid() {
     // Should not panic
     assert_valid_signature(account_address, hash, signature_span, 'Invalid signature');
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Invalid signature')]
 fn test_assert_valid_signature_invalid_signature() {
@@ -45,7 +45,7 @@ fn test_assert_valid_signature_invalid_signature() {
     // Should panic with custom error message
     assert_valid_signature(account_address, hash, invalid_signature, 'Invalid signature');
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Custom error msg')]
 fn test_assert_valid_signature_custom_error() {

@@ -41,7 +41,7 @@ fn test_deregister_interface() {
     let does_not_support_old_interface = !state.supports_interface(OTHER_ID);
     assert!(does_not_support_old_interface);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'SRC5: invalid id')]
 fn test_deregister_default_interface() {

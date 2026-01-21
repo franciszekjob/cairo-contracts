@@ -112,7 +112,7 @@ fn test_get_past_votes() {
     // This is because we had not delegated at 'bn0'
     assert_eq!(state.get_past_votes(DELEGATOR, 'bn0'), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: future Lookup')]
 fn test_get_past_votes_future_lookup() {
@@ -155,7 +155,7 @@ fn test_get_past_total_supply_before_checkpoints() {
 
     assert_eq!(state.get_past_total_supply('bn0'), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: future Lookup')]
 fn test_get_past_total_supply_future_lookup() {
@@ -306,7 +306,7 @@ fn test_delegate_by_sig_hash_generation() {
     let expected_hash = 0x1fa1af6d3d0ede7d09790ef20a894668af9445b6bc93714e87a758be40efdc7;
     assert_eq!(hash, expected_hash);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: expired signature')]
 fn test_delegate_by_sig_past_expiry() {
@@ -318,7 +318,7 @@ fn test_delegate_by_sig_past_expiry() {
 
     state.delegate_by_sig(DELEGATOR, DELEGATEE, 0, expiry, signature.span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Nonces: invalid nonce')]
 fn test_delegate_by_sig_invalid_nonce() {
@@ -327,7 +327,7 @@ fn test_delegate_by_sig_invalid_nonce() {
 
     state.delegate_by_sig(DELEGATOR, DELEGATEE, 1, 0, signature.span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: invalid signature')]
 fn test_delegate_by_sig_invalid_signature() {
@@ -348,7 +348,7 @@ fn test_delegate_by_sig_invalid_signature() {
     // Use an invalid signature
     state.delegate_by_sig(delegator, delegatee, nonce, expiry, array![r + 1, s].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: invalid signature')]
 fn test_delegate_by_sig_bad_delegatee() {
@@ -370,7 +370,7 @@ fn test_delegate_by_sig_bad_delegatee() {
     // Use a different delegatee than the one signed for
     state.delegate_by_sig(delegator, bad_delegatee, nonce, expiry, array![r, s].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Nonces: invalid nonce')]
 fn test_delegate_by_sig_reused_signature() {

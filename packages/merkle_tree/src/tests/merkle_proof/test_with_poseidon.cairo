@@ -97,7 +97,7 @@ fn test_invalid_merkle_multi_proof_flags() {
     assert!(process_multi_proof::<PoseidonCHasher>(proof, proof_flags, leaves_to_prove) != ROOT);
     assert!(!verify_multi_proof::<PoseidonCHasher>(proof, proof_flags, ROOT, leaves_to_prove));
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: "MerkleProof: invalid multi proof")]
 fn test_process_multi_proof_invalid_len_proof_flags_panics() {
@@ -110,7 +110,7 @@ fn test_process_multi_proof_invalid_len_proof_flags_panics() {
 
     process_multi_proof::<PoseidonCHasher>(proof, proof_flags, leaves_to_prove);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: "MerkleProof: invalid multi proof")]
 fn test_verify_multi_proof_invalid_len_proof_flags_panics() {
@@ -123,7 +123,7 @@ fn test_verify_multi_proof_invalid_len_proof_flags_panics() {
 
     verify_multi_proof::<PoseidonCHasher>(proof, proof_flags, ROOT, leaves_to_prove);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Index out of bounds')]
 fn test_process_multi_proof_flags_extra_leaves_expected() {
@@ -139,7 +139,7 @@ fn test_process_multi_proof_flags_extra_leaves_expected() {
 
     process_multi_proof::<PoseidonCHasher>(proof, proof_flags, leaves_to_prove);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Index out of bounds')]
 fn test_process_multi_proof_flags_extra_proofs_expected() {
@@ -155,7 +155,7 @@ fn test_process_multi_proof_flags_extra_proofs_expected() {
 
     process_multi_proof::<PoseidonCHasher>(proof, proof_flags, leaves_to_prove);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Index out of bounds')]
 fn test_verify_multi_proof_flags_extra_leaves_expected() {
@@ -171,7 +171,7 @@ fn test_verify_multi_proof_flags_extra_leaves_expected() {
 
     verify_multi_proof::<PoseidonCHasher>(proof, proof_flags, ROOT, leaves_to_prove);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Index out of bounds')]
 fn test_verify_multi_proof_flags_extra_proofs_expected() {

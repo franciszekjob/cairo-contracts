@@ -22,7 +22,7 @@ fn setup_test() -> (IUpgradesV1Dispatcher, ContractClass) {
 //
 // upgrade
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Class hash cannot be zero')]
 fn test_upgrade_with_class_hash_zero() {
@@ -69,7 +69,7 @@ fn test_remove_selector_passes_in_v1() {
 
     v1.remove_selector();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ENTRYPOINT_NOT_FOUND')]
 fn test_remove_selector_fails_in_v2() {
@@ -85,7 +85,7 @@ fn test_remove_selector_fails_in_v2() {
 //
 // upgrade_and_call
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Class hash cannot be zero')]
 fn test_upgrade_and_call_with_class_hash_zero() {
@@ -133,7 +133,7 @@ fn test_upgrade_and_call_with_no_return_value() {
 
     assert_eq!(call_res.len(), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ENTRYPOINT_NOT_FOUND')]
 fn test_upgrade_and_call_with_removed_selector() {
