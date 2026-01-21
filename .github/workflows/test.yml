@@ -13,7 +13,6 @@ jobs:
   lint_and_test:
     name: Lint and test Cairo
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
