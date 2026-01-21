@@ -45,8 +45,6 @@ impl SNIP12MetadataImpl of SNIP12Metadata {
         'v1'
     }
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_starknet_domain_type_hash() {
@@ -55,8 +53,6 @@ fn test_starknet_domain_type_hash() {
     );
     assert_eq!(STARKNET_DOMAIN_TYPE_HASH, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_StructHashStarknetDomainImpl() {
@@ -71,8 +67,6 @@ fn test_StructHashStarknetDomainImpl() {
     );
     assert_eq!(domain.hash_struct(), expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_OffchainMessageHashImpl() {

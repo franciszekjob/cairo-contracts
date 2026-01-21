@@ -39,8 +39,6 @@ fn setup_with_hooks() -> ComponentStateWithHooks {
     state.mint(OWNER, TOKEN_ID, SUPPLY);
     state
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -56,16 +54,12 @@ fn test_initializer() {
         .supports_interface(openzeppelin_interfaces::introspection::ISRC5_ID);
     assert!(supports_isrc5);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of() {
     let state = setup();
     assert_eq!(state.balance_of(OWNER, TOKEN_ID), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_allowance() {
@@ -74,8 +68,6 @@ fn test_allowance() {
     state._approve(OWNER, SPENDER, TOKEN_ID, VALUE);
     assert_eq!(state.allowance(OWNER, SPENDER, TOKEN_ID), VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_operator() {
@@ -89,8 +81,6 @@ fn test_is_operator() {
     state._set_operator(OWNER, SPENDER, false);
     assert!(!state.is_operator(OWNER, SPENDER));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_success() {
@@ -127,8 +117,6 @@ fn test_transfer_insufficient_balance() {
     start_cheat_caller_address(test_address(), SPENDER);
     state.transfer(RECIPIENT, TOKEN_ID, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_by_sender_itself() {
@@ -145,8 +133,6 @@ fn test_transfer_from_by_sender_itself() {
     spy.assert_only_event_transfer(contract_address, sender, sender, receiver, TOKEN_ID, VALUE);
     assert_state_after_transfer(sender, receiver, TOKEN_ID, VALUE, SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_with_allowance() {
@@ -167,8 +153,6 @@ fn test_transfer_from_with_allowance() {
     assert_eq!(state.balance_of(OWNER, TOKEN_ID), SUPPLY - VALUE);
     assert_eq!(state.balance_of(RECIPIENT, TOKEN_ID), VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_with_infinite_allowance_does_not_decrease() {
@@ -185,8 +169,6 @@ fn test_transfer_from_with_infinite_allowance_does_not_decrease() {
     assert_eq!(state.balance_of(OWNER, TOKEN_ID), SUPPLY - VALUE);
     assert_eq!(state.balance_of(RECIPIENT, TOKEN_ID), VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_operator_bypass_allowance() {
@@ -214,8 +196,6 @@ fn test_transfer_from_insufficient_allowance() {
     start_cheat_caller_address(test_address(), SPENDER);
     state.transfer_from(OWNER, RECIPIENT, TOKEN_ID, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_approve_external() {
@@ -244,8 +224,6 @@ fn test__approve_invalid_spender_zero() {
     let mut state = setup();
     state._approve(OWNER, ZERO, TOKEN_ID, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_operator_external() {
@@ -263,8 +241,6 @@ fn test_set_operator_external() {
     spy.assert_only_event_operator_set(contract_address, OWNER, SPENDER, false);
     assert!(!state.is_operator(OWNER, SPENDER));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_burn_reduces_balance_and_emits() {
@@ -295,8 +271,6 @@ fn test_burn_insufficient_balance() {
     let mut state = setup();
     state.burn(OWNER, TOKEN_ID, SUPPLY + 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_calls_before_and_after_update_hooks_on_transfer() {

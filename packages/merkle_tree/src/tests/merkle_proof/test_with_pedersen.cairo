@@ -20,8 +20,6 @@ const MULTI_PROOF: [felt252; 2] = [
 //
 // verify
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_valid_merkle_proof() {
@@ -42,8 +40,6 @@ fn test_valid_merkle_proof() {
     assert!(verify::<PedersenCHasher>(second_proof, ROOT, no_such_leaf));
     assert!(verify_pedersen(second_proof, ROOT, no_such_leaf));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_invalid_merkle_proof() {
@@ -62,8 +58,6 @@ fn test_invalid_merkle_proof() {
 //
 // verify_multi_proof
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_valid_merkle_multi_proof() {
@@ -75,8 +69,6 @@ fn test_valid_merkle_multi_proof() {
     assert_eq!(process_multi_proof::<PedersenCHasher>(proof, proof_flags, leaves_to_prove), ROOT);
     assert!(verify_multi_proof::<PedersenCHasher>(proof, proof_flags, ROOT, leaves_to_prove));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_invalid_merkle_multi_proof() {
@@ -95,8 +87,6 @@ fn test_invalid_merkle_multi_proof() {
         !verify_multi_proof::<PedersenCHasher>(invalid_proof, proof_flags, ROOT, leaves_to_prove),
     );
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_invalid_merkle_multi_proof_flags() {

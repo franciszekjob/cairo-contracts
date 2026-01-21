@@ -58,8 +58,6 @@ fn setup_dispatcher() -> (EventSpy, ERC1155UpgradeableABIDispatcher, ContractAdd
 //
 // constructor
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_constructor() {
@@ -84,8 +82,6 @@ fn test_constructor() {
 //
 // balance_of & balanceOf
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of() {
@@ -94,8 +90,6 @@ fn test_balance_of() {
     let balance = dispatcher.balance_of(owner, TOKEN_ID);
     assert_eq!(balance, TOKEN_VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balanceOf() {
@@ -108,8 +102,6 @@ fn test_balanceOf() {
 //
 // balance_of_batch & balanceOfBatch
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of_batch() {
@@ -122,8 +114,6 @@ fn test_balance_of_batch() {
     assert_eq!(*balances.at(0), TOKEN_VALUE);
     assert!((*balances.at(1)).is_zero());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balanceOfBatch() {
@@ -162,8 +152,6 @@ fn test_balanceOfBatch_invalid_inputs() {
 //
 // safe_transfer_from & safeTransferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_to_receiver() {
@@ -178,8 +166,6 @@ fn test_safe_transfer_from_to_receiver() {
 
     assert_state_after_transfer_single(dispatcher, owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_to_receiver() {
@@ -194,8 +180,6 @@ fn test_safeTransferFrom_to_receiver() {
 
     assert_state_after_transfer_single(dispatcher, owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_to_account() {
@@ -212,8 +196,6 @@ fn test_safe_transfer_from_to_account() {
 
     assert_state_after_transfer_single(dispatcher, owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_to_account() {
@@ -230,8 +212,6 @@ fn test_safeTransferFrom_to_account() {
 
     assert_state_after_transfer_single(dispatcher, owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_approved_operator() {
@@ -256,8 +236,6 @@ fn test_safe_transfer_from_approved_operator() {
 
     assert_state_after_transfer_single(dispatcher, owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_approved_operator() {
@@ -368,8 +346,6 @@ fn test_safeTransferFrom_non_account_non_receiver() {
 //
 // safe_batch_transfer_from & safeBatchTransferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_batch_transfer_from_to_receiver() {
@@ -385,8 +361,6 @@ fn test_safe_batch_transfer_from_to_receiver() {
 
     assert_state_after_transfer_batch(dispatcher, owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeBatchTransferFrom_to_receiver() {
@@ -402,8 +376,6 @@ fn test_safeBatchTransferFrom_to_receiver() {
 
     assert_state_after_transfer_batch(dispatcher, owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_batch_transfer_from_to_account() {
@@ -421,8 +393,6 @@ fn test_safe_batch_transfer_from_to_account() {
 
     assert_state_after_transfer_batch(dispatcher, owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeBatchTransferFrom_to_account() {
@@ -440,9 +410,6 @@ fn test_safeBatchTransferFrom_to_account() {
 
     assert_state_after_transfer_batch(dispatcher, owner, recipient, token_ids, values);
 }
-
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_batch_transfer_from_approved_operator() {
@@ -465,8 +432,6 @@ fn test_safe_batch_transfer_from_approved_operator() {
 
     assert_state_after_transfer_batch(dispatcher, owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeBatchTransferFrom_approved_operator() {
@@ -586,8 +551,6 @@ fn test_safeBatchTransferFrom_non_account_non_receiver() {
 //
 // set_approval_for_all & is_approved_for_all
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_approval_for_all_and_is_approved_for_all() {
@@ -630,8 +593,6 @@ fn test_set_approval_for_all_owner_equal_operator_false() {
 //
 // setApprovalForAll & isApprovedForAll
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_setApprovalForAll_and_isApprovedForAll() {
@@ -674,8 +635,6 @@ fn test_setApprovalForAll_owner_equal_operator_false() {
 //
 // transfer_ownership & transferOwnership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_ownership() {
@@ -702,8 +661,6 @@ fn test_transfer_ownership_from_nonowner() {
     start_cheat_caller_address(dispatcher.contract_address, OTHER);
     dispatcher.transfer_ownership(OTHER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferOwnership() {
@@ -734,8 +691,6 @@ fn test_transferOwnership_from_nonowner() {
 //
 // renounce_ownership & renounceOwnership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounce_ownership() {
@@ -754,8 +709,6 @@ fn test_renounce_ownership_from_nonowner() {
     start_cheat_caller_address(dispatcher.contract_address, OTHER);
     dispatcher.renounce_ownership();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounceOwnership() {
@@ -795,8 +748,6 @@ fn test_upgrade_with_class_hash_zero() {
     start_cheat_caller_address(v1.contract_address, owner);
     v1.upgrade(CLASS_HASH_ZERO);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_upgraded_event() {
@@ -821,8 +772,6 @@ fn test_v2_missing_camel_selector() {
     let dispatcher = IERC1155CamelDispatcher { contract_address: v1.contract_address };
     dispatcher.balanceOf(owner, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_persists_after_upgrade() {

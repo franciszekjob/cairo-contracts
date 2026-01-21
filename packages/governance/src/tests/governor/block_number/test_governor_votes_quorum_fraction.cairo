@@ -28,8 +28,6 @@ const DEFAULT_NUMERATOR: u256 = 600; // 60% given the denominator of 1000
 //
 // GovernorQuorum
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_quorum() {
@@ -53,8 +51,6 @@ fn test_quorum() {
 //
 // GovernorVotes
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_clock() {
@@ -67,8 +63,6 @@ fn test_clock() {
     let clock = GovernorVotes::clock(@component_state);
     assert_eq!(clock, timepoint);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_CLOCK_MODE() {
@@ -79,8 +73,6 @@ fn test_CLOCK_MODE() {
     let mode = GovernorVotes::CLOCK_MODE(@component_state);
     assert_eq!(mode, "mode=blocknumber&from=starknet::SN_MAIN");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_votes() {
@@ -101,8 +93,6 @@ fn test_get_votes() {
 //
 // External
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token() {
@@ -113,8 +103,6 @@ fn test_token() {
     let token = mock_state.governor_votes_quorum_fraction.token();
     assert_eq!(token, VOTES_TOKEN);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_quorum_denominator() {
@@ -128,8 +116,6 @@ fn test_quorum_denominator() {
 //
 // Internal
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -170,8 +156,6 @@ fn test_update_quorum_numerator_invalid_numerator() {
     let mut mock_state = CONTRACT_STATE();
     mock_state.governor_votes_quorum_fraction.update_quorum_numerator(1001);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_quorum_numerator() {

@@ -4,8 +4,6 @@ use starknet::secp256k1::Secp256k1Point;
 use crate::utils::secp256_point::{
     DebugSecp256Point, Secp256PointPartialEq, Secp256PointStorePacking as StorePacking,
 };
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_pack_big_secp256k1_points() {
@@ -36,8 +34,6 @@ fn test_pack_big_secp256k1_points() {
     assert_eq!(x, curve_size);
     assert_eq!(parity, false, "Parity should be even");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_unpack_big_secp256k1_points() {
@@ -63,8 +59,6 @@ fn test_unpack_big_secp256k1_points() {
     assert_eq!(x, expected_x);
     assert_eq!(y, expected_y);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_partial_eq() {

@@ -86,8 +86,6 @@ mod tests {
     #[cfg(feature: 'fuzzing')]
     use super::ContractAddress;
     use super::{ProposalCore, ProposalCoreStorePacking as StorePacking};
-
-    #[ignore]
     #[ignore]
     #[test]
     fn test_pack_and_unpack() {
@@ -103,8 +101,6 @@ mod tests {
         let unpacked = StorePacking::unpack(packed);
         assert_eq!(proposal, unpacked);
     }
-
-    #[ignore]
     #[ignore]
     #[test]
     fn test_pack_and_unpack_big_values() {

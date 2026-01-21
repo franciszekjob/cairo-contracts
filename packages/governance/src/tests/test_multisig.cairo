@@ -61,8 +61,6 @@ fn test_init_zero_quorum() {
 //
 // Submit tx
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_submit_tx() {
@@ -85,8 +83,6 @@ fn test_submit_tx() {
     assert_tx_state(id, TransactionState::Pending);
     spy.assert_only_event_tx_submitted(contract_address, id, signer);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_submit_tx_with_salt() {
@@ -110,8 +106,6 @@ fn test_submit_tx_with_salt() {
     spy.assert_event_call_salt(contract_address, id, salt);
     spy.assert_event_tx_submitted(contract_address, id, signer);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_submit_same_tx_again_different_salt() {
@@ -141,8 +135,6 @@ fn test_submit_same_tx_again_different_salt() {
     spy.assert_event_call_salt(contract_address, id_2, salt_2);
     spy.assert_only_event_tx_submitted(contract_address, id_2, signer);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_submit_tx_batch() {
@@ -169,8 +161,6 @@ fn test_submit_tx_batch() {
     assert_tx_state(id, TransactionState::Pending);
     spy.assert_only_event_tx_submitted(contract_address, id, signer);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_submit_tx_batch_with_salt() {
@@ -198,8 +188,6 @@ fn test_submit_tx_batch_with_salt() {
     spy.assert_event_call_salt(contract_address, id, salt);
     spy.assert_event_tx_submitted(contract_address, id, signer);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_submit_same_tx_batch_different_salt() {
@@ -295,8 +283,6 @@ fn test_cannot_submit_tx_batch_twice() {
 //
 // Confirm tx
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_confirm_tx() {
@@ -329,8 +315,6 @@ fn test_confirm_tx() {
     assert_eq!(state.get_transaction_confirmations(id), 2);
     spy.assert_only_event_tx_confirmed(contract_address, id, CHARLIE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_confirmed_status_changed_when_quorum_increased() {
@@ -355,8 +339,6 @@ fn test_confirmed_status_changed_when_quorum_increased() {
     state._change_quorum(quorum + 1);
     assert_tx_state(id, TransactionState::Pending);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_pending_status_changed_when_quorum_reduced() {
@@ -377,8 +359,6 @@ fn test_pending_status_changed_when_quorum_reduced() {
     state._change_quorum(quorum - 1);
     assert_tx_state(id, TransactionState::Confirmed);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_confirm_tx_batch() {
@@ -475,8 +455,6 @@ fn test_cannot_confirm_tx_twice() {
 //
 // Revoke confirmation
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revoke_confirmation() {
@@ -509,8 +487,6 @@ fn test_revoke_confirmation() {
     assert_eq!(state.get_transaction_confirmations(id), 1);
     spy.assert_only_event_confirmation_revoked(contract_address, id, CHARLIE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_tx_not_confirmed_after_signer_removal() {
@@ -542,8 +518,6 @@ fn test_tx_not_confirmed_after_signer_removal() {
     assert_eq!(state.is_confirmed_by(id, BOB), true);
     assert_eq!(state.get_transaction_confirmations(id), 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_can_revoke_confirmation_after_being_removed() {
@@ -610,8 +584,6 @@ fn test_cannot_revoke_confirmation_nonexistent_tx() {
 //
 // Execute tx
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_tx() {
@@ -647,8 +619,6 @@ fn test_execute_tx() {
     assert_tx_state(id, TransactionState::Executed);
     spy.assert_only_event_tx_executed(contract_address, id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_tx_batch() {
@@ -854,8 +824,6 @@ fn test_cannot_execute_batch_twice() {
 //
 // hash_transaction
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_tx_hash_depends_on_salt() {
@@ -872,8 +840,6 @@ fn test_tx_hash_depends_on_salt() {
         salt += 1;
     };
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_tx_batch_hash_depends_on_salt() {
@@ -894,8 +860,6 @@ fn test_tx_batch_hash_depends_on_salt() {
         salt += 1;
     };
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_tx_hash_depends_on_calldata() {
@@ -912,8 +876,6 @@ fn test_tx_hash_depends_on_calldata() {
         num += 1;
     };
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_tx_hash_depends_on_selector() {
@@ -929,8 +891,6 @@ fn test_tx_hash_depends_on_selector() {
     assert!(id_2 != id_3);
     assert!(id_1 != id_3);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_tx_hash_depends_on_to_address() {
@@ -949,8 +909,6 @@ fn test_tx_hash_depends_on_to_address() {
 //
 // add_signers
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_add_single_signer() {
@@ -971,8 +929,6 @@ fn test_add_single_signer() {
     assert_signers_list(array![alice, bob, charlie].span());
     spy.assert_only_event_signer_added(contract_address, charlie);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_add_multiple_signers() {
@@ -989,8 +945,6 @@ fn test_add_multiple_signers() {
     spy.assert_event_signer_added(contract_address, bob);
     spy.assert_only_event_signer_added(contract_address, charlie);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_add_remove_add() {
@@ -1020,8 +974,6 @@ fn test_add_remove_add() {
     state.add_signers(quorum, array![charlie].span());
     assert_signers_list(array![bob, alice, charlie].span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_signers_ignored_if_added_again() {
@@ -1041,8 +993,6 @@ fn test_signers_ignored_if_added_again() {
     assert_signers_list(array![alice, bob, charlie].span());
     spy.assert_only_event_signer_added(contract_address, charlie);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_add_signers_does_nothing_if_signers_empty() {
@@ -1111,8 +1061,6 @@ fn test_cannot_add_with_quorum_too_high() {
 //
 // remove_signers
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_remove_single_signer() {
@@ -1136,8 +1084,6 @@ fn test_remove_single_signer() {
     spy.assert_only_event_signer_removed(contract_address, charlie);
     assert_eq!(state.is_signer(charlie), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_remove_multiple_signers() {
@@ -1157,8 +1103,6 @@ fn test_remove_multiple_signers() {
     assert_eq!(state.is_signer(alice), false);
     assert_eq!(state.is_signer(other), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_remove_add_remove() {
@@ -1183,8 +1127,6 @@ fn test_remove_add_remove() {
     assert_signers_list(array![charlie, bob].span());
     assert_eq!(state.is_signer(alice), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_not_signers_ignored_when_removing() {
@@ -1202,8 +1144,6 @@ fn test_not_signers_ignored_when_removing() {
     assert_eq!(state.is_signer(other), false);
     spy.assert_only_event_signer_removed(contract_address, alice);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_remove_signers_does_nothing_if_signers_empty() {
@@ -1276,8 +1216,6 @@ fn test_cannot_remove_with_unchanged_quorum_that_becomes_too_high() {
 //
 // replace_signer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_replace_signer() {
@@ -1346,8 +1284,6 @@ fn test_cannot_replace_with_zero_address() {
 //
 // change_quorum
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_change_quorum_higher_value() {
@@ -1363,8 +1299,6 @@ fn test_change_quorum_higher_value() {
     assert_eq!(state.get_quorum(), new_quorum);
     spy.assert_only_event_quorum_updated(contract_address, initial_quorum, new_quorum);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_change_quorum_lower_value() {
@@ -1380,8 +1314,6 @@ fn test_change_quorum_lower_value() {
     assert_eq!(state.get_quorum(), new_quorum);
     spy.assert_only_event_quorum_updated(contract_address, initial_quorum, new_quorum);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_change_quorum_to_same_value() {
@@ -1396,8 +1328,6 @@ fn test_change_quorum_to_same_value() {
     assert_eq!(state.get_quorum(), initial_quorum);
     spy.assert_no_events_left_from(contract_address);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_change_quorum_to_min_value() {
@@ -1413,8 +1343,6 @@ fn test_change_quorum_to_min_value() {
     assert_eq!(state.get_quorum(), new_quorum);
     spy.assert_only_event_quorum_updated(contract_address, initial_quorum, new_quorum);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_change_quorum_to_max_value() {
@@ -1466,8 +1394,6 @@ fn test_cannot_change_quorum_when_not_multisig_itself() {
     // Try to set quorum to 0
     state.change_quorum(0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_signers_info_error_happens_with_v1() {
@@ -1480,8 +1406,6 @@ fn test_signers_info_error_happens_with_v1() {
     assert_eq!(unpacked_info.quorum, quorum + 1);
     assert_eq!(unpacked_info.signers_count, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_signers_info_no_error_happens_with_v2() {
@@ -1494,8 +1418,6 @@ fn test_signers_info_no_error_happens_with_v2() {
     assert_eq!(unpacked_info.quorum, quorum);
     assert_eq!(unpacked_info.signers_count, signers_count);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_signers_info_pack_unpack_v2_max_values() {
@@ -1508,8 +1430,6 @@ fn test_signers_info_pack_unpack_v2_max_values() {
     assert_eq!(unpacked_info.quorum, quorum);
     assert_eq!(unpacked_info.signers_count, signers_count);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_signers_info_unpack_zero_value_v2() {

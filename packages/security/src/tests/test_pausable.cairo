@@ -15,8 +15,6 @@ fn COMPONENT_STATE() -> ComponentState {
 //
 // is_paused
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_paused() {
@@ -33,8 +31,6 @@ fn test_is_paused() {
 //
 // assert_paused
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_paused_when_paused() {
@@ -61,8 +57,6 @@ fn test_assert_not_paused_when_paused() {
     state.pause();
     state.assert_not_paused();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_not_paused_when_not_paused() {
@@ -73,8 +67,6 @@ fn test_assert_not_paused_when_not_paused() {
 //
 // pause
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_pause_when_unpaused() {
@@ -100,8 +92,6 @@ fn test_pause_when_paused() {
 //
 // unpause
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_unpause_when_paused() {

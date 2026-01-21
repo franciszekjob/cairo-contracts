@@ -14,8 +14,6 @@ use crate::tests::governor::timestamp::common::{
 //
 // GovernorVotes
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_clock() {
@@ -28,8 +26,6 @@ fn test_clock() {
     let clock = GovernorVotes::clock(@component_state);
     assert_eq!(clock, timestamp);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_CLOCK_MODE() {
@@ -40,8 +36,6 @@ fn test_CLOCK_MODE() {
     let mode = GovernorVotes::CLOCK_MODE(@component_state);
     assert_eq!(mode, "mode=timestamp&from=starknet::SN_MAIN");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_clock_legacy_token() {
@@ -54,8 +48,6 @@ fn test_clock_legacy_token() {
     let clock = GovernorVotes::clock(@component_state);
     assert_eq!(clock, timestamp);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_CLOCK_MODE_legacy_token() {
@@ -66,8 +58,6 @@ fn test_CLOCK_MODE_legacy_token() {
     let mode = GovernorVotes::CLOCK_MODE(@component_state);
     assert_eq!(mode, "mode=timestamp&from=starknet::SN_MAIN");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_votes() {
@@ -90,8 +80,6 @@ fn test_get_votes() {
 //
 // External
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token() {
@@ -106,8 +94,6 @@ fn test_token() {
 //
 // Internal
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {

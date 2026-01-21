@@ -29,15 +29,11 @@ fn deploy_udc() -> UniversalDeployerABIDispatcher {
     let address = utils::declare_and_deploy("UniversalDeployer", calldata);
     UniversalDeployerABIDispatcher { contract_address: address }
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_deploy_from_zero() {
     test_deploy_from_zero_internal(false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_deploy_from_zero_camel_case() {
@@ -86,15 +82,11 @@ fn test_deploy_from_zero_internal(camel_case: bool) {
     let total_supply = erc20.total_supply();
     assert_eq!(total_supply, SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_deploy_not_from_zero() {
     test_deploy_not_from_zero_internal(false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_deploy_not_from_zero_camel_case() {

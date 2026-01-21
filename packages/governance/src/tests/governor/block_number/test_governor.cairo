@@ -67,8 +67,6 @@ fn setup_account(public_key: felt252) -> ContractAddress {
 //
 // External
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_name() {
@@ -76,8 +74,6 @@ fn test_name() {
     let name = state.name();
     assert_eq!(name, 'DAPP_NAME');
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_version() {
@@ -85,8 +81,6 @@ fn test_version() {
     let version = state.version();
     assert_eq!(version, 'DAPP_VERSION');
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_counting_mode() {
@@ -94,8 +88,6 @@ fn test_counting_mode() {
     let counting_mode = state.COUNTING_MODE();
     assert_eq!(counting_mode, "support=bravo&quorum=for,abstain");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_hash_proposal() {
@@ -113,8 +105,6 @@ fn test_hash_proposal() {
 //
 // state
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_executed() {
@@ -125,8 +115,6 @@ fn test_state_executed() {
     // The function already asserts the state
     setup_executed_proposal(ref state, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_canceled() {
@@ -145,8 +133,6 @@ fn test_state_non_existent() {
 
     state._state(1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_pending() {
@@ -157,8 +143,6 @@ fn test_state_pending() {
     // The function already asserts the state
     setup_pending_proposal(ref state, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_pending_at_snapshot() {
@@ -194,8 +178,6 @@ fn test_state_active_external_version(external_state_version: bool) {
     let current_state = get_state(@state, id, external_state_version);
     assert_eq!(current_state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_active() {
@@ -223,8 +205,6 @@ fn test_state_defeated_quorum_not_reached_external_version(external_state_versio
     let current_state = get_mock_state(@mock_state, id, external_state_version);
     assert_eq!(current_state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_defeated_quorum_not_reached() {
@@ -255,15 +235,11 @@ fn test_state_defeated_vote_not_succeeded_external_version(external_state_versio
     let current_state = get_mock_state(@mock_state, id, external_state_version);
     assert_eq!(current_state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_defeated_vote_not_succeeded() {
     test_state_defeated_vote_not_succeeded_external_version(true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_queued() {
@@ -274,8 +250,6 @@ fn test_state_queued() {
     // The function already asserts the state
     setup_queued_proposal(ref mock_state, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_succeeded() {
@@ -290,8 +264,6 @@ fn test_state_succeeded() {
 //
 // Proposal info
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_proposal_threshold() {
@@ -303,8 +275,6 @@ fn test_proposal_threshold() {
     let expected = GovernorMock::PROPOSAL_THRESHOLD;
     assert_eq!(threshold, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_proposal_snapshot() {
@@ -319,8 +289,6 @@ fn test_proposal_snapshot() {
     let expected = proposal.vote_start;
     assert_eq!(snapshot, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_proposal_deadline() {
@@ -335,8 +303,6 @@ fn test_proposal_deadline() {
     let expected = proposal.vote_start + proposal.vote_duration;
     assert_eq!(deadline, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_proposal_proposer() {
@@ -351,8 +317,6 @@ fn test_proposal_proposer() {
     let expected = proposal.proposer;
     assert_eq!(proposer, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_proposal_eta() {
@@ -367,8 +331,6 @@ fn test_proposal_eta() {
     let expected = proposal.eta_seconds;
     assert_eq!(eta, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_proposal_needs_queuing() {
@@ -382,8 +344,6 @@ fn test_proposal_needs_queuing() {
     let needs_queuing = state.proposal_needs_queuing(id);
     assert_eq!(needs_queuing, false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_voting_delay() {
@@ -395,8 +355,6 @@ fn test_voting_delay() {
     let expected = GovernorMock::VOTING_DELAY;
     assert_eq!(threshold, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_voting_period() {
@@ -428,8 +386,6 @@ fn test_quorum(timepoint: u64) {
 //
 // get_votes
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_votes() {
@@ -445,8 +401,6 @@ fn test_get_votes() {
     let votes = state.get_votes(OTHER, timepoint);
     assert_eq!(votes, expected_weight);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_votes_with_params() {
@@ -467,8 +421,6 @@ fn test_get_votes_with_params() {
 //
 // has_voted
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_has_voted() {
@@ -548,8 +500,6 @@ fn test_propose_external_version(external_state_version: bool) {
 
     assert_eq!(proposal, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_propose() {
@@ -616,8 +566,6 @@ fn test_propose_restricted_proposer() {
 //
 // execute
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute() {
@@ -717,8 +665,6 @@ fn test_execute_panics() {
 
     governor.execute(calls, (@description).hash());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_correct_id() {
@@ -734,8 +680,6 @@ fn test_execute_correct_id() {
     let expected_id = hash_proposal(calls, description.hash());
     assert_eq!(id, expected_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_succeeded_passes() {
@@ -749,8 +693,6 @@ fn test_execute_succeeded_passes() {
 
     mock_state.governor.execute(calls, description.hash());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_queued_passes() {
@@ -838,8 +780,6 @@ fn test_execute_executed() {
 //
 // cancel
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel() {
@@ -871,8 +811,6 @@ fn test_cancel() {
 
     spy.assert_only_event_proposal_canceled(test_address(), id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_correct_id() {
@@ -1007,8 +945,6 @@ fn test_cast_vote_pending() {
 
     state.cast_vote(id, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_active() {
@@ -1089,8 +1025,6 @@ fn test_cast_vote_executed() {
 //
 // cast_vote_with_reason
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_with_reason_active() {
@@ -1183,8 +1117,6 @@ fn test_cast_vote_with_reason_executed() {
 //
 // cast_vote_with_reason_and_params
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_with_reason_and_params_active() {
@@ -1211,8 +1143,6 @@ fn test_cast_vote_with_reason_and_params_active() {
             contract_address, OTHER, id, 0, expected_weight, @reason, params,
         );
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_with_reason_and_params_active_no_params() {
@@ -1332,8 +1262,6 @@ fn prepare_governor_and_signature(
 
     (governor, r, s, proposal_id, support, voter, quorum)
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_by_sig() {
@@ -1367,8 +1295,6 @@ fn test_cast_vote_by_sig_invalid_msg_hash() {
     // Cast vote with invalid msg hash
     governor.cast_vote_by_sig(proposal_id, support, voter, array![r, s].span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_by_sig_hash_generation() {
@@ -1441,8 +1367,6 @@ fn prepare_governor_and_signature_with_reason_and_params(
 
     (governor, r, s, proposal_id, support, voter, quorum)
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_with_reason_and_params_by_sig() {
@@ -1466,8 +1390,6 @@ fn test_cast_vote_with_reason_and_params_by_sig() {
             governor.contract_address, voter, proposal_id, support, quorum, @reason, params,
         );
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_with_reason_and_params_by_sig_empty_params() {
@@ -1529,8 +1451,6 @@ fn test_cast_vote_with_reason_and_params_by_sig_invalid_msg_hash() {
             proposal_id, support, voter, reason.clone(), params, array![r, s].span(),
         );
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cast_vote_with_reason_and_params_by_sig_hash_generation() {
@@ -1568,8 +1488,6 @@ fn test_cast_vote_with_reason_and_params_by_sig_hash_generation() {
 //
 // nonces
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_nonces() {
@@ -1585,8 +1503,6 @@ fn test_nonces() {
 //
 // relay
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_relay() {
@@ -1639,8 +1555,6 @@ fn test_relay_invalid_caller() {
 //
 // Internal
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -1657,8 +1571,6 @@ fn test_initializer() {
 //
 // get_proposal
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_empty_proposal() {
@@ -1675,8 +1587,6 @@ fn test_get_empty_proposal() {
     assert_eq!(proposal.canceled, false);
     assert_eq!(proposal.eta_seconds, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_proposal() {
@@ -1694,8 +1604,6 @@ fn test_get_proposal() {
 //
 // is_valid_description_for_proposer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_description_too_short() {
@@ -1707,8 +1615,6 @@ fn test_is_valid_description_too_short() {
     let is_valid = state.is_valid_description_for_proposer(ADMIN, @short_description);
     assert!(is_valid);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_description_wrong_suffix() {
@@ -1719,8 +1625,6 @@ fn test_is_valid_description_wrong_suffix() {
     let is_valid = state.is_valid_description_for_proposer(ADMIN, @description);
     assert!(is_valid);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_description_wrong_proposer() {
@@ -1731,8 +1635,6 @@ fn test_is_valid_description_wrong_proposer() {
     let is_valid = state.is_valid_description_for_proposer(ADMIN, @description);
     assert!(!is_valid);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_description_valid_proposer() {
@@ -1749,8 +1651,6 @@ fn test_is_valid_description_valid_proposer() {
 //
 // _hash_proposal
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__hash_proposal() {
@@ -1768,8 +1668,6 @@ fn test__hash_proposal() {
 //
 // Proposal info
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__proposal_threshold() {
@@ -1781,8 +1679,6 @@ fn test__proposal_threshold() {
     let expected = GovernorMock::PROPOSAL_THRESHOLD;
     assert_eq!(threshold, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__proposal_snapshot() {
@@ -1797,8 +1693,6 @@ fn test__proposal_snapshot() {
     let expected = proposal.vote_start;
     assert_eq!(snapshot, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__proposal_deadline() {
@@ -1813,8 +1707,6 @@ fn test__proposal_deadline() {
     let expected = proposal.vote_start + proposal.vote_duration;
     assert_eq!(deadline, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__proposal_proposer() {
@@ -1829,8 +1721,6 @@ fn test__proposal_proposer() {
     let expected = proposal.proposer;
     assert_eq!(proposer, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__proposal_eta() {
@@ -1849,8 +1739,6 @@ fn test__proposal_eta() {
 //
 // assert_only_governance
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_only_governance() {
@@ -1880,8 +1768,6 @@ fn test_assert_only_governance_not_executor() {
 //
 // validate_state
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_validate_state() {
@@ -1929,8 +1815,6 @@ fn test_validate_state_invalid() {
 //
 // _get_votes
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__get_votes() {
@@ -1951,8 +1835,6 @@ fn test__get_votes() {
 //
 // _state
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__state_executed() {
@@ -1963,8 +1845,6 @@ fn test__state_executed() {
     // The function already asserts the state
     setup_executed_proposal(ref state, false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__state_canceled() {
@@ -1985,8 +1865,6 @@ fn test__state_non_existent() {
 
     state._state(1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__state_pending() {
@@ -1997,29 +1875,21 @@ fn test__state_pending() {
     // The function already asserts the state
     setup_pending_proposal(ref state, false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__state_active() {
     test_state_active_external_version(false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__state_defeated_quorum_not_reached() {
     test_state_defeated_quorum_not_reached_external_version(false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__state_defeated_vote_not_succeeded() {
     test_state_defeated_vote_not_succeeded_external_version(false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__state_queued() {
@@ -2030,8 +1900,6 @@ fn test__state_queued() {
     // The function already asserts the state
     setup_queued_proposal(ref mock_state, false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__state_succeeded() {
@@ -2046,8 +1914,6 @@ fn test__state_succeeded() {
 //
 // _propose
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__propose() {
@@ -2075,8 +1941,6 @@ fn test__propose_existent_proposal() {
 //
 // _cancel
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__cancel_pending() {
@@ -2090,8 +1954,6 @@ fn test__cancel_pending() {
     let canceled_proposal = state.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__cancel_active() {
@@ -2105,8 +1967,6 @@ fn test__cancel_active() {
     let canceled_proposal = state.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__cancel_defeated() {
@@ -2120,8 +1980,6 @@ fn test__cancel_defeated() {
     let canceled_proposal = mock_state.governor.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__cancel_succeeded() {
@@ -2135,8 +1993,6 @@ fn test__cancel_succeeded() {
     let canceled_proposal = mock_state.governor.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__cancel_queued() {
@@ -2202,8 +2058,6 @@ fn test__cast_vote_at_vote_start() {
     let params = array![].span();
     state._cast_vote(id, OTHER, 0, "", params);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__cast_vote_active_no_params() {
@@ -2226,8 +2080,6 @@ fn test__cast_vote_active_no_params() {
 
     spy.assert_only_event_vote_cast(contract_address, OTHER, id, 0, expected_weight, @"reason");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__cast_vote_active_with_params() {
@@ -2274,8 +2126,6 @@ fn test__cast_vote_zero_delay() {
     let params = array![].span();
     state._cast_vote(id, OTHER, 0, reason, params);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__cast_vote_zero_delay_in_next_block() {

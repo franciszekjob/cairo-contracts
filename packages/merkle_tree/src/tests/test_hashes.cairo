@@ -2,8 +2,6 @@ use core::hash::HashStateTrait;
 use core::pedersen::PedersenTrait;
 use core::poseidon::poseidon_hash_span;
 use crate::hashes::{PedersenCHasher, PoseidonCHasher};
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_pedersen_commutative_hash_is_commutative() {
@@ -12,8 +10,6 @@ fn test_pedersen_commutative_hash_is_commutative() {
     let hash = PedersenCHasher::commutative_hash(a, b);
     assert_eq!(hash, PedersenCHasher::commutative_hash(b, a));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_pedersen_commutative_hash_smaller_first() {
@@ -26,8 +22,6 @@ fn test_pedersen_commutative_hash_smaller_first() {
     let hash = PedersenCHasher::commutative_hash(b, a);
     assert_eq!(hash, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_poseidon_commutative_hash_is_commutative() {
@@ -36,9 +30,6 @@ fn test_poseidon_commutative_hash_is_commutative() {
     let hash = PoseidonCHasher::commutative_hash(a, b);
     assert_eq!(hash, PoseidonCHasher::commutative_hash(b, a));
 }
-
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_poseidon_commutative_hash_smaller_first() {

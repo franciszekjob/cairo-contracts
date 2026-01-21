@@ -40,8 +40,6 @@ impl PendingDelayStorePacking of StorePacking<PendingDelay, u128> {
 mod tests {
     use core::num::traits::Bounded;
     use super::{PendingDelay, PendingDelayStorePacking};
-
-    #[ignore]
     #[ignore]
     #[test]
     fn test_pack_and_unpack() {
@@ -50,8 +48,6 @@ mod tests {
         let unpacked = PendingDelayStorePacking::unpack(packed);
         assert_eq!(pending_delay, unpacked);
     }
-
-    #[ignore]
     #[ignore]
     #[test]
     fn test_pack_and_unpack_big_values() {

@@ -38,8 +38,6 @@ const ONE_HOUR: u64 = 3600;
 //
 // initializer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -52,8 +50,6 @@ fn test_initializer() {
 //
 // has_role & hasRole
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_has_role() {
@@ -62,8 +58,6 @@ fn test_has_role() {
     state._grant_role(ROLE, AUTHORIZED);
     assert!(state.has_role(ROLE, AUTHORIZED));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_hasRole() {
@@ -76,8 +70,6 @@ fn test_hasRole() {
 //
 // assert_only_role
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_only_role() {
@@ -111,8 +103,6 @@ fn test_assert_only_role_unauthorized_when_authorized_for_another_role() {
 //
 // grant_role & grantRole
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_grant_role() {
@@ -129,8 +119,6 @@ fn test_grant_role() {
     assert_eq!(state.get_role_status(ROLE, AUTHORIZED), RoleStatus::Effective);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_grantRole() {
@@ -147,8 +135,6 @@ fn test_grantRole() {
     assert_eq!(state.get_role_status(ROLE, AUTHORIZED), RoleStatus::Effective);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_grant_role_multiple_times_for_granted_role() {
@@ -161,8 +147,6 @@ fn test_grant_role_multiple_times_for_granted_role() {
     assert_eq!(state.get_role_status(ROLE, AUTHORIZED), RoleStatus::Effective);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_grant_role_when_delayed() {
@@ -181,8 +165,6 @@ fn test_grant_role_when_delayed() {
     assert_eq!(state.get_role_status(ROLE, AUTHORIZED), RoleStatus::Effective);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_grantRole_when_delayed() {
@@ -201,8 +183,6 @@ fn test_grantRole_when_delayed() {
     assert_eq!(state.get_role_status(ROLE, AUTHORIZED), RoleStatus::Effective);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_grantRole_multiple_times_for_granted_role() {
@@ -235,8 +215,6 @@ fn test_grantRole_unauthorized() {
 //
 // grant_role_with_delay
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_grant_role_with_delay() {
@@ -297,8 +275,6 @@ fn test_grant_role_with_delay_unauthorized() {
 //
 // revoke_role & revokeRole
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revoke_role_for_role_not_granted() {
@@ -306,8 +282,6 @@ fn test_revoke_role_for_role_not_granted() {
     start_cheat_caller_address(test_address(), ADMIN);
     state.revoke_role(ROLE, AUTHORIZED);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revokeRole_for_role_not_granted() {
@@ -315,8 +289,6 @@ fn test_revokeRole_for_role_not_granted() {
     start_cheat_caller_address(test_address(), ADMIN);
     state.revokeRole(ROLE, AUTHORIZED);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revoke_role_for_granted_role() {
@@ -337,8 +309,6 @@ fn test_revoke_role_for_granted_role() {
     assert_eq!(state.is_role_granted(ROLE, AUTHORIZED), false);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revokeRole_for_granted_role() {
@@ -359,8 +329,6 @@ fn test_revokeRole_for_granted_role() {
     assert_eq!(state.is_role_granted(ROLE, AUTHORIZED), false);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revoke_role_for_delayed_role() {
@@ -382,8 +350,6 @@ fn test_revoke_role_for_delayed_role() {
     assert_eq!(state.is_role_granted(ROLE, AUTHORIZED), false);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revokeRole_for_delayed_role() {
@@ -405,8 +371,6 @@ fn test_revokeRole_for_delayed_role() {
     assert_eq!(state.is_role_granted(ROLE, AUTHORIZED), false);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revoke_role_multiple_times_for_granted_role() {
@@ -423,8 +387,6 @@ fn test_revoke_role_multiple_times_for_granted_role() {
     assert_eq!(state.is_role_granted(ROLE, AUTHORIZED), false);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_revokeRole_multiple_times_for_granted_role() {
@@ -461,8 +423,6 @@ fn test_revokeRole_unauthorized() {
 //
 // renounce_role & renounceRole
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounce_role_for_role_not_granted() {
@@ -470,8 +430,6 @@ fn test_renounce_role_for_role_not_granted() {
     start_cheat_caller_address(test_address(), AUTHORIZED);
     state.renounce_role(ROLE, AUTHORIZED);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounceRole_for_role_not_granted() {
@@ -479,8 +437,6 @@ fn test_renounceRole_for_role_not_granted() {
     start_cheat_caller_address(test_address(), AUTHORIZED);
     state.renounceRole(ROLE, AUTHORIZED);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounce_role_for_granted_role() {
@@ -499,8 +455,6 @@ fn test_renounce_role_for_granted_role() {
     let has_not_role = !state.has_role(ROLE, AUTHORIZED);
     assert!(has_not_role);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounceRole_for_granted_role() {
@@ -519,8 +473,6 @@ fn test_renounceRole_for_granted_role() {
     let has_not_role = !state.hasRole(ROLE, AUTHORIZED);
     assert!(has_not_role);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounce_role_for_delayed_role() {
@@ -540,8 +492,6 @@ fn test_renounce_role_for_delayed_role() {
     let has_not_role = !state.has_role(ROLE, AUTHORIZED);
     assert!(has_not_role);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounceRole_for_delayed_role() {
@@ -561,8 +511,6 @@ fn test_renounceRole_for_delayed_role() {
     let has_not_role = !state.hasRole(ROLE, AUTHORIZED);
     assert!(has_not_role);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounce_role_multiple_times_for_granted_role() {
@@ -578,8 +526,6 @@ fn test_renounce_role_multiple_times_for_granted_role() {
     let has_not_role = !state.has_role(ROLE, AUTHORIZED);
     assert!(has_not_role);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounceRole_multiple_times_for_granted_role() {
@@ -622,8 +568,6 @@ fn test_renounceRole_unauthorized() {
 //
 // set_role_admin
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_role_admin() {
@@ -642,8 +586,6 @@ fn test_set_role_admin() {
     let current_admin_role = state.get_role_admin(ROLE);
     assert_eq!(current_admin_role, OTHER_ROLE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_new_admin_can_grant_roles() {
@@ -660,8 +602,6 @@ fn test_new_admin_can_grant_roles() {
     let has_role = state.has_role(ROLE, AUTHORIZED);
     assert!(has_role);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_new_admin_can_grant_roles_with_delay() {
@@ -681,8 +621,6 @@ fn test_new_admin_can_grant_roles_with_delay() {
     let has_role = state.has_role(ROLE, AUTHORIZED);
     assert!(has_role);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_new_admin_can_revoke_roles() {
@@ -732,8 +670,6 @@ fn test_previous_admin_cannot_revoke_roles() {
 //
 // Default admin
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_other_role_admin_is_the_default_admin_role() {
@@ -741,8 +677,6 @@ fn test_other_role_admin_is_the_default_admin_role() {
     let current_admin_role = state.get_role_admin(OTHER_ROLE);
     assert_eq!(current_admin_role, DEFAULT_ADMIN_ROLE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_default_admin_role_is_its_own_admin() {

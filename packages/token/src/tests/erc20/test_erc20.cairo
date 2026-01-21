@@ -46,8 +46,6 @@ fn setup_with_hooks() -> ComponentStateWithHooks {
 //
 // initializer & constructor
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -63,8 +61,6 @@ fn test_initializer() {
 //
 // Getters
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_total_supply() {
@@ -72,8 +68,6 @@ fn test_total_supply() {
     state.mint(OWNER, SUPPLY);
     assert_eq!(state.total_supply(), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_totalSupply() {
@@ -81,8 +75,6 @@ fn test_totalSupply() {
     state.mint(OWNER, SUPPLY);
     assert_eq!(state.totalSupply(), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of() {
@@ -90,8 +82,6 @@ fn test_balance_of() {
     state.mint(OWNER, SUPPLY);
     assert_eq!(state.balance_of(OWNER), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balanceOf() {
@@ -99,8 +89,6 @@ fn test_balanceOf() {
     state.mint(OWNER, SUPPLY);
     assert_eq!(state.balanceOf(OWNER), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_allowance() {
@@ -115,8 +103,6 @@ fn test_allowance() {
 //
 // approve & _approve
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_approve() {
@@ -148,8 +134,6 @@ fn test_approve_to_zero() {
     start_cheat_caller_address(test_address(), OWNER);
     state.approve(ZERO, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve() {
@@ -184,8 +168,6 @@ fn test__approve_to_zero() {
 //
 // transfer & _transfer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer() {
@@ -227,8 +209,6 @@ fn test_transfer_to_zero() {
     start_cheat_caller_address(test_address(), OWNER);
     state.transfer(ZERO, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__transfer() {
@@ -270,8 +250,6 @@ fn test__transfer_to_zero() {
 //
 // transfer_from & transferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from() {
@@ -295,8 +273,6 @@ fn test_transfer_from() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_doesnt_consume_infinite_allowance() {
@@ -340,8 +316,6 @@ fn test_transfer_from_from_zero_address() {
     let mut state = setup();
     state.transfer_from(ZERO, RECIPIENT, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom() {
@@ -365,8 +339,6 @@ fn test_transferFrom() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_doesnt_consume_infinite_allowance() {
@@ -414,8 +386,6 @@ fn test_transferFrom_from_zero_address() {
 //
 // _spend_allowance
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__spend_allowance_not_unlimited() {
@@ -432,8 +402,6 @@ fn test__spend_allowance_not_unlimited() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, SUPPLY - VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__spend_allowance_unlimited() {
@@ -450,8 +418,6 @@ fn test__spend_allowance_unlimited() {
 //
 // mint
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_mint() {
@@ -477,8 +443,6 @@ fn test_mint_to_zero() {
 //
 // burn
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_burn() {
@@ -513,8 +477,6 @@ fn test_burn_from_zero() {
 //
 // update
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_from_non_zero_to_non_zero() {
@@ -542,8 +504,6 @@ fn test_update_from_non_zero_to_non_zero_insufficient_balance() {
     start_cheat_caller_address(contract_address, OWNER);
     state.update(OWNER, RECIPIENT, overflow_amt);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_from_non_zero_to_zero() {
@@ -571,8 +531,6 @@ fn test_update_from_non_zero_to_zero_insufficient_balance() {
     start_cheat_caller_address(contract_address, OWNER);
     state.update(OWNER, ZERO, overflow_amt);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_from_zero_to_non_zero() {
@@ -589,8 +547,6 @@ fn test_update_from_zero_to_non_zero() {
 
     spy.assert_only_event_transfer(contract_address, ZERO, RECIPIENT, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_from_zero_to_zero() {
@@ -611,8 +567,6 @@ fn test_update_from_zero_to_zero() {
 
     spy.assert_only_event_transfer(contract_address, ZERO, ZERO, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_calls_before_update_hook() {
@@ -625,8 +579,6 @@ fn test_update_calls_before_update_hook() {
 
     spy.assert_event_before_update(contract_address, OWNER, RECIPIENT, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_calls_after_update_hook() {
@@ -639,8 +591,6 @@ fn test_update_calls_after_update_hook() {
 
     spy.assert_event_after_update(contract_address, OWNER, RECIPIENT, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_default_config() {

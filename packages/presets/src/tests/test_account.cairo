@@ -70,8 +70,6 @@ fn setup_simple_mock() -> ContractAddress {
 //
 // constructor
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_constructor() {
@@ -99,8 +97,6 @@ fn test_constructor() {
 //
 // set_public_key & setPublicKey
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_public_key_setter_and_getter() {
@@ -120,8 +116,6 @@ fn test_public_key_setter_and_getter() {
     spy.assert_event_owner_removed(dispatcher.contract_address, key_pair.public_key);
     spy.assert_only_event_owner_added(dispatcher.contract_address, new_key_pair.public_key);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_public_key_setter_and_getter_camel() {
@@ -180,8 +174,6 @@ fn is_valid_sig_dispatcher() -> (AccountUpgradeableABIDispatcher, felt252, Array
     let signature = array![data.r, data.s];
     (dispatcher, data.tx_hash, signature)
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_signature() {
@@ -190,8 +182,6 @@ fn test_is_valid_signature() {
     let is_valid = dispatcher.is_valid_signature(hash, signature);
     assert_eq!(is_valid, starknet::VALIDATED);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_signature_bad_sig() {
@@ -201,8 +191,6 @@ fn test_is_valid_signature_bad_sig() {
     let is_valid = dispatcher.is_valid_signature(tx_hash, bad_signature);
     assert!(is_valid.is_zero(), "Should reject invalid signature");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_signature_invalid_len_sig() {
@@ -212,8 +200,6 @@ fn test_is_valid_signature_invalid_len_sig() {
     let is_valid = dispatcher.is_valid_signature(tx_hash, invalid_len_sig);
     assert!(is_valid.is_zero(), "Should reject signature of invalid length");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_isValidSignature() {
@@ -222,8 +208,6 @@ fn test_isValidSignature() {
     let is_valid = dispatcher.isValidSignature(tx_hash, signature);
     assert_eq!(is_valid, starknet::VALIDATED);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_isValidSignature_bad_sig() {
@@ -233,8 +217,6 @@ fn test_isValidSignature_bad_sig() {
     let is_valid = dispatcher.isValidSignature(tx_hash, bad_signature);
     assert!(is_valid.is_zero(), "Should reject invalid signature");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_isValidSignature_invalid_len_sig() {
@@ -248,8 +230,6 @@ fn test_isValidSignature_invalid_len_sig() {
 //
 // supports_interface
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_supports_interface() {
@@ -269,8 +249,6 @@ fn test_supports_interface() {
 //
 // Entry points
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_validate_deploy() {
@@ -318,8 +296,6 @@ fn test_validate_deploy_empty_signature() {
 
     account.__validate_deploy__(class_hash, SALT, key_pair.public_key);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_validate_declare() {
@@ -399,22 +375,16 @@ fn test_execute_with_version(version: Option<felt252>) {
     assert_eq!(erc20.balance_of(account.contract_address), 800, "Should have remainder");
     assert_eq!(erc20.balance_of(recipient), amount, "Should have transferred");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute() {
     test_execute_with_version(Option::None);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_future_version() {
     test_execute_with_version(Option::Some(MIN_TRANSACTION_VERSION + 1));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_query_version() {
@@ -426,8 +396,6 @@ fn test_execute_query_version() {
 fn test_execute_invalid_query_version() {
     test_execute_with_version(Option::Some(QUERY_OFFSET));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_future_query_version() {
@@ -439,8 +407,6 @@ fn test_execute_future_query_version() {
 fn test_execute_invalid_version() {
     test_execute_with_version(Option::Some(MIN_TRANSACTION_VERSION - 1));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_validate() {
@@ -463,8 +429,6 @@ fn test_validate_invalid() {
     let calls = array![];
     account.__validate__(calls);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_multicall() {
@@ -537,8 +501,6 @@ fn test_upgrade_with_class_hash_zero() {
     start_cheat_caller_address(account_address, account_address);
     v1_dispatcher.upgrade(CLASS_HASH_ZERO);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_upgraded_event() {
@@ -566,8 +528,6 @@ fn test_v2_missing_camel_selector() {
     let dispatcher = AccountUpgradeableABIDispatcher { contract_address: account_address };
     dispatcher.getPublicKey();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_persists_after_upgrade() {
@@ -595,8 +555,6 @@ fn test_state_persists_after_upgrade() {
 //
 // execute_from_outside_v2
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_from_outside_v2_any_caller() {
@@ -612,8 +570,6 @@ fn test_execute_from_outside_v2_any_caller() {
 
     assert_value(simple_mock, FELT_VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_from_outside_v2_specific_caller() {
@@ -632,8 +588,6 @@ fn test_execute_from_outside_v2_specific_caller() {
 
     assert_value(simple_mock, FELT_VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_from_outside_v2_uses_nonce() {

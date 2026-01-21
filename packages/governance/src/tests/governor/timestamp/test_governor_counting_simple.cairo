@@ -14,8 +14,6 @@ use crate::tests::governor::timestamp::common::{COMPONENT_STATE, CONTRACT_STATE}
 //
 // try_into
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_try_into_u8_VoteType() {
@@ -39,8 +37,6 @@ fn test_try_into_u8_VoteType() {
 //
 // into
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_into_VoteType_u8() {
@@ -60,8 +56,6 @@ fn test_into_VoteType_u8() {
 //
 // counting_mode
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_counting_mode() {
@@ -72,8 +66,6 @@ fn test_counting_mode() {
 //
 // count_vote
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_count_vote_against() {
@@ -101,8 +93,6 @@ fn test_count_vote_against() {
     assert_eq!(proposal_votes.has_voted.read(account), true);
     assert_eq!(proposal_votes.against_votes.read(), total_weight);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_count_vote_for() {
@@ -130,8 +120,6 @@ fn test_count_vote_for() {
     assert_eq!(proposal_votes.has_voted.read(account), true);
     assert_eq!(proposal_votes.for_votes.read(), total_weight);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_count_vote_abstain() {
@@ -198,8 +186,6 @@ fn test_count_vote_invalid_vote_type() {
 //
 // has_voted
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_has_voted() {
@@ -223,8 +209,6 @@ fn test_has_voted() {
 //
 // quorum_reached
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_quorum_reached() {
@@ -263,8 +247,6 @@ fn test_quorum_reached() {
 
     assert_eq!(GovernorCounting::quorum_reached(@state, proposal_id), false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_quorum_reached_snapshot_used() {
@@ -300,8 +282,6 @@ fn test_quorum_reached_snapshot_used() {
 //
 // vote_succeeded
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_vote_succeeded() {

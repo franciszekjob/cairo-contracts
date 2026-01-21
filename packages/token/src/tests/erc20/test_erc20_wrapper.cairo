@@ -60,8 +60,6 @@ fn setup_wrapped() -> (IERC20Dispatcher, IERC20WrapperABIDispatcher) {
 //
 // initializer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -98,8 +96,6 @@ fn initializer_reverts_on_invalid_decimals() {
 //
 // deposit_for
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn deposit_for_mints_wrapped_and_pulls_underlying() {
@@ -130,8 +126,6 @@ fn deposit_for_reverts_when_receiver_is_wrapper() {
 
     wrapper.deposit_for(wrapper.contract_address, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn deposit_for_allows_zero_amount() {
@@ -168,8 +162,6 @@ fn deposit_for_reverts_when_receiver_is_zero() {
 //
 // withdraw_to
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn withdraw_to_burns_wrapped_and_returns_underlying() {
@@ -210,8 +202,6 @@ fn withdraw_to_reverts_when_receiver_is_wrapper() {
 
     wrapper.withdraw_to(wrapper.contract_address, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn withdraw_to_allows_zero_amount() {
@@ -254,8 +244,6 @@ fn withdraw_to_reverts_when_receiver_is_zero() {
 //
 // recover
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn recover_mints_excess_underlying() {

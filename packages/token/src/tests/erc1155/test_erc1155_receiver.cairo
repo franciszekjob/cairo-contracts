@@ -10,8 +10,6 @@ use crate::erc1155::ERC1155ReceiverComponent::{
 fn STATE() -> DualCaseERC1155ReceiverMock::ContractState {
     DualCaseERC1155ReceiverMock::contract_state_for_testing()
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -28,8 +26,6 @@ fn test_initializer() {
 //
 // on_erc1155_received & onERC1155Received
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_on_erc1155_received() {
@@ -39,8 +35,6 @@ fn test_on_erc1155_received() {
         .on_erc1155_received(OPERATOR, OWNER, TOKEN_ID, TOKEN_VALUE, EMPTY_DATA());
     assert_eq!(on_erc1155_received, IERC1155_RECEIVER_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_onERC1155Received() {
@@ -54,8 +48,6 @@ fn test_onERC1155Received() {
 //
 // on_erc1155_batch_received & onERC1155BatchReceived
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_on_erc1155_batch_received() {
@@ -66,8 +58,6 @@ fn test_on_erc1155_batch_received() {
         .on_erc1155_batch_received(OPERATOR, OWNER, token_ids, values, EMPTY_DATA());
     assert_eq!(on_erc1155_received, IERC1155_RECEIVER_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_onERC1155BatchReceived() {

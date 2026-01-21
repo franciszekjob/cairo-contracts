@@ -61,8 +61,6 @@ fn setup_account() -> ContractAddress {
 //
 // Initializers
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -86,8 +84,6 @@ fn test_initializer() {
         .supports_interface(openzeppelin_interfaces::introspection::ISRC5_ID);
     assert!(supports_isrc5);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer_no_metadata() {
@@ -117,8 +113,6 @@ fn test_initializer_no_metadata() {
 //
 // Getters
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of() {
@@ -132,8 +126,6 @@ fn test_balance_of_zero() {
     let state = setup();
     state.balance_of(ZERO);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_owner_of() {
@@ -147,8 +139,6 @@ fn test_owner_of_non_minted() {
     let state = setup();
     state.owner_of(7);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_uri() {
@@ -158,8 +148,6 @@ fn test_token_uri() {
     let expected = format!("{}{}", BASE_URI(), TOKEN_ID);
     assert_eq!(uri, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_uri_not_set() {
@@ -177,8 +165,6 @@ fn test_token_uri_non_minted() {
     let state = setup();
     state.token_uri(7);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_approved() {
@@ -201,8 +187,6 @@ fn test_get_approved_nonexistent() {
 //
 // approve & _approve
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_approve_from_owner() {
@@ -218,8 +202,6 @@ fn test_approve_from_owner() {
     let approved = state.get_approved(TOKEN_ID);
     assert_eq!(approved, SPENDER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_approve_from_operator() {
@@ -254,8 +236,6 @@ fn test_approve_nonexistent() {
     let mut state = COMPONENT_STATE();
     state.approve(SPENDER, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve() {
@@ -276,8 +256,6 @@ fn test__approve_nonexistent() {
     let mut state = COMPONENT_STATE();
     state._approve(SPENDER, TOKEN_ID, ZERO);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve_auth_is_owner() {
@@ -291,8 +269,6 @@ fn test__approve_auth_is_owner() {
     let approved = state.get_approved(TOKEN_ID);
     assert_eq!(approved, SPENDER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve_auth_is_approved_for_all() {
@@ -322,8 +298,6 @@ fn test__approve_auth_not_authorized() {
 //
 // set_approval_for_all & _set_approval_for_all
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_approval_for_all() {
@@ -354,8 +328,6 @@ fn test_set_approval_for_all_invalid_operator() {
     let mut state = COMPONENT_STATE();
     state.set_approval_for_all(ZERO, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_approval_for_all() {
@@ -389,8 +361,6 @@ fn test__set_approval_for_all_invalid_operator() {
 //
 // transfer_from & transferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_owner() {
@@ -416,8 +386,6 @@ fn test_transfer_from_owner() {
 
     assert_state_after_transfer(owner, recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_owner() {
@@ -476,8 +444,6 @@ fn test_transferFrom_to_zero() {
     start_cheat_caller_address(test_address(), OWNER);
     state.transferFrom(OWNER, ZERO, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_to_owner() {
@@ -495,8 +461,6 @@ fn test_transfer_from_to_owner() {
     assert_eq!(state.owner_of(TOKEN_ID), OWNER);
     assert_eq!(state.balance_of(OWNER), 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_to_owner() {
@@ -514,8 +478,6 @@ fn test_transferFrom_to_owner() {
     assert_eq!(state.owner_of(TOKEN_ID), OWNER);
     assert_eq!(state.balance_of(OWNER), 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_approved() {
@@ -538,8 +500,6 @@ fn test_transfer_from_approved() {
 
     assert_state_after_transfer(owner, recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_approved() {
@@ -562,8 +522,6 @@ fn test_transferFrom_approved() {
 
     assert_state_after_transfer(owner, recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_approved_for_all() {
@@ -586,8 +544,6 @@ fn test_transfer_from_approved_for_all() {
 
     assert_state_after_transfer(owner, recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_approved_for_all() {
@@ -630,8 +586,6 @@ fn test_transferFrom_unauthorized() {
 //
 // safe_transfer_from & safeTransferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_to_account() {
@@ -650,8 +604,6 @@ fn test_safe_transfer_from_to_account() {
 
     assert_state_after_transfer(owner, account, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_to_account() {
@@ -670,8 +622,6 @@ fn test_safeTransferFrom_to_account() {
 
     assert_state_after_transfer(owner, account, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_to_receiver() {
@@ -690,8 +640,6 @@ fn test_safe_transfer_from_to_receiver() {
 
     assert_state_after_transfer(owner, receiver, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_to_receiver() {
@@ -792,8 +740,6 @@ fn test_safeTransferFrom_to_zero() {
     start_cheat_caller_address(test_address(), OWNER);
     state.safeTransferFrom(OWNER, ZERO, TOKEN_ID, DATA(true));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_to_owner() {
@@ -817,8 +763,6 @@ fn test_safe_transfer_from_to_owner() {
     assert_eq!(state.owner_of(token_id), owner);
     assert_eq!(state.balance_of(owner), 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_to_owner() {
@@ -838,8 +782,6 @@ fn test_safeTransferFrom_to_owner() {
     assert_eq!(state.owner_of(token_id), owner);
     assert_eq!(state.balance_of(owner), 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_approved() {
@@ -862,8 +804,6 @@ fn test_safe_transfer_from_approved() {
 
     assert_state_after_transfer(owner, receiver, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_approved() {
@@ -886,8 +826,6 @@ fn test_safeTransferFrom_approved() {
 
     assert_state_after_transfer(owner, receiver, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_approved_for_all() {
@@ -910,8 +848,6 @@ fn test_safe_transfer_from_approved_for_all() {
 
     assert_state_after_transfer(owner, receiver, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_approved_for_all() {
@@ -954,8 +890,6 @@ fn test_safeTransferFrom_unauthorized() {
 //
 // transfer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__transfer() {
@@ -998,8 +932,6 @@ fn test__transfer_from_invalid_owner() {
 //
 // mint
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_mint() {
@@ -1033,8 +965,6 @@ fn test_mint_already_exist() {
 //
 // safe_mint
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__safe_mint_to_receiver() {
@@ -1050,8 +980,6 @@ fn test__safe_mint_to_receiver() {
 
     assert_state_after_mint(recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__safe_mint_to_account() {
@@ -1110,8 +1038,6 @@ fn test__safe_mint_already_exist() {
 //
 // burn
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_burn() {
@@ -1144,8 +1070,6 @@ fn test_burn_nonexistent() {
 //
 // _set_base_uri & _base_uri
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__base_uri_not_set() {
@@ -1154,8 +1078,6 @@ fn test__base_uri_not_set() {
     let base_uri = state._base_uri();
     assert_eq!(base_uri, "");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__base_uri() {
@@ -1164,8 +1086,6 @@ fn test__base_uri() {
     let base_uri = state._base_uri();
     assert_eq!(base_uri, BASE_URI());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_base_uri() {
@@ -1183,8 +1103,6 @@ fn test__set_base_uri() {
 //
 // Internals
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__owner_of() {
@@ -1192,8 +1110,6 @@ fn test__owner_of() {
     let owner = state._owner_of(TOKEN_ID);
     assert_eq!(owner, OWNER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__require_owned() {
@@ -1208,8 +1124,6 @@ fn test__require_owned_non_existent() {
     let mut state = setup();
     state._require_owned(0x123);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__exists() {
@@ -1238,8 +1152,6 @@ fn test__exists() {
     owner = state.ERC721_owners.read(token_id);
     assert!(owner.is_zero());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve_with_optional_event_emitting() {
@@ -1253,8 +1165,6 @@ fn test__approve_with_optional_event_emitting() {
     let approved = state.get_approved(TOKEN_ID);
     assert_eq!(approved, SPENDER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve_with_optional_event_not_emitting() {
@@ -1274,8 +1184,6 @@ fn test__approve_with_optional_event_nonexistent_emitting() {
     let mut state = COMPONENT_STATE();
     state._approve_with_optional_event(SPENDER, TOKEN_ID, ZERO, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve_with_optional_event_nonexistent_not_emitting() {
@@ -1288,8 +1196,6 @@ fn test__approve_with_optional_event_nonexistent_not_emitting() {
     let approved = state.get_approved(TOKEN_ID);
     assert_eq!(approved, SPENDER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve_with_optional_event_auth_is_owner() {
@@ -1302,8 +1208,6 @@ fn test__approve_with_optional_event_auth_is_owner() {
     let approved = state.get_approved(TOKEN_ID);
     assert_eq!(approved, SPENDER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__approve_with_optional_event_auth_is_approved_for_all() {
@@ -1329,8 +1233,6 @@ fn test__approve_with_optional_event_auth_not_authorized() {
     let mut state = setup();
     state._approve_with_optional_event(SPENDER, TOKEN_ID, CALLER, false);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__is_authorized_owner() {
@@ -1338,8 +1240,6 @@ fn test__is_authorized_owner() {
     let authorized = state._is_authorized(OWNER, OWNER, TOKEN_ID);
     assert!(authorized);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__is_authorized_approved_for_all() {
@@ -1351,8 +1251,6 @@ fn test__is_authorized_approved_for_all() {
     let authorized = state._is_authorized(OWNER, SPENDER, TOKEN_ID);
     assert!(authorized);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__is_authorized_approved() {
@@ -1364,8 +1262,6 @@ fn test__is_authorized_approved() {
     let authorized = state._is_authorized(OWNER, SPENDER, TOKEN_ID);
     assert!(authorized);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__is_authorized_not_authorized() {
@@ -1373,8 +1269,6 @@ fn test__is_authorized_not_authorized() {
     let not_authorized = !state._is_authorized(OWNER, CALLER, TOKEN_ID);
     assert!(not_authorized);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__is_authorized_zero_address() {
@@ -1382,16 +1276,12 @@ fn test__is_authorized_zero_address() {
     let not_authorized = !state._is_authorized(OWNER, ZERO, TOKEN_ID);
     assert!(not_authorized);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__check_authorized_owner() {
     let mut state = setup();
     state._check_authorized(OWNER, OWNER, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__check_authorized_approved_for_all() {
@@ -1402,8 +1292,6 @@ fn test__check_authorized_approved_for_all() {
 
     state._check_authorized(OWNER, SPENDER, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__check_authorized_approved() {
@@ -1435,8 +1323,6 @@ fn test__check_authorized_zero_address() {
     let mut state = setup();
     state._check_authorized(OWNER, ZERO, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_mint() {
@@ -1453,8 +1339,6 @@ fn test_update_mint() {
     let balance = state.balance_of(RECIPIENT);
     assert_eq!(balance, 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_burn() {
@@ -1471,8 +1355,6 @@ fn test_update_burn() {
     let balance = state.balance_of(OWNER);
     assert_eq!(balance, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_transfer() {
@@ -1484,8 +1366,6 @@ fn test_update_transfer() {
     spy.assert_only_event_transfer(contract_address, OWNER, RECIPIENT, TOKEN_ID);
     assert_state_after_transfer(OWNER, RECIPIENT, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_auth_owner() {
@@ -1497,8 +1377,6 @@ fn test_update_auth_owner() {
     spy.assert_only_event_transfer(contract_address, OWNER, RECIPIENT, TOKEN_ID);
     assert_state_after_transfer(OWNER, RECIPIENT, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_auth_approved_for_all() {
@@ -1514,8 +1392,6 @@ fn test_update_auth_approved_for_all() {
     spy.assert_only_event_transfer(contract_address, OWNER, RECIPIENT, TOKEN_ID);
     assert_state_after_transfer(OWNER, RECIPIENT, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_auth_approved() {
@@ -1545,8 +1421,6 @@ fn test_update_mint_auth_not_zero() {
     let mut state = setup();
     state.update(RECIPIENT, TOKEN_ID_2, CALLER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_calls_before_update_hook() {
@@ -1559,8 +1433,6 @@ fn test_update_calls_before_update_hook() {
 
     spy.assert_event_before_update(contract_address, RECIPIENT, TOKEN_ID, OWNER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_calls_after_update_hook() {

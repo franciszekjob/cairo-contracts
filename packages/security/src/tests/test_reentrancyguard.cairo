@@ -21,8 +21,6 @@ fn deploy_mock() -> IReentrancyMockDispatcher {
 //
 // ReentrancyGuard direct call tests
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_reentrancy_guard_start() {
@@ -45,8 +43,6 @@ fn test_reentrancy_guard_start_when_started() {
     state.start();
     state.start();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_reentrancy_guard_end() {
@@ -92,8 +88,6 @@ fn test_external_recursion() {
     let contract = deploy_mock();
     contract.count_external_recursive(10);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_nonreentrant_function_call() {

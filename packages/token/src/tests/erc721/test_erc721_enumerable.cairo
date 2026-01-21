@@ -49,8 +49,6 @@ fn setup() -> (ComponentState, Span<u256>) {
 //
 // Initializer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -69,8 +67,6 @@ fn test_initializer() {
 //
 // total_supply
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_total_supply() {
@@ -97,8 +93,6 @@ fn test_total_supply() {
 //
 // token_by_index
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_by_index() {
@@ -124,8 +118,6 @@ fn test_token_by_index_greater_than_supply() {
 
     state.token_by_index(supply_plus_one);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_by_index_burn_last_token() {
@@ -138,8 +130,6 @@ fn test_token_by_index_burn_last_token() {
     let expected_list = array![TOKEN_1, TOKEN_2];
     assert_token_by_index(expected_list.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_by_index_burn_first_token() {
@@ -154,8 +144,6 @@ fn test_token_by_index_burn_first_token() {
     let expected_list = array![TOKEN_3, TOKEN_2];
     assert_token_by_index(expected_list.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_by_index_burn_and_mint_all() {
@@ -180,8 +168,6 @@ fn test_token_by_index_burn_and_mint_all() {
 //
 // token_of_owner_by_index
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_of_owner_by_index() {
@@ -223,8 +209,6 @@ fn test_token_of_owner_by_index_when_owner_is_zero() {
 
     state.token_of_owner_by_index(ZERO, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_of_owner_by_index_remove_last_token() {
@@ -237,8 +221,6 @@ fn test_token_of_owner_by_index_remove_last_token() {
     let expected_list = array![TOKEN_1, TOKEN_2];
     assert_token_of_owner_by_index(OWNER, expected_list.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_of_owner_by_index_remove_first_token() {
@@ -253,8 +235,6 @@ fn test_token_of_owner_by_index_remove_first_token() {
     let expected_list = array![TOKEN_3, TOKEN_2];
     assert_token_of_owner_by_index(OWNER, expected_list.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_of_owner_by_index_when_all_tokens_transferred() {
@@ -276,8 +256,6 @@ fn test_token_of_owner_by_index_when_all_tokens_transferred() {
 // and NOT the ERC721 state.
 // The following `before_update` tests are testing the isolated functionality of
 // `before_update` and will have an inconsistent state with that of the ERC721 component.
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_before_update_when_mint() {
@@ -299,8 +277,6 @@ fn test_before_update_when_mint() {
     let exp_total_tokens = array![TOKEN_1, TOKEN_2, TOKEN_3, new_token];
     assert_token_by_index(exp_total_tokens.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_before_update_when_last_token_burned() {
@@ -322,8 +298,6 @@ fn test_before_update_when_last_token_burned() {
     let exp_total_tokens = array![TOKEN_1, TOKEN_2];
     assert_token_by_index(exp_total_tokens.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_before_update_when_first_token_burned() {
@@ -348,8 +322,6 @@ fn test_before_update_when_first_token_burned() {
     let exp_total_tokens = array![TOKEN_3, TOKEN_2];
     assert_token_by_index(exp_total_tokens.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_before_update_when_transfer_last_token() {
@@ -375,8 +347,6 @@ fn test_before_update_when_transfer_last_token() {
     let exp_total_tokens = array![TOKEN_1, TOKEN_2, TOKEN_3];
     assert_token_by_index(exp_total_tokens.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_before_update_when_transfer_first_token() {
@@ -409,8 +379,6 @@ fn test_before_update_when_transfer_first_token() {
 //
 // _add_token_to_owner_enumeration
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__add_token_to_owner_enumeration() {
@@ -430,8 +398,6 @@ fn test__add_token_to_owner_enumeration() {
 //
 // _add_token_to_all_tokens_enumeration
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__add_token_to_all_tokens_enumeration() {
@@ -456,8 +422,6 @@ fn test__add_token_to_all_tokens_enumeration() {
 //
 // _remove_token_from_owner_enumeration
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__remove_token_from_owner_enumeration_with_last_token() {
@@ -473,8 +437,6 @@ fn test__remove_token_from_owner_enumeration_with_last_token() {
     assert_owner_tokens_index_to_id(OWNER, last_token_index, 0);
     assert_owner_tokens_id_to_index(last_token_id, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__remove_token_from_owner_enumeration_with_first_token() {
@@ -498,8 +460,6 @@ fn test__remove_token_from_owner_enumeration_with_first_token() {
 //
 // _remove_token_from_all_tokens_enumeration
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__remove_token_from_all_tokens_enumeration_with_last_token() {
@@ -520,8 +480,6 @@ fn test__remove_token_from_all_tokens_enumeration_with_last_token() {
     let new_supply = state.total_supply();
     assert_eq!(initial_supply - 1, new_supply);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__remove_token_from_all_tokens_enumeration_with_first_token() {
@@ -548,16 +506,12 @@ fn test__remove_token_from_all_tokens_enumeration_with_first_token() {
 //
 // all_tokens_of_owner
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_all_tokens_of_owner() {
     let (_, tokens_list) = setup();
     assert_all_tokens_of_owner(OWNER, tokens_list);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_all_tokens_of_owner_after_transfer_first_token() {
@@ -569,8 +523,6 @@ fn test_all_tokens_of_owner_after_transfer_first_token() {
     assert_all_tokens_of_owner(OWNER, array![TOKEN_3, TOKEN_2].span());
     assert_all_tokens_of_owner(RECIPIENT, array![TOKEN_1].span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_all_tokens_of_owner_after_transfer_last_token() {
@@ -582,8 +534,6 @@ fn test_all_tokens_of_owner_after_transfer_last_token() {
     assert_all_tokens_of_owner(OWNER, array![TOKEN_1, TOKEN_2].span());
     assert_all_tokens_of_owner(RECIPIENT, array![TOKEN_3].span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_all_tokens_of_owner_after_burn_first_token() {
@@ -594,8 +544,6 @@ fn test_all_tokens_of_owner_after_burn_first_token() {
 
     assert_all_tokens_of_owner(OWNER, array![TOKEN_3, TOKEN_2].span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_all_tokens_of_owner_after_burn_last_token() {

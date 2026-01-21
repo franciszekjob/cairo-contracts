@@ -18,8 +18,6 @@ use crate::tests::governor::block_number::common::{
 //
 // Extensions
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_voting_delay() {
@@ -31,8 +29,6 @@ fn test_voting_delay() {
     mock_state.governor_settings.Governor_voting_delay.write(expected);
     assert_eq!(GovernorSettings::voting_delay(component_state), expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_voting_period() {
@@ -44,8 +40,6 @@ fn test_voting_period() {
     mock_state.governor_settings.Governor_voting_period.write(expected);
     assert_eq!(GovernorSettings::voting_period(component_state), expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_proposal_threshold() {
@@ -65,8 +59,6 @@ fn test_proposal_threshold() {
 //
 // set_voting_delay
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_voting_delay() {
@@ -86,8 +78,6 @@ fn test_set_voting_delay() {
 
     spy.assert_only_event_voting_delay_updated(contract_address, 0, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_voting_delay_no_change() {
@@ -121,8 +111,6 @@ fn test_set_voting_delay_only_governance() {
 //
 // set_voting_period
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_voting_period() {
@@ -142,8 +130,6 @@ fn test_set_voting_period() {
 
     spy.assert_only_event_voting_period_updated(contract_address, 0, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_voting_period_no_change() {
@@ -177,8 +163,6 @@ fn test_set_voting_period_only_governance() {
 //
 // set_proposal_threshold
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_proposal_threshold() {
@@ -198,8 +182,6 @@ fn test_set_proposal_threshold() {
 
     spy.assert_only_event_proposal_threshold_updated(contract_address, 0, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_proposal_threshold_no_change() {
@@ -237,8 +219,6 @@ fn test_set_proposal_threshold_only_governance() {
 //
 // initializer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -261,8 +241,6 @@ fn test_initializer() {
 //
 // assert_only_governance
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_only_governance() {
@@ -288,8 +266,6 @@ fn test_assert_only_governance_not_executor() {
 //
 // _set_voting_delay
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_voting_delay() {
@@ -309,8 +285,6 @@ fn test__set_voting_delay() {
 
     spy.assert_only_event_voting_delay_updated(contract_address, 0, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_voting_delay_no_change() {
@@ -333,8 +307,6 @@ fn test__set_voting_delay_no_change() {
 //
 // _set_voting_period
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_voting_period() {
@@ -354,8 +326,6 @@ fn test__set_voting_period() {
 
     spy.assert_only_event_voting_period_updated(contract_address, 0, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_voting_period_no_change() {
@@ -378,8 +348,6 @@ fn test__set_voting_period_no_change() {
 //
 // _set_proposal_threshold
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_proposal_threshold() {
@@ -399,8 +367,6 @@ fn test__set_proposal_threshold() {
 
     spy.assert_only_event_proposal_threshold_updated(contract_address, 0, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_proposal_threshold_no_change() {

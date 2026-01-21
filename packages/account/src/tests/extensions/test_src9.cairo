@@ -47,8 +47,6 @@ fn setup_account(public_key: felt252) -> ContractAddress {
 //
 // initializer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -67,8 +65,6 @@ fn test_initializer() {
 //
 // execute_from_outside_v2
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_from_outside_v2_any_caller() {
@@ -85,8 +81,6 @@ fn test_execute_from_outside_v2_any_caller() {
 
     assert_value(account, FELT_VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_from_outside_v2_specific_caller() {
@@ -106,8 +100,6 @@ fn test_execute_from_outside_v2_specific_caller() {
 
     assert_value(account, FELT_VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_from_outside_v2_uses_nonce() {
@@ -233,8 +225,6 @@ fn test_execute_from_outside_v2_panics_when_inner_call_panic() {
 //
 // Getters
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_outside_execution_nonce_valid() {
@@ -244,8 +234,6 @@ fn test_is_valid_outside_execution_nonce_valid() {
     let is_valid_nonce = state.is_valid_outside_execution_nonce(nonce);
     assert!(is_valid_nonce);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_outside_execution_nonce_invalid() {

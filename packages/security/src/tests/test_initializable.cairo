@@ -7,8 +7,6 @@ type ComponentState = InitializableComponent::ComponentState<InitializableMock::
 fn COMPONENT_STATE() -> ComponentState {
     InitializableComponent::component_state_for_testing()
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initialize() {

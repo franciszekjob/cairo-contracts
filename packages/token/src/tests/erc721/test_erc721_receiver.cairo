@@ -10,8 +10,6 @@ use crate::erc721::ERC721ReceiverComponent::{
 fn STATE() -> DualCaseERC721ReceiverMock::ContractState {
     DualCaseERC721ReceiverMock::contract_state_for_testing()
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -24,8 +22,6 @@ fn test_initializer() {
     let supports_isrc5 = state.src5.supports_interface(ISRC5_ID);
     assert!(supports_isrc5);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_on_erc721_received() {

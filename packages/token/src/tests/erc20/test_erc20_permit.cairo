@@ -84,8 +84,6 @@ fn setup(data: TestData) -> ComponentState {
 //
 // IERC20Permit
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_valid_permit_default_data() {
@@ -102,8 +100,6 @@ fn test_valid_permit_default_data() {
     assert_valid_allowance(owner, spender, amount);
     assert_valid_nonce(owner, nonce + 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_valid_permit_other_data() {
@@ -122,8 +118,6 @@ fn test_valid_permit_other_data() {
     assert_valid_allowance(owner, spender, amount);
     assert_valid_nonce(owner, nonce + 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_spend_permit() {
@@ -143,8 +137,6 @@ fn test_spend_permit() {
     assert_valid_allowance(owner, spender, 0);
     assert_valid_nonce(owner, nonce + 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_spend_half_permit() {
@@ -165,8 +157,6 @@ fn test_spend_half_permit() {
     assert_valid_allowance(owner, spender, amount - transfer_amount);
     assert_valid_nonce(owner, nonce + 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_subsequent_permits() {
@@ -229,8 +219,6 @@ fn test_replay_attack() {
     let signature = prepare_permit_signature(data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_domain_separator() {
@@ -250,8 +238,6 @@ fn test_domain_separator() {
 //
 // SNIP12Metadata
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_permit_type_hash() {
@@ -260,8 +246,6 @@ fn test_permit_type_hash() {
     );
     assert_eq!(PERMIT_TYPE_HASH, expected_type_hash);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_snip12_metadata() {

@@ -69,8 +69,6 @@ fn setup_dispatcher(
 //
 // is_valid_signature & isValidSignature
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_is_valid_signature() {
@@ -95,8 +93,6 @@ fn test_is_valid_signature() {
     let is_valid = state.is_valid_signature(data.tx_hash, serialized_bad_signature);
     assert_eq!(is_valid, 0, "Should reject invalid signature");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_isValidSignature() {
@@ -126,8 +122,6 @@ fn test_isValidSignature() {
 //
 // Entry points
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_validate_deploy() {
@@ -174,8 +168,6 @@ fn test_validate_deploy_empty_signature() {
     start_cheat_signature_global(empty_sig.span());
     account.__validate_deploy__(class_hash, SALT, key_pair.public_key);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_validate_declare() {
@@ -253,15 +245,11 @@ fn test_execute_with_version(version: Option<felt252>) {
     // Assert that the call was successful
     assert_eq!(simple_mock.get_balance(), amount);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute() {
     test_execute_with_version(Option::None);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_query_version() {
@@ -273,8 +261,6 @@ fn test_execute_query_version() {
 fn test_execute_invalid_version() {
     test_execute_with_version(Option::Some(MIN_TRANSACTION_VERSION - 1));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_validate() {
@@ -297,8 +283,6 @@ fn test_validate_invalid() {
     let calls = array![];
     account.__validate__(calls);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_multicall() {
@@ -364,8 +348,6 @@ fn test_cannot_set_without_initialize() {
     start_cheat_caller_address(test_address(), test_address());
     state.set_public_key(key_pair.public_key, array![].span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_public_key_setter_and_getter() {
@@ -412,8 +394,6 @@ fn test_public_key_setter_different_account() {
 //
 // setPublicKey & getPublicKey
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_public_key_setter_and_getter_camel() {
@@ -458,8 +438,6 @@ fn test_public_key_setter_different_account_camel() {
 //
 // Test internals
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -480,8 +458,6 @@ fn test_initializer() {
     let supports_account_interface = mock_state.supports_interface(ISRC6_ID);
     assert!(supports_account_interface, "Should support ISRC6");
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_only_self_true() {
@@ -499,8 +475,6 @@ fn test_assert_only_self_false() {
     start_cheat_caller_address(test_address(), OTHER);
     state.assert_only_self();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_valid_new_owner() {
@@ -530,8 +504,6 @@ fn test_assert_valid_new_owner_invalid_signature() {
     state
         .assert_valid_new_owner(key_pair.public_key, new_key_pair.public_key, bad_signature.span());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__is_valid_signature() {
@@ -557,8 +529,6 @@ fn test__is_valid_signature() {
     let is_not_valid = !state._is_valid_signature(data.tx_hash, serialized_bad_signature.span());
     assert!(is_not_valid);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__set_public_key() {

@@ -101,8 +101,6 @@ fn setup_dispatchers() -> (IGovernorDispatcher, ITimelockDispatcher, IMockContra
 //
 // timelock_salt
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_timelock_salt() {
@@ -117,8 +115,6 @@ fn test_timelock_salt() {
 
     assert_eq!(salt, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_timelock_salt_overflow() {
@@ -141,8 +137,6 @@ fn test_timelock_salt_overflow() {
 //
 // state
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_executed() {
@@ -154,8 +148,6 @@ fn test_state_executed() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Executed);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_canceled() {
@@ -177,8 +169,6 @@ fn test_state_non_existent() {
 
     GovernorExecution::state(@component_state, 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_pending() {
@@ -190,8 +180,6 @@ fn test_state_pending() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Pending);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_active() {
@@ -215,8 +203,6 @@ fn test_state_active() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_defeated_quorum_not_reached() {
@@ -241,8 +227,6 @@ fn test_state_defeated_quorum_not_reached() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_defeated_vote_not_succeeded() {
@@ -270,8 +254,6 @@ fn test_state_defeated_vote_not_succeeded() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_queued_timelock_waiting() {
@@ -288,8 +270,6 @@ fn test_state_queued_timelock_waiting() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Queued);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_queued_timelock_ready() {
@@ -306,8 +286,6 @@ fn test_state_queued_timelock_ready() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Queued);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_queued_timelock_done() {
@@ -324,8 +302,6 @@ fn test_state_queued_timelock_done() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Executed);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_queued_timelock_canceled() {
@@ -342,8 +318,6 @@ fn test_state_queued_timelock_canceled() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Canceled);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_succeeded() {
@@ -360,8 +334,6 @@ fn test_state_succeeded() {
 //
 // executor
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_executor() {
@@ -379,8 +351,6 @@ fn test_executor() {
 //
 // execute_operations
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_operations() {
@@ -458,8 +428,6 @@ fn test_execute_operations() {
 //
 // queue_operations
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_queue_operations() {
@@ -537,8 +505,6 @@ fn test_proposal_needs_queuing(id: felt252) {
 //
 // cancel_operations
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_queued() {
@@ -606,8 +572,6 @@ fn test_cancel_operations_queued() {
     let target_id = timelocked.get_timelock_id(id);
     assert_eq!(target_id, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_pending() {
@@ -621,8 +585,6 @@ fn test_cancel_operations_pending() {
     let canceled_proposal = state.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_active() {
@@ -636,8 +598,6 @@ fn test_cancel_operations_active() {
     let canceled_proposal = state.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_defeated() {
@@ -652,8 +612,6 @@ fn test_cancel_operations_defeated() {
     let canceled_proposal = mock_state.governor.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_succeeded() {
@@ -695,8 +653,6 @@ fn test_cancel_operations_executed() {
 //
 // update_timelock
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_timelock() {

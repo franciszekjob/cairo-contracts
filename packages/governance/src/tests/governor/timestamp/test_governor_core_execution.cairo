@@ -18,8 +18,6 @@ use crate::tests::governor::timestamp::common::{
 //
 // state
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_executed() {
@@ -31,8 +29,6 @@ fn test_state_executed() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Executed);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_canceled() {
@@ -54,8 +50,6 @@ fn test_state_non_existent() {
 
     GovernorExecution::state(@component_state, 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_pending() {
@@ -67,8 +61,6 @@ fn test_state_pending() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Pending);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_pending_at_snapshot() {
@@ -82,8 +74,6 @@ fn test_state_pending_at_snapshot() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Pending);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_active() {
@@ -107,8 +97,6 @@ fn test_state_active() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_defeated_quorum_not_reached() {
@@ -133,8 +121,6 @@ fn test_state_defeated_quorum_not_reached() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_defeated_vote_not_succeeded() {
@@ -162,8 +148,6 @@ fn test_state_defeated_vote_not_succeeded() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_queued() {
@@ -176,8 +160,6 @@ fn test_state_queued() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Queued);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_succeeded() {
@@ -194,8 +176,6 @@ fn test_state_succeeded() {
 //
 // executor
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_executor() {
@@ -271,8 +251,6 @@ fn test_proposal_needs_queuing(id: felt252) {
 //
 // cancel_operations
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_pending() {
@@ -286,8 +264,6 @@ fn test_cancel_operations_pending() {
     let canceled_proposal = state.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_active() {
@@ -301,8 +277,6 @@ fn test_cancel_operations_active() {
     let canceled_proposal = state.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_defeated() {
@@ -317,8 +291,6 @@ fn test_cancel_operations_defeated() {
     let canceled_proposal = mock_state.governor.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_succeeded() {
@@ -333,8 +305,6 @@ fn test_cancel_operations_succeeded() {
     let canceled_proposal = mock_state.governor.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_operations_queued() {

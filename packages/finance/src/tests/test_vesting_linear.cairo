@@ -34,8 +34,6 @@ fn TEST_DATA() -> TestData {
 //
 // Tests
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_after_init() {
@@ -59,8 +57,6 @@ fn test_init_invalid_cliff_value() {
 
     component_state.initializer(data.start, data.duration, data.cliff_duration);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_vesting_schedule_no_cliff() {
@@ -80,8 +76,6 @@ fn test_vesting_schedule_no_cliff() {
     let end_timestamp = data.start + data.duration;
     assert_eq!(vesting.vested_amount(token, end_timestamp), data.total_allocation);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_vesting_schedule_with_cliff() {
@@ -109,8 +103,6 @@ fn test_vesting_schedule_with_cliff() {
     let end_timestamp = data.start + data.duration;
     assert_eq!(vesting.vested_amount(token, end_timestamp), data.total_allocation);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_release_zero_amount() {
@@ -127,8 +119,6 @@ fn test_release_zero_amount() {
 
     spy.assert_no_events_left();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_release_single_call_within_duration() {
@@ -152,8 +142,6 @@ fn test_release_single_call_within_duration() {
 
     spy.assert_only_event_amount_released(vesting.contract_address, token, expected_release_amount);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_release_single_call_after_end() {
@@ -175,8 +163,6 @@ fn test_release_single_call_after_end() {
 
     spy.assert_only_event_amount_released(vesting.contract_address, token, data.total_allocation);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_release_multiple_calls() {
@@ -224,8 +210,6 @@ fn test_release_multiple_calls() {
     assert_eq!(vesting.released(token), data.total_allocation);
     assert_eq!(vesting.releasable(token), 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_release_after_ownership_transferred() {

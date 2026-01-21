@@ -10,8 +10,6 @@ const LOW_MASK: u256 = 0xffffffffffffffffffffffffffffffff;
 fn CONTRACT_STATE() -> MockTrace::ContractState {
     MockTrace::contract_state_for_testing()
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_push_checkpoint() {
@@ -25,8 +23,6 @@ fn test_push_checkpoint() {
     assert_eq!(prev, 1000);
     assert_eq!(new, 2000);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_latest() {
@@ -38,8 +34,6 @@ fn test_get_latest() {
     let latest = mock_trace.get_latest();
     assert_eq!(latest, 2000);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_upper_lookup() {
@@ -58,8 +52,6 @@ fn test_upper_lookup() {
     let value_at_350 = mock_trace.upper_lookup(350);
     assert_eq!(value_at_350, 3000);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_upper_lookup_recent() {
@@ -78,8 +70,6 @@ fn test_upper_lookup_recent() {
     let value_at_350 = mock_trace.upper_lookup_recent(350);
     assert_eq!(value_at_350, 3000);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_length() {
@@ -102,8 +92,6 @@ fn test_unordered_insertion() {
     mock_trace.push_checkpoint(200, 2000);
     mock_trace.push_checkpoint(100, 1000); // This should panic
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_pack_big_key_and_value() {
@@ -121,8 +109,6 @@ fn test_pack_big_key_and_value() {
     assert_eq!(value.low.into(), expected_low);
     assert_eq!(high, expected_high);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_unpack_big_key_and_value() {

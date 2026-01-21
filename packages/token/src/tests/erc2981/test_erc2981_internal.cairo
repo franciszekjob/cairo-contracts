@@ -32,8 +32,6 @@ fn setup() -> ComponentState {
 //
 // Initializer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer() {
@@ -55,8 +53,6 @@ fn test_initializer() {
 //
 // Getters
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_royalty_info_default_royalty() {
@@ -68,8 +64,6 @@ fn test_royalty_info_default_royalty() {
     assert_eq!(receiver, DEFAULT_RECEIVER);
     assert_eq!(amount, 5_000);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_royalty_info_token_royalty_set() {
@@ -91,8 +85,6 @@ fn test_royalty_info_token_royalty_set() {
 //
 // Internals
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_default_royalty() {
@@ -104,8 +96,6 @@ fn test_default_royalty() {
     assert_eq!(numerator, DEFAULT_FEE_NUMERATOR);
     assert_eq!(denominator, ERC2981Component::DEFAULT_FEE_DENOMINATOR);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_default_royalty() {
@@ -123,8 +113,6 @@ fn test_set_default_royalty() {
     assert_eq!(receiver, RECIPIENT);
     assert_eq!(amount, 50_000);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_default_royalty_with_zero_royalty_fraction() {
@@ -154,8 +142,6 @@ fn test_set_default_royalty_with_invalid_fee_numerator() {
 
     state._set_default_royalty(DEFAULT_RECEIVER, fee_denominator + 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_delete_default_royalty() {
@@ -175,8 +161,6 @@ fn test_delete_default_royalty() {
     assert_eq!(receiver, ZERO);
     assert_eq!(amount, 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_token_royalty() {
@@ -203,8 +187,6 @@ fn test_set_token_royalty() {
     assert_eq!(receiver, DEFAULT_RECEIVER);
     assert_eq!(amount, 5_000);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_token_royalty_with_zero_royalty_fraction() {
@@ -235,8 +217,6 @@ fn test_set_token_royalty_with_invalid_fee_numerator() {
 
     state._set_token_royalty(token_id, RECIPIENT, fee_denominator + 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_reset_token_royalty() {
@@ -260,8 +240,6 @@ fn test_reset_token_royalty() {
     assert_eq!(receiver, DEFAULT_RECEIVER);
     assert_eq!(amount, 5_000);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_default_config() {

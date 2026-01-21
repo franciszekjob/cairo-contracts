@@ -45,8 +45,6 @@ fn setup_dispatcher() -> (EventSpy, ERC20UpgradeableABIDispatcher) {
 //
 // constructor
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_constructor() {
@@ -66,8 +64,6 @@ fn test_constructor() {
 //
 // Getters
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_total_supply() {
@@ -76,8 +72,6 @@ fn test_total_supply() {
     assert_eq!(dispatcher.total_supply(), SUPPLY);
     assert_eq!(dispatcher.totalSupply(), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of() {
@@ -86,8 +80,6 @@ fn test_balance_of() {
     assert_eq!(dispatcher.balance_of(OWNER), SUPPLY);
     assert_eq!(dispatcher.balanceOf(OWNER), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_allowance() {
@@ -103,8 +95,6 @@ fn test_allowance() {
 //
 // approve
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_approve() {
@@ -140,8 +130,6 @@ fn test_approve_to_zero() {
 //
 // transfer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer() {
@@ -186,8 +174,6 @@ fn test_transfer_to_zero() {
 //
 // transfer_from & transferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from() {
@@ -208,8 +194,6 @@ fn test_transfer_from() {
     assert_eq!(dispatcher.allowance(OWNER, SPENDER), 0);
     assert_eq!(dispatcher.total_supply(), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_doesnt_consume_infinite_allowance() {
@@ -254,8 +238,6 @@ fn test_transfer_from_from_zero_address() {
     let (_, mut dispatcher) = setup_dispatcher();
     dispatcher.transfer_from(Zero::zero(), RECIPIENT, VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom() {
@@ -276,8 +258,6 @@ fn test_transferFrom() {
     assert_eq!(dispatcher.allowance(OWNER, SPENDER), 0);
     assert_eq!(dispatcher.total_supply(), SUPPLY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_doesnt_consume_infinite_allowance() {
@@ -325,8 +305,6 @@ fn test_transferFrom_from_zero_address() {
 //
 // transfer_ownership & transferOwnership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_ownership() {
@@ -353,8 +331,6 @@ fn test_transfer_ownership_from_nonowner() {
     start_cheat_caller_address(dispatcher.contract_address, OTHER);
     dispatcher.transfer_ownership(OTHER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferOwnership() {
@@ -385,8 +361,6 @@ fn test_transferOwnership_from_nonowner() {
 //
 // renounce_ownership & renounceOwnership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounce_ownership() {
@@ -405,8 +379,6 @@ fn test_renounce_ownership_from_nonowner() {
     start_cheat_caller_address(dispatcher.contract_address, OTHER);
     dispatcher.renounce_ownership();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounceOwnership() {
@@ -446,8 +418,6 @@ fn test_upgrade_with_class_hash_zero() {
     start_cheat_caller_address(v1.contract_address, OWNER);
     v1.upgrade(CLASS_HASH_ZERO);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_upgraded_event() {
@@ -472,8 +442,6 @@ fn test_v2_missing_camel_selector() {
     let dispatcher = ERC20UpgradeableABIDispatcher { contract_address: v1.contract_address };
     dispatcher.totalSupply();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_persists_after_upgrade() {

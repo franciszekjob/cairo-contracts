@@ -10,8 +10,6 @@ type ComponentState = SRC5Component::ComponentState<SRC5Mock::ContractState>;
 fn COMPONENT_STATE() -> ComponentState {
     SRC5Component::component_state_for_testing()
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_default_behavior() {
@@ -19,8 +17,6 @@ fn test_default_behavior() {
     let supports_isrc5 = state.supports_interface(ISRC5_ID);
     assert!(supports_isrc5);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_not_registered_interface() {
@@ -28,8 +24,6 @@ fn test_not_registered_interface() {
     let does_not_support_unregistered_interface = !state.supports_interface(OTHER_ID);
     assert!(does_not_support_unregistered_interface);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_register_interface() {
@@ -38,8 +32,6 @@ fn test_register_interface() {
     let supports_new_interface = state.supports_interface(OTHER_ID);
     assert!(supports_new_interface);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_deregister_interface() {

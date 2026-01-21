@@ -66,8 +66,6 @@ fn setup_with_hooks() -> (ComponentStateWithHooks, ContractAddress) {
 //
 // Initializers
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initialize() {
@@ -90,8 +88,6 @@ fn test_initialize() {
         .supports_interface(openzeppelin_interfaces::introspection::ISRC5_ID);
     assert!(supports_isrc5);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initialize_no_metadata() {
@@ -119,8 +115,6 @@ fn test_initialize_no_metadata() {
 //
 // balance_of & balanceOf
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of() {
@@ -128,8 +122,6 @@ fn test_balance_of() {
     let balance = state.balance_of(owner, TOKEN_ID);
     assert_eq!(balance, TOKEN_VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balanceOf() {
@@ -141,8 +133,6 @@ fn test_balanceOf() {
 //
 // balance_of_batch & balanceOfBatch
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of_batch() {
@@ -154,8 +144,6 @@ fn test_balance_of_batch() {
     assert_eq!(*balances.at(0), TOKEN_VALUE);
     assert!((*balances.at(1)).is_zero());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balanceOfBatch() {
@@ -191,8 +179,6 @@ fn test_balanceOfBatch_invalid_inputs() {
 //
 // safe_transfer_from & safeTransferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_owner_to_receiver() {
@@ -212,8 +198,6 @@ fn test_safe_transfer_from_owner_to_receiver() {
 
     assert_state_after_transfer_single(owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_owner_to_receiver() {
@@ -233,8 +217,6 @@ fn test_safeTransferFrom_owner_to_receiver() {
 
     assert_state_after_transfer_single(owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_owner_to_account() {
@@ -255,8 +237,6 @@ fn test_safe_transfer_from_owner_to_account() {
 
     assert_state_after_transfer_single(owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_owner_to_account() {
@@ -277,8 +257,6 @@ fn test_safeTransferFrom_owner_to_account() {
 
     assert_state_after_transfer_single(owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_approved_operator() {
@@ -304,8 +282,6 @@ fn test_safe_transfer_from_approved_operator() {
 
     assert_state_after_transfer_single(owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_approved_operator() {
@@ -427,8 +403,6 @@ fn test_safeTransferFrom_non_account_non_receiver() {
 //
 // safe_batch_transfer_from & safeBatchTransferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_batch_transfer_from_owner_to_receiver() {
@@ -449,8 +423,6 @@ fn test_safe_batch_transfer_from_owner_to_receiver() {
 
     assert_state_after_transfer_batch(owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeBatchTransferFrom_owner_to_receiver() {
@@ -471,8 +443,6 @@ fn test_safeBatchTransferFrom_owner_to_receiver() {
 
     assert_state_after_transfer_batch(owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_batch_transfer_from_owner_to_account() {
@@ -494,8 +464,6 @@ fn test_safe_batch_transfer_from_owner_to_account() {
 
     assert_state_after_transfer_batch(owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeBatchTransferFrom_owner_to_account() {
@@ -517,9 +485,6 @@ fn test_safeBatchTransferFrom_owner_to_account() {
 
     assert_state_after_transfer_batch(owner, recipient, token_ids, values);
 }
-
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_batch_transfer_from_approved_operator() {
@@ -546,8 +511,6 @@ fn test_safe_batch_transfer_from_approved_operator() {
 
     assert_state_after_transfer_batch(owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeBatchTransferFrom_approved_operator() {
@@ -684,8 +647,6 @@ fn test_safeBatchTransferFrom_non_account_non_receiver() {
 //
 // set_approval_for_all & is_approved_for_all
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_approval_for_all_and_is_approved_for_all() {
@@ -730,8 +691,6 @@ fn test_set_approval_for_all_owner_equal_operator_false() {
 //
 // setApprovalForAll & isApprovedForAll
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_setApprovalForAll_and_isApprovedForAll() {
@@ -776,8 +735,6 @@ fn test_setApprovalForAll_owner_equal_operator_false() {
 //
 // update
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_single_from_non_zero_to_non_zero() {
@@ -799,8 +756,6 @@ fn test_update_single_from_non_zero_to_non_zero() {
 
     assert_state_after_transfer_single(owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_batch_from_non_zero_to_non_zero() {
@@ -821,8 +776,6 @@ fn test_update_batch_from_non_zero_to_non_zero() {
 
     assert_state_after_transfer_batch(owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_from_non_zero_to_zero() {
@@ -843,8 +796,6 @@ fn test_update_from_non_zero_to_zero() {
 
     assert_state_after_transfer_to_zero_batch(owner, recipient, token_ids);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_from_zero_to_non_zero() {
@@ -899,8 +850,6 @@ fn test_update_insufficient_balance() {
 
     state.update(owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_calls_before_update_hook() {
@@ -915,8 +864,6 @@ fn test_update_calls_before_update_hook() {
     state.update(owner, recipient, token_ids, values);
     spy.assert_event_before_update(contract_address, owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_calls_after_update_hook() {
@@ -936,8 +883,6 @@ fn test_update_calls_after_update_hook() {
 //
 // update_with_acceptance_check
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_wac_single_from_non_zero_to_non_zero() {
@@ -959,8 +904,6 @@ fn test_update_wac_single_from_non_zero_to_non_zero() {
 
     assert_state_after_transfer_single(owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_wac_single_from_non_zero_to_non_zero_account() {
@@ -983,8 +926,6 @@ fn test_update_wac_single_from_non_zero_to_non_zero_account() {
 
     assert_state_after_transfer_single(owner, recipient, TOKEN_ID);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_wac_batch_from_non_zero_to_non_zero() {
@@ -1005,8 +946,6 @@ fn test_update_wac_batch_from_non_zero_to_non_zero() {
 
     assert_state_after_transfer_batch(owner, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_wac_batch_from_non_zero_to_non_zero_account() {
@@ -1039,8 +978,6 @@ fn test_update_wac_from_non_zero_to_zero() {
 
     state.update_with_acceptance_check(owner, recipient, token_ids, values, EMPTY_DATA());
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_wac_from_zero_to_non_zero() {
@@ -1062,8 +999,6 @@ fn test_update_wac_from_zero_to_non_zero() {
 
     assert_state_after_transfer_from_zero_batch(sender, recipient, token_ids, values);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_wac_from_zero_to_non_zero_account() {
@@ -1146,8 +1081,6 @@ fn test_update_wac_batch_to_non_receiver() {
 //
 // mint_with_acceptance_check
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_mint_wac_to_receiver() {
@@ -1170,8 +1103,6 @@ fn test_mint_wac_to_receiver() {
     let balance_of_recipient = state.balance_of(recipient, TOKEN_ID);
     assert_eq!(balance_of_recipient, TOKEN_VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_mint_wac_to_account() {
@@ -1216,8 +1147,6 @@ fn test_mint_wac_to_non_receiver() {
 //
 // batch_mint_with_acceptance_check
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_batch_mint_wac_to_receiver() {
@@ -1245,8 +1174,6 @@ fn test_batch_mint_wac_to_receiver() {
     let balance_of_recipient_token_2_after = state.balance_of(recipient, TOKEN_ID_2);
     assert_eq!(balance_of_recipient_token_2_after, TOKEN_VALUE_2);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_batch_mint_wac_to_account() {
@@ -1298,8 +1225,6 @@ fn test_batch_mint_wac_to_non_receiver() {
 //
 // burn & batch_burn
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_burn() {
@@ -1328,9 +1253,6 @@ fn test_burn_from_zero() {
     let mut state = COMPONENT_STATE();
     state.burn(ZERO, TOKEN_ID, TOKEN_VALUE);
 }
-
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_batch_burn() {

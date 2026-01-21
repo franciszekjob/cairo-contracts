@@ -5,8 +5,6 @@ use crate::utils::call_impls::CallPartialEq;
 //
 // eq
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_eq_calls_no_calldata() {
@@ -14,8 +12,6 @@ fn test_eq_calls_no_calldata() {
     let call_2 = Call { to: 1.as_address(), selector: 1, calldata: array![].span() };
     assert_eq!(call_1, call_2);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_eq_calls_with_calldata() {
@@ -67,8 +63,6 @@ fn test_eq_calls_ne_calldata() {
 //
 // ne
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_ne_calls_to() {
@@ -76,8 +70,6 @@ fn test_ne_calls_to() {
     let call_2 = Call { to: 2.as_address(), selector: 1, calldata: array![1, 2, 3].span() };
     assert_ne!(call_1, call_2);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_ne_calls_selector() {
@@ -85,8 +77,6 @@ fn test_ne_calls_selector() {
     let call_2 = Call { to: 1.as_address(), selector: 2, calldata: array![1, 2, 3].span() };
     assert_ne!(call_1, call_2);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_ne_calls_gt_calldata() {
@@ -94,8 +84,6 @@ fn test_ne_calls_gt_calldata() {
     let call_2 = Call { to: 1.as_address(), selector: 1, calldata: array![1, 2].span() };
     assert_ne!(call_1, call_2);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_ne_calls_lt_calldata() {
@@ -103,8 +91,6 @@ fn test_ne_calls_lt_calldata() {
     let call_2 = Call { to: 1.as_address(), selector: 1, calldata: array![1, 2, 3].span() };
     assert_ne!(call_1, call_2);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_ne_calls_eq_len_calldata() {

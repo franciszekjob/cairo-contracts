@@ -19,8 +19,6 @@ fn CONTRACT_STATE() -> ERC6909TokenSupplyMock::ContractState {
 fn COMPONENT_STATE() -> ComponentState {
     ERC6909TokenSupplyComponent::component_state_for_testing()
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer_registers_interface() {
@@ -32,16 +30,12 @@ fn test_initializer_registers_interface() {
     assert!(mock_state.supports_interface(IERC6909_TOKEN_SUPPLY_ID));
     assert!(mock_state.supports_interface(ISRC5_ID));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_total_supply_default_zero() {
     let state = COMPONENT_STATE();
     assert_eq!(state.total_supply(TOKEN_ID), 0);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_token_supply_increments_on_mint() {
@@ -52,8 +46,6 @@ fn test_update_token_supply_increments_on_mint() {
 
     assert_eq!(state.total_supply(TOKEN_ID), before + VALUE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_token_supply_decrements_on_burn() {
@@ -66,8 +58,6 @@ fn test_update_token_supply_decrements_on_burn() {
 
     assert_eq!(state.total_supply(TOKEN_ID), mid - 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_token_supply_no_change_on_transfer() {

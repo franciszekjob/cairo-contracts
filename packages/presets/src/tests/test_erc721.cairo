@@ -74,8 +74,6 @@ fn setup_account() -> ContractAddress {
 //
 // mint_assets
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_mint_assets() {
@@ -97,8 +95,6 @@ fn test_mint_assets() {
 //
 // constructor
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_constructor() {
@@ -128,8 +124,6 @@ fn test_constructor() {
         assert_eq!(current_owner, OWNER);
     };
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_constructor_events() {
@@ -151,8 +145,6 @@ fn test_constructor_events() {
 //
 // Getters
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_balance_of() {
@@ -166,8 +158,6 @@ fn test_balance_of_zero() {
     let (_, dispatcher) = setup_dispatcher();
     dispatcher.balance_of(ZERO);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_owner_of() {
@@ -188,8 +178,6 @@ fn test_token_uri_non_minted() {
     let (_, dispatcher) = setup_dispatcher();
     dispatcher.token_uri(7);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_token_uri() {
@@ -199,8 +187,6 @@ fn test_token_uri() {
     let expected = format!("{}{}", BASE_URI(), TOKEN_1);
     assert_eq!(uri, expected);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_get_approved() {
@@ -226,8 +212,6 @@ fn test_get_approved_nonexistent() {
 //
 // approve
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_approve_from_owner() {
@@ -239,8 +223,6 @@ fn test_approve_from_owner() {
     let approved = dispatcher.get_approved(TOKEN_1);
     assert_eq!(approved, SPENDER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_approve_from_operator() {
@@ -276,8 +258,6 @@ fn test_approve_nonexistent() {
 //
 // set_approval_for_all
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_set_approval_for_all() {
@@ -302,8 +282,6 @@ fn test_set_approval_for_all() {
 //
 // transfer_from & transferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_owner() {
@@ -326,8 +304,6 @@ fn test_transfer_from_owner() {
 
     assert_state_after_transfer(dispatcher, owner, recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_owner() {
@@ -378,8 +354,6 @@ fn test_transferFrom_to_zero() {
     let (_, dispatcher) = setup_dispatcher();
     dispatcher.transferFrom(OWNER, ZERO, TOKEN_1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_to_owner() {
@@ -391,8 +365,6 @@ fn test_transfer_from_to_owner() {
 
     assert_state_transfer_to_self(dispatcher, OWNER, TOKEN_1, TOKENS_LEN);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_to_owner() {
@@ -404,8 +376,6 @@ fn test_transferFrom_to_owner() {
 
     assert_state_transfer_to_self(dispatcher, OWNER, TOKEN_1, TOKENS_LEN);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_approved() {
@@ -424,8 +394,6 @@ fn test_transfer_from_approved() {
 
     assert_state_after_transfer(dispatcher, owner, recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_approved() {
@@ -444,8 +412,6 @@ fn test_transferFrom_approved() {
 
     assert_state_after_transfer(dispatcher, owner, recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_from_approved_for_all() {
@@ -465,8 +431,6 @@ fn test_transfer_from_approved_for_all() {
 
     assert_state_after_transfer(dispatcher, owner, recipient, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferFrom_approved_for_all() {
@@ -506,8 +470,6 @@ fn test_transferFrom_unauthorized() {
 //
 // safe_transfer_from & safeTransferFrom
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_to_account() {
@@ -524,8 +486,6 @@ fn test_safe_transfer_from_to_account() {
 
     assert_state_after_transfer(dispatcher, owner, account, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_to_account() {
@@ -542,8 +502,6 @@ fn test_safeTransferFrom_to_account() {
 
     assert_state_after_transfer(dispatcher, owner, account, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_to_receiver() {
@@ -559,8 +517,6 @@ fn test_safe_transfer_from_to_receiver() {
 
     assert_state_after_transfer(dispatcher, owner, receiver, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_to_receiver() {
@@ -648,8 +604,6 @@ fn test_safeTransferFrom_to_zero() {
     let (_, dispatcher) = setup_dispatcher();
     dispatcher.safeTransferFrom(OWNER, ZERO, TOKEN_1, DATA(true));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_to_owner() {
@@ -668,8 +622,6 @@ fn test_safe_transfer_from_to_owner() {
 
     assert_state_transfer_to_self(dispatcher, receiver, token_id, 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_to_owner() {
@@ -688,8 +640,6 @@ fn test_safeTransferFrom_to_owner() {
 
     assert_state_transfer_to_self(dispatcher, receiver, token_id, 1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_approved() {
@@ -709,8 +659,6 @@ fn test_safe_transfer_from_approved() {
 
     assert_state_after_transfer(dispatcher, owner, receiver, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_approved() {
@@ -730,8 +678,6 @@ fn test_safeTransferFrom_approved() {
 
     assert_state_after_transfer(dispatcher, owner, receiver, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safe_transfer_from_approved_for_all() {
@@ -751,8 +697,6 @@ fn test_safe_transfer_from_approved_for_all() {
 
     assert_state_after_transfer(dispatcher, owner, receiver, token_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_safeTransferFrom_approved_for_all() {
@@ -792,8 +736,6 @@ fn test_safeTransferFrom_unauthorized() {
 //
 // transfer_ownership & transferOwnership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer_ownership() {
@@ -820,8 +762,6 @@ fn test_transfer_ownership_from_nonowner() {
     start_cheat_caller_address(dispatcher.contract_address, OTHER);
     dispatcher.transfer_ownership(OTHER);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_transferOwnership() {
@@ -852,8 +792,6 @@ fn test_transferOwnership_from_nonowner() {
 //
 // renounce_ownership & renounceOwnership
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounce_ownership() {
@@ -872,8 +810,6 @@ fn test_renounce_ownership_from_nonowner() {
     start_cheat_caller_address(dispatcher.contract_address, OTHER);
     dispatcher.renounce_ownership();
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_renounceOwnership() {
@@ -913,8 +849,6 @@ fn test_upgrade_with_class_hash_zero() {
     start_cheat_caller_address(v1.contract_address, OWNER);
     v1.upgrade(CLASS_HASH_ZERO);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_upgraded_event() {
@@ -939,8 +873,6 @@ fn test_v2_missing_camel_selector() {
     let dispatcher = IERC721CamelOnlyDispatcher { contract_address: v1.contract_address };
     dispatcher.ownerOf(TOKEN_1);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_state_persists_after_upgrade() {

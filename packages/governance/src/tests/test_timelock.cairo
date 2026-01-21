@@ -150,8 +150,6 @@ fn deploy_attacker() -> ITimelockAttackerDispatcher {
 //
 // hash_operation
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_hash_operation() {
@@ -182,8 +180,6 @@ fn test_hash_operation() {
 
     assert_eq!(hashed_operation, expected_hash);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_hash_operation_batch() {
@@ -223,8 +219,6 @@ fn test_hash_operation_batch() {
 
     assert_eq!(hashed_operation, expected_hash);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_hash_operation_and_hash_operations() {
@@ -294,16 +288,12 @@ fn schedule_from_proposer(salt: felt252) {
             );
     }
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_schedule_from_proposer_with_salt() {
     let salt = SALT;
     schedule_from_proposer(salt);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_schedule_from_proposer_no_salt() {
@@ -396,16 +386,12 @@ fn schedule_batch_from_proposer(salt: felt252) {
             );
     }
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_schedule_batch_from_proposer_with_salt() {
     let salt = SALT;
     schedule_batch_from_proposer(salt);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_schedule_batch_from_proposer_no_salt() {
@@ -473,8 +459,6 @@ fn test_execute_when_not_scheduled() {
     let call = single_operation(target.contract_address);
     timelock.execute(call, predecessor, salt);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_when_scheduled() {
@@ -677,8 +661,6 @@ fn test_execute_before_dependency() {
     start_cheat_caller_address(timelock.contract_address, EXECUTOR);
     timelock.execute(call_2, predecessor_2, salt);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_after_dependency() {
@@ -754,8 +736,6 @@ fn test_execute_batch_when_not_scheduled() {
     start_cheat_caller_address(timelock.contract_address, EXECUTOR);
     timelock.execute_batch(calls, predecessor, salt);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_batch_when_scheduled() {
@@ -930,8 +910,6 @@ fn test_execute_batch_before_dependency() {
     start_cheat_caller_address(timelock.contract_address, EXECUTOR);
     timelock.execute_batch(calls_2, predecessor_2, salt);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_execute_batch_after_dependency() {
@@ -1028,16 +1006,12 @@ fn cancel_from_canceller(operation_state: OperationState) {
     spy.assert_only_event_call_cancelled(timelock.contract_address, target_id);
     assert_operation_state(timelock, OperationState::Unset, target_id);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_when_waiting() {
     let waiting = OperationState::Waiting;
     cancel_from_canceller(waiting);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_cancel_when_ready() {
@@ -1118,8 +1092,6 @@ fn test_update_delay_unauthorized() {
 
     timelock.update_delay(NEW_DELAY);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_update_delay_scheduled() {
@@ -1171,8 +1143,6 @@ fn test_update_delay_scheduled() {
 //
 // initializer
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer_single_role_and_admin() {
@@ -1190,8 +1160,6 @@ fn test_initializer_single_role_and_admin() {
     assert!(contract_state.has_role(EXECUTOR_ROLE, *executors.at(0)));
     assert!(contract_state.has_role(DEFAULT_ADMIN_ROLE, admin));
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer_multiple_roles_and_admin() {
@@ -1224,8 +1192,6 @@ fn test_initializer_multiple_roles_and_admin() {
         index += 1;
     };
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer_no_admin() {
@@ -1246,8 +1212,6 @@ fn test_initializer_no_admin() {
     let admin_does_not_have_role = !contract_state.has_role(DEFAULT_ADMIN_ROLE, admin_zero);
     assert!(admin_does_not_have_role);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer_supported_interfaces() {
@@ -1268,8 +1232,6 @@ fn test_initializer_supported_interfaces() {
     let supports_access_control = contract_state.src5.supports_interface(IACCESSCONTROL_ID);
     assert!(supports_access_control);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_initializer_min_delay() {
@@ -1299,8 +1261,6 @@ fn test_initializer_min_delay() {
 //
 // assert_only_role_or_open_role
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_only_role_or_open_role_when_has_role() {
@@ -1342,8 +1302,6 @@ fn test_assert_only_role_or_open_role_unauthorized() {
 
     state.assert_only_role_or_open_role(PROPOSER_ROLE);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test_assert_only_role_or_open_role_with_open_role() {
@@ -1370,8 +1328,6 @@ fn test_assert_only_role_or_open_role_with_open_role() {
 //
 // _before_call
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__before_call() {
@@ -1444,8 +1400,6 @@ fn test__before_call_when_already_done() {
 
     state._before_call(target_id, predecessor);
 }
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__before_call_with_predecessor_done() {
@@ -1495,8 +1449,6 @@ fn test__before_call_with_predecessor_not_done() {
 //
 // _after_call
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__after_call() {
@@ -1574,8 +1526,6 @@ fn test__after_call_already_done() {
 //
 // _schedule
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__schedule() {
@@ -1638,8 +1588,6 @@ fn test__schedule_bad_delay() {
 //
 // _execute
 //
-
-#[ignore]
 #[ignore]
 #[test]
 fn test__execute() {
