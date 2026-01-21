@@ -13,10 +13,11 @@ jobs:
   lint_and_test:
     name: Lint and test Cairo
     runs-on: ubuntu-latest
-    # strategy:
-    #   fail-fast: false
-    #   matrix:
-    #     partition: [ 1, 2, 3 ]
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        partition: [ 1, 2, 3 ]
     steps:
       - uses: actions/checkout@v6
 
@@ -50,7 +51,7 @@ jobs:
         # run: snforge test --partition '${{ matrix.partition }}/3' --workspace --features fuzzing --fuzzer-runs 200
         run: |
           set -o pipefail
-          snforge test --workspace --features fuzzing --fuzzer-runs 200
+          snforge test --partition '${{ matrix.partition }}/3' --workspace --features fuzzing --fuzzer-runs 200
           status=${PIPESTATUS[0]}
           if [ "$status" -ne 0 ]; then
             echo "snforge failed (exit=$status). Last 200 lines:"
@@ -60,8 +61,7 @@ jobs:
 
 
       - name: Run tests and generate coverage report
-        # run: snforge test --partition '${{ matrix.partition }}/3' --workspace --coverage
-        run: snforge test  --workspace --coverage
+        run: snforge test --partition '${{ matrix.partition }}/3' --workspace --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
