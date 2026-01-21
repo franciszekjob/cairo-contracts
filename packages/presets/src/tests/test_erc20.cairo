@@ -112,7 +112,6 @@ fn test_approve() {
 }
 
 #[ignore]
-#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: approve from 0')]
 fn test_approve_from_zero() {
@@ -121,7 +120,6 @@ fn test_approve_from_zero() {
     dispatcher.approve(SPENDER, VALUE);
 }
 
-#[ignore]
 #[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: approve to 0')]
@@ -134,7 +132,6 @@ fn test_approve_to_zero() {
 //
 // transfer
 //
-#[ignore]
 #[ignore]
 #[test]
 fn test_transfer() {
@@ -151,7 +148,6 @@ fn test_transfer() {
 }
 
 #[ignore]
-#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient balance')]
 fn test_transfer_not_enough_balance() {
@@ -163,7 +159,6 @@ fn test_transfer_not_enough_balance() {
 }
 
 #[ignore]
-#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer from 0')]
 fn test_transfer_from_zero() {
@@ -172,7 +167,6 @@ fn test_transfer_from_zero() {
     dispatcher.transfer(RECIPIENT, VALUE);
 }
 
-#[ignore]
 #[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer to 0')]
@@ -401,7 +395,6 @@ fn test_renounceOwnership() {
     assert!(dispatcher.owner().is_zero());
 }
 #[ignore]
-#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_renounceOwnership_from_nonowner() {
@@ -414,7 +407,6 @@ fn test_renounceOwnership_from_nonowner() {
 // upgrade
 //
 #[ignore]
-#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_upgrade_unauthorized() {
@@ -423,7 +415,6 @@ fn test_upgrade_unauthorized() {
     v1.upgrade(CLASS_HASH_ZERO);
 }
 
-#[ignore]
 #[ignore]
 #[test]
 #[should_panic(expected: 'Class hash cannot be zero')]
@@ -445,7 +436,6 @@ fn test_upgraded_event() {
     spy.assert_only_event_upgraded(v1.contract_address, v2_class_hash);
 }
 
-#[ignore]
 #[ignore]
 #[test]
 #[should_panic(expected: 'ENTRYPOINT_NOT_FOUND')]
