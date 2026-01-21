@@ -47,7 +47,16 @@ jobs:
         run: scarb fmt --check --workspace
 
       - name: Run tests
-        run: snforge test --partition '${{ matrix.partition }}/3' --workspace --features fuzzing --fuzzer-runs 200
+        run: |
+          set -o pipefail
+          snforge test --partition '${{ matrix.partition }}/3' --workspace --features fuzzing --fuzzer-runs 200
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            echo "snforge failed (exit=$status). Last 200 lines:"
+            tail -n 200 snforge.log || true
+            exit "$status"
+          fi
+
 
       - name: Run tests and generate coverage report
         run: snforge test --partition '${{ matrix.partition }}/3' --workspace --coverage
