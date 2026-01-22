@@ -76,4 +76,10 @@ jobs:
           echo "cancelled=${{ cancelled() }}"
           echo "failure=${{ failure() }}"
           echo "success=${{ success() }}"
+          echo "Memory:"
+          free -h || true
+          echo "Disk:"
+          df -h || true
+          echo "OOM log:"
+          sudo dmesg -T | egrep -i "out of memory|oom-killer|killed process" | tail -n 50 || true
 
