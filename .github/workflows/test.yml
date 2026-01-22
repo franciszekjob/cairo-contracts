@@ -67,3 +67,13 @@ jobs:
         with:
           file: ./coverage.lcov
           token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Debug runner termination signals
+        if: always()
+        shell: bash
+        run: |
+          echo "job.status=${{ job.status }}"
+          echo "cancelled=${{ cancelled() }}"
+          echo "failure=${{ failure() }}"
+          echo "success=${{ success() }}"
+
