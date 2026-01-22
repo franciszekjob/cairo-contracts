@@ -81,5 +81,5 @@ jobs:
           echo "Disk:"
           df -h || true
           echo "OOM log:"
-          sudo dmesg -T | egrep -i "out of memory|oom-killer|killed process" | tail -n 50 || true
+          sudo dmesg -T | grep -E -i "out of memory|oom-killer|killed process" | tail -n 50 || true
 
