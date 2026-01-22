@@ -71,15 +71,22 @@ jobs:
       - name: Debug runner termination signals
         if: always()
         shell: bash
+        env:
+          JOB_STATUS: ${{ job.status }}
+          WAS_CANCELLED: ${{ cancelled() }}
+          WAS_FAILURE: ${{ failure() }}
+          WAS_SUCCESS: ${{ success() }}
         run: |
-          echo "job.status=${{ job.status }}"
-          echo "cancelled=${{ cancelled() }}"
-          echo "failure=${{ failure() }}"
-          echo "success=${{ success() }}"
+          echo "job.status=$JOB_STATUS"
+          echo "cancelled=$WAS_CANCELLED"
+          echo "failure=$WAS_FAILURE"
+          echo "success=$WAS_SUCCESS"
+
           echo "Memory:"
           free -h || true
           echo "Disk:"
           df -h || true
           echo "OOM log:"
           sudo dmesg -T | grep -E -i "out of memory|oom-killer|killed process" | tail -n 50 || true
+
 
