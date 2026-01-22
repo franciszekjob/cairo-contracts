@@ -73,14 +73,8 @@ jobs:
         shell: bash
         env:
           JOB_STATUS: ${{ job.status }}
-          WAS_CANCELLED: ${{ cancelled() }}
-          WAS_FAILURE: ${{ failure() }}
-          WAS_SUCCESS: ${{ success() }}
         run: |
           echo "job.status=$JOB_STATUS"
-          echo "cancelled=$WAS_CANCELLED"
-          echo "failure=$WAS_FAILURE"
-          echo "success=$WAS_SUCCESS"
 
           echo "Memory:"
           free -h || true
@@ -88,5 +82,6 @@ jobs:
           df -h || true
           echo "OOM log:"
           sudo dmesg -T | grep -E -i "out of memory|oom-killer|killed process" | tail -n 50 || true
+
 
 
