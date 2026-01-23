@@ -12,9 +12,8 @@ on:
 jobs:
   lint_and_test:
     name: Lint and test Cairo
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
       matrix:
         partition: [ 1, 2, 3 ]
     steps:
@@ -47,15 +46,7 @@ jobs:
         run: scarb fmt --check --workspace
 
       - name: Run tests
-        id: run_tests
-        continue-on-error: true
-        shell: bash
-        run: |
-          set -o pipefail
-          snforge test --partition "${{ matrix.partition }}/3" --workspace --features fuzzing --fuzzer-runs 200 2>&1 | tee snforge.log
-          echo "exit_code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
-
-
+        run: snforge test --partition "${{ matrix.partition }}/3" --workspace --features fuzzing --fuzzer-runs 200
 
       - name: Run tests and generate coverage report
         run: snforge test --partition '${{ matrix.partition }}/3' --workspace --coverage
@@ -65,21 +56,3 @@ jobs:
         with:
           file: ./coverage.lcov
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Debug runner termination signals
-        if: always()
-        shell: bash
-        env:
-          JOB_STATUS: ${{ job.status }}
-        run: |
-          echo "job.status=$JOB_STATUS"
-
-          echo "Memory:"
-          free -h || true
-          echo "Disk:"
-          df -h || true
-          echo "OOM log:"
-          sudo dmesg -T | grep -E -i "out of memory|oom-killer|killed process" | tail -n 50 || true
-
-
-
