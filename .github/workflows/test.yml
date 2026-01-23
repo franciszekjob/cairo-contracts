@@ -30,8 +30,8 @@ jobs:
       - name: Install starknet-foundry
         run: |
           asdf plugin add starknet-foundry
-          asdf install starknet-foundry nightly-2026-01-22
-          asdf set starknet-foundry nightly-2026-01-22
+          asdf install starknet-foundry nightly-2026-01-23
+          asdf set starknet-foundry nightly-2026-01-23
 
       - name: Install cairo-coverage
         run: curl -L https://raw.githubusercontent.com/software-mansion/cairo-coverage/main/scripts/install.sh | sh
