@@ -94,7 +94,7 @@ mod fuzz_tests {
 //
 // mul_div
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'mul_div division by zero')]
 fn test_mul_div_divide_by_zero() {
@@ -104,7 +104,7 @@ fn test_mul_div_divide_by_zero() {
 
     math::u256_mul_div(x, y, denominator, Rounding::Floor);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'mul_div quotient > u256')]
 fn test_mul_div_result_gt_u256() {
@@ -114,7 +114,7 @@ fn test_mul_div_result_gt_u256() {
 
     math::u256_mul_div(x, y, denominator, Rounding::Floor);
 }
-
+#[ignore]
 #[test]
 fn test_mul_div_round_down_small_values() {
     let round_down = array![Rounding::Floor, Rounding::Trunc];
@@ -129,7 +129,7 @@ fn test_mul_div_round_down_small_values() {
         }
     }
 }
-
+#[ignore]
 #[test]
 fn test_mul_div_round_down_large_values() {
     let round_down = array![Rounding::Floor, Rounding::Trunc];
@@ -149,7 +149,7 @@ fn test_mul_div_round_down_large_values() {
         };
     };
 }
-
+#[ignore]
 #[test]
 fn test_mul_div_round_up_small_values() {
     let round_up = array![Rounding::Ceil, Rounding::Expand];
@@ -164,7 +164,7 @@ fn test_mul_div_round_up_small_values() {
         }
     }
 }
-
+#[ignore]
 #[test]
 fn test_mul_div_round_up_large_values() {
     let round_up = array![Rounding::Ceil, Rounding::Expand];

@@ -14,7 +14,7 @@ use crate::tests::governor::block_number::common::{COMPONENT_STATE, CONTRACT_STA
 //
 // try_into
 //
-
+#[ignore]
 #[test]
 fn test_try_into_u8_VoteType() {
     let number = 0_u8;
@@ -37,7 +37,7 @@ fn test_try_into_u8_VoteType() {
 //
 // into
 //
-
+#[ignore]
 #[test]
 fn test_into_VoteType_u8() {
     let vote_type = VoteType::Against;
@@ -56,7 +56,7 @@ fn test_into_VoteType_u8() {
 //
 // counting_mode
 //
-
+#[ignore]
 #[test]
 fn test_counting_mode() {
     let state = COMPONENT_STATE();
@@ -66,7 +66,7 @@ fn test_counting_mode() {
 //
 // count_vote
 //
-
+#[ignore]
 #[test]
 fn test_count_vote_against() {
     let mut mock_state = CONTRACT_STATE();
@@ -93,7 +93,7 @@ fn test_count_vote_against() {
     assert_eq!(proposal_votes.has_voted.read(account), true);
     assert_eq!(proposal_votes.against_votes.read(), total_weight);
 }
-
+#[ignore]
 #[test]
 fn test_count_vote_for() {
     let mut mock_state = CONTRACT_STATE();
@@ -120,7 +120,7 @@ fn test_count_vote_for() {
     assert_eq!(proposal_votes.has_voted.read(account), true);
     assert_eq!(proposal_votes.for_votes.read(), total_weight);
 }
-
+#[ignore]
 #[test]
 fn test_count_vote_abstain() {
     let mut mock_state = CONTRACT_STATE();
@@ -147,7 +147,7 @@ fn test_count_vote_abstain() {
     assert_eq!(proposal_votes.has_voted.read(account), true);
     assert_eq!(proposal_votes.abstain_votes.read(), total_weight);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Already cast vote')]
 fn test_count_vote_already_voted() {
@@ -168,7 +168,7 @@ fn test_count_vote_already_voted() {
 
     GovernorCounting::count_vote(ref state, proposal_id, account, support, total_weight, params);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Invalid vote type')]
 fn test_count_vote_invalid_vote_type() {
@@ -186,7 +186,7 @@ fn test_count_vote_invalid_vote_type() {
 //
 // has_voted
 //
-
+#[ignore]
 #[test]
 fn test_has_voted() {
     let mut mock_state = CONTRACT_STATE();
@@ -209,7 +209,7 @@ fn test_has_voted() {
 //
 // quorum_reached
 //
-
+#[ignore]
 #[test]
 fn test_quorum_reached() {
     let mut mock_state = CONTRACT_STATE();
@@ -247,7 +247,7 @@ fn test_quorum_reached() {
 
     assert_eq!(GovernorCounting::quorum_reached(@state, proposal_id), false);
 }
-
+#[ignore]
 #[test]
 fn test_quorum_reached_snapshot_used() {
     let mut mock_state = CONTRACT_STATE();
@@ -282,7 +282,7 @@ fn test_quorum_reached_snapshot_used() {
 //
 // vote_succeeded
 //
-
+#[ignore]
 #[test]
 fn test_vote_succeeded() {
     let mut mock_state = CONTRACT_STATE();

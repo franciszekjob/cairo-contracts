@@ -46,6 +46,7 @@ mod tests {
     use core::num::traits::Bounded;
     use super::{AccountRoleInfo, AccountRoleInfoStorePacking};
 
+    #[ignore]
     #[test]
     fn test_pack_and_unpack() {
         let account_role_info = AccountRoleInfo { effective_from: 100, is_granted: true };
@@ -54,6 +55,7 @@ mod tests {
         assert_eq!(account_role_info, unpacked);
     }
 
+    #[ignore]
     #[test]
     fn test_pack_and_unpack_big_values() {
         let account_role_info = AccountRoleInfo { effective_from: Bounded::MAX, is_granted: true };

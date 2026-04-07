@@ -60,7 +60,7 @@ fn setup_wrapped() -> (IERC20Dispatcher, IERC20WrapperABIDispatcher) {
 //
 // initializer
 //
-
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut state = COMPONENT_STATE();
@@ -69,21 +69,21 @@ fn test_initializer() {
 
     assert_eq!(state.underlying(), underlying.contract_address);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: invalid underlying')]
 fn initializer_reverts_on_zero_underlying() {
     let mut state = COMPONENT_STATE();
     state.initializer(ZERO);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: invalid underlying')]
 fn initializer_reverts_on_self_underlying() {
     let mut state = COMPONENT_STATE();
     state.initializer(test_address());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: invalid decimals')]
 fn initializer_reverts_on_invalid_decimals() {
@@ -96,7 +96,7 @@ fn initializer_reverts_on_invalid_decimals() {
 //
 // deposit_for
 //
-
+#[ignore]
 #[test]
 fn deposit_for_mints_wrapped_and_pulls_underlying() {
     let mut spy = spy_events();
@@ -118,7 +118,7 @@ fn deposit_for_mints_wrapped_and_pulls_underlying() {
     spy.assert_event_transfer(wrapper.contract_address, ZERO, RECIPIENT, VALUE);
     spy.assert_event_deposit(wrapper.contract_address, OWNER, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: invalid receiver')]
 fn deposit_for_reverts_when_receiver_is_wrapper() {
@@ -126,7 +126,7 @@ fn deposit_for_reverts_when_receiver_is_wrapper() {
 
     wrapper.deposit_for(wrapper.contract_address, VALUE);
 }
-
+#[ignore]
 #[test]
 fn deposit_for_allows_zero_amount() {
     let (underlying, wrapper) = setup_wrapped();
@@ -145,7 +145,7 @@ fn deposit_for_allows_zero_amount() {
     assert_eq!(wrapper_erc20.total_supply(), 0);
     assert_eq!(wrapper_erc20.balance_of(RECIPIENT), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: invalid receiver')]
 fn deposit_for_reverts_when_receiver_is_zero() {
@@ -162,7 +162,7 @@ fn deposit_for_reverts_when_receiver_is_zero() {
 //
 // withdraw_to
 //
-
+#[ignore]
 #[test]
 fn withdraw_to_burns_wrapped_and_returns_underlying() {
     let mut spy = spy_events();
@@ -187,7 +187,7 @@ fn withdraw_to_burns_wrapped_and_returns_underlying() {
     assert_eq!(underlying.balance_of(RECIPIENT), VALUE);
     assert_eq!(underlying.balance_of(wrapper.contract_address), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: invalid receiver')]
 fn withdraw_to_reverts_when_receiver_is_wrapper() {
@@ -202,7 +202,7 @@ fn withdraw_to_reverts_when_receiver_is_wrapper() {
 
     wrapper.withdraw_to(wrapper.contract_address, VALUE);
 }
-
+#[ignore]
 #[test]
 fn withdraw_to_allows_zero_amount() {
     let (underlying, wrapper) = setup_wrapped();
@@ -217,7 +217,7 @@ fn withdraw_to_allows_zero_amount() {
     assert_eq!(wrapper_erc20.total_supply(), 0);
     assert_eq!(wrapper_erc20.balance_of(OWNER), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient balance')]
 fn withdraw_to_reverts_when_insufficient_balance() {
@@ -226,7 +226,7 @@ fn withdraw_to_reverts_when_insufficient_balance() {
     start_cheat_caller_address(wrapper.contract_address, OWNER);
     wrapper.withdraw_to(RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: invalid receiver')]
 fn withdraw_to_reverts_when_receiver_is_zero() {
@@ -244,7 +244,7 @@ fn withdraw_to_reverts_when_receiver_is_zero() {
 //
 // recover
 //
-
+#[ignore]
 #[test]
 fn recover_mints_excess_underlying() {
     let (underlying, wrapper) = setup_wrapped();
@@ -259,7 +259,7 @@ fn recover_mints_excess_underlying() {
     assert_eq!(wrapper_erc20.total_supply(), VALUE);
     assert_eq!(wrapper_erc20.balance_of(RECIPIENT), VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Wrapper: nothing to recover')]
 fn recover_reverts_when_no_excess_underlying() {

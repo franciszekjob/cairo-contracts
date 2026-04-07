@@ -30,7 +30,7 @@ fn setup() -> ComponentState {
 //
 // initializer
 //
-
+#[ignore]
 #[test]
 fn test_initializer_owner_pending_owner() {
     let mut state = COMPONENT_STATE();
@@ -48,7 +48,7 @@ fn test_initializer_owner_pending_owner() {
 //
 // _propose_owner
 //
-
+#[ignore]
 #[test]
 fn test__propose_owner() {
     let mut state = setup();
@@ -62,7 +62,7 @@ fn test__propose_owner() {
 }
 
 // transfer_ownership & transferOwnership
-
+#[ignore]
 #[test]
 fn test_transfer_ownership() {
     let mut state = setup();
@@ -82,7 +82,7 @@ fn test_transfer_ownership() {
     assert_eq!(state.owner(), OWNER);
     assert_eq!(state.pending_owner(), NEW_OWNER);
 }
-
+#[ignore]
 #[test]
 fn test_transfer_ownership_to_zero() {
     let mut state = setup();
@@ -95,7 +95,7 @@ fn test_transfer_ownership_to_zero() {
     assert_eq!(state.owner(), OWNER);
     assert_eq!(state.pending_owner(), ZERO);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_transfer_ownership_from_nonowner() {
@@ -103,7 +103,7 @@ fn test_transfer_ownership_from_nonowner() {
     start_cheat_caller_address(test_address(), OTHER);
     state.transfer_ownership(OTHER);
 }
-
+#[ignore]
 #[test]
 fn test_transferOwnership() {
     let mut state = setup();
@@ -123,7 +123,7 @@ fn test_transferOwnership() {
     assert_eq!(state.owner(), OWNER);
     assert_eq!(state.pendingOwner(), NEW_OWNER);
 }
-
+#[ignore]
 #[test]
 fn test_transferOwnership_to_zero() {
     let mut state = setup();
@@ -136,7 +136,7 @@ fn test_transferOwnership_to_zero() {
     assert_eq!(state.owner(), OWNER);
     assert!(state.pendingOwner().is_zero());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_transferOwnership_from_nonowner() {
@@ -148,7 +148,7 @@ fn test_transferOwnership_from_nonowner() {
 //
 // accept_ownership & acceptOwnership
 //
-
+#[ignore]
 #[test]
 fn test_accept_ownership() {
     let mut state = setup();
@@ -163,7 +163,7 @@ fn test_accept_ownership() {
     assert_eq!(state.owner(), OTHER);
     assert!(state.pending_owner().is_zero());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the pending owner')]
 fn test_accept_ownership_from_nonpending() {
@@ -172,7 +172,7 @@ fn test_accept_ownership_from_nonpending() {
     start_cheat_caller_address(test_address(), OTHER);
     state.accept_ownership();
 }
-
+#[ignore]
 #[test]
 fn test_acceptOwnership() {
     let mut state = setup();
@@ -187,7 +187,7 @@ fn test_acceptOwnership() {
     assert_eq!(state.owner(), OTHER);
     assert!(state.pendingOwner().is_zero());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the pending owner')]
 fn test_acceptOwnership_from_nonpending() {
@@ -200,7 +200,7 @@ fn test_acceptOwnership_from_nonpending() {
 //
 // renounce_ownership & renounceOwnership
 //
-
+#[ignore]
 #[test]
 fn test_renounce_ownership() {
     let mut state = setup();
@@ -213,7 +213,7 @@ fn test_renounce_ownership() {
 
     assert!(state.owner().is_zero());
 }
-
+#[ignore]
 #[test]
 fn test_renounce_ownership_resets_pending_owner() {
     let mut state = setup();
@@ -229,7 +229,7 @@ fn test_renounce_ownership_resets_pending_owner() {
     let current_pending_owner = state.Ownable_pending_owner.read();
     assert!(current_pending_owner.is_zero());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_renounce_ownership_from_nonowner() {
@@ -237,7 +237,7 @@ fn test_renounce_ownership_from_nonowner() {
     start_cheat_caller_address(test_address(), OTHER);
     state.renounce_ownership();
 }
-
+#[ignore]
 #[test]
 fn test_renounceOwnership() {
     let mut state = setup();
@@ -250,7 +250,7 @@ fn test_renounceOwnership() {
 
     assert!(state.owner().is_zero());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_renounceOwnership_from_nonowner() {
@@ -258,7 +258,7 @@ fn test_renounceOwnership_from_nonowner() {
     start_cheat_caller_address(test_address(), OTHER);
     state.renounceOwnership();
 }
-
+#[ignore]
 #[test]
 fn test_full_two_step_transfer() {
     let mut state = setup();

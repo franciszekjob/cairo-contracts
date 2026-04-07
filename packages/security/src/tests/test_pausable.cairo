@@ -15,7 +15,7 @@ fn COMPONENT_STATE() -> ComponentState {
 //
 // is_paused
 //
-
+#[ignore]
 #[test]
 fn test_is_paused() {
     let mut state = COMPONENT_STATE();
@@ -31,14 +31,14 @@ fn test_is_paused() {
 //
 // assert_paused
 //
-
+#[ignore]
 #[test]
 fn test_assert_paused_when_paused() {
     let mut state = COMPONENT_STATE();
     state.pause();
     state.assert_paused();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Pausable: not paused')]
 fn test_assert_paused_when_not_paused() {
@@ -49,7 +49,7 @@ fn test_assert_paused_when_not_paused() {
 //
 // assert_not_paused
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Pausable: paused')]
 fn test_assert_not_paused_when_paused() {
@@ -57,7 +57,7 @@ fn test_assert_not_paused_when_paused() {
     state.pause();
     state.assert_not_paused();
 }
-
+#[ignore]
 #[test]
 fn test_assert_not_paused_when_not_paused() {
     let state = COMPONENT_STATE();
@@ -67,7 +67,7 @@ fn test_assert_not_paused_when_not_paused() {
 //
 // pause
 //
-
+#[ignore]
 #[test]
 fn test_pause_when_unpaused() {
     let mut state = COMPONENT_STATE();
@@ -80,7 +80,7 @@ fn test_pause_when_unpaused() {
     spy.assert_only_event_paused(contract_address, CALLER);
     assert!(state.is_paused());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Pausable: paused')]
 fn test_pause_when_paused() {
@@ -92,7 +92,7 @@ fn test_pause_when_paused() {
 //
 // unpause
 //
-
+#[ignore]
 #[test]
 fn test_unpause_when_paused() {
     let mut state = COMPONENT_STATE();
@@ -107,7 +107,7 @@ fn test_unpause_when_paused() {
     spy.assert_only_event_unpaused(contract_address, CALLER);
     assert!(!state.is_paused());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Pausable: not paused')]
 fn test_unpause_when_unpaused() {

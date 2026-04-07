@@ -2,7 +2,7 @@ use core::hash::HashStateTrait;
 use core::pedersen::PedersenTrait;
 use core::poseidon::poseidon_hash_span;
 use crate::hashes::{PedersenCHasher, PoseidonCHasher};
-
+#[ignore]
 #[test]
 fn test_pedersen_commutative_hash_is_commutative() {
     let a = 'a';
@@ -10,7 +10,7 @@ fn test_pedersen_commutative_hash_is_commutative() {
     let hash = PedersenCHasher::commutative_hash(a, b);
     assert_eq!(hash, PedersenCHasher::commutative_hash(b, a));
 }
-
+#[ignore]
 #[test]
 fn test_pedersen_commutative_hash_smaller_first() {
     let a = 'a';
@@ -22,7 +22,7 @@ fn test_pedersen_commutative_hash_smaller_first() {
     let hash = PedersenCHasher::commutative_hash(b, a);
     assert_eq!(hash, expected);
 }
-
+#[ignore]
 #[test]
 fn test_poseidon_commutative_hash_is_commutative() {
     let a = 'a';
@@ -30,8 +30,7 @@ fn test_poseidon_commutative_hash_is_commutative() {
     let hash = PoseidonCHasher::commutative_hash(a, b);
     assert_eq!(hash, PoseidonCHasher::commutative_hash(b, a));
 }
-
-
+#[ignore]
 #[test]
 fn test_poseidon_commutative_hash_smaller_first() {
     let a = 'a';

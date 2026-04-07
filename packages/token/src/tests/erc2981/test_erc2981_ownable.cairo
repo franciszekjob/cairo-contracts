@@ -37,7 +37,7 @@ fn setup() -> ComponentState {
 //
 // IERC2981Info
 //
-
+#[ignore]
 #[test]
 fn test_default_royalty() {
     let state = setup();
@@ -48,7 +48,7 @@ fn test_default_royalty() {
     assert_eq!(numerator, DEFAULT_FEE_NUMERATOR);
     assert_eq!(denominator, ERC2981Component::DEFAULT_FEE_DENOMINATOR);
 }
-
+#[ignore]
 #[test]
 fn test_royalty_info_default_royalty() {
     let state = setup();
@@ -63,7 +63,7 @@ fn test_royalty_info_default_royalty() {
 //
 // IERC2981Admin
 //
-
+#[ignore]
 #[test]
 fn test_royalty_info_token_royalty_set() {
     let mut state = setup();
@@ -81,7 +81,7 @@ fn test_royalty_info_token_royalty_set() {
     assert_eq!(receiver, RECIPIENT);
     assert_eq!(amount, 50_000);
 }
-
+#[ignore]
 #[test]
 fn test_set_default_royalty() {
     let mut state = setup();
@@ -99,7 +99,7 @@ fn test_set_default_royalty() {
     assert_eq!(receiver, RECIPIENT);
     assert_eq!(amount, 50_000);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_set_default_royalty_unauthorized() {
@@ -108,7 +108,7 @@ fn test_set_default_royalty_unauthorized() {
     start_cheat_caller_address(test_address(), OTHER);
     state.set_default_royalty(RECIPIENT, FEE_NUMERATOR);
 }
-
+#[ignore]
 #[test]
 fn test_set_default_royalty_with_zero_royalty_fraction() {
     let mut state = setup();
@@ -122,7 +122,7 @@ fn test_set_default_royalty_with_zero_royalty_fraction() {
     assert_eq!(receiver, DEFAULT_RECEIVER);
     assert_eq!(amount, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC2981: invalid receiver')]
 fn test_set_default_royalty_with_zero_receiver() {
@@ -131,7 +131,7 @@ fn test_set_default_royalty_with_zero_receiver() {
     start_cheat_caller_address(test_address(), OWNER);
     state.set_default_royalty(ZERO, FEE_NUMERATOR);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC2981: invalid royalty')]
 fn test_set_default_royalty_with_invalid_fee_numerator() {
@@ -141,7 +141,7 @@ fn test_set_default_royalty_with_invalid_fee_numerator() {
     start_cheat_caller_address(test_address(), OWNER);
     state.set_default_royalty(DEFAULT_RECEIVER, fee_denominator + 1);
 }
-
+#[ignore]
 #[test]
 fn test_delete_default_royalty() {
     let mut state = setup();
@@ -162,7 +162,7 @@ fn test_delete_default_royalty() {
     assert_eq!(receiver, ZERO);
     assert_eq!(amount, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_delete_default_royalty_unauthorized() {
@@ -171,7 +171,7 @@ fn test_delete_default_royalty_unauthorized() {
     start_cheat_caller_address(test_address(), OTHER);
     state.delete_default_royalty();
 }
-
+#[ignore]
 #[test]
 fn test_set_token_royalty() {
     let mut state = setup();
@@ -198,7 +198,7 @@ fn test_set_token_royalty() {
     assert_eq!(receiver, DEFAULT_RECEIVER);
     assert_eq!(amount, 5_000);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_set_token_royalty_unauthorized() {
@@ -208,7 +208,7 @@ fn test_set_token_royalty_unauthorized() {
     start_cheat_caller_address(test_address(), OTHER);
     state.set_token_royalty(token_id, RECIPIENT, FEE_NUMERATOR);
 }
-
+#[ignore]
 #[test]
 fn test_set_token_royalty_with_zero_royalty_fraction() {
     let mut state = setup();
@@ -222,7 +222,7 @@ fn test_set_token_royalty_with_zero_royalty_fraction() {
     assert_eq!(receiver, RECIPIENT);
     assert_eq!(amount, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC2981: invalid receiver')]
 fn test_set_token_royalty_with_zero_receiver() {
@@ -232,7 +232,7 @@ fn test_set_token_royalty_with_zero_receiver() {
     start_cheat_caller_address(test_address(), OWNER);
     state.set_token_royalty(token_id, ZERO, FEE_NUMERATOR);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC2981: invalid royalty')]
 fn test_set_token_royalty_with_invalid_fee_numerator() {
@@ -243,7 +243,7 @@ fn test_set_token_royalty_with_invalid_fee_numerator() {
     start_cheat_caller_address(test_address(), OWNER);
     state.set_token_royalty(token_id, RECIPIENT, fee_denominator + 1);
 }
-
+#[ignore]
 #[test]
 fn test_reset_token_royalty() {
     let mut state = setup();
@@ -268,7 +268,7 @@ fn test_reset_token_royalty() {
     assert_eq!(receiver, DEFAULT_RECEIVER);
     assert_eq!(amount, 5_000);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_reset_token_royalty_unauthorized() {

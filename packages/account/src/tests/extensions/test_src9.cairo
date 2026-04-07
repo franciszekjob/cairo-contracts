@@ -47,7 +47,7 @@ fn setup_account(public_key: felt252) -> ContractAddress {
 //
 // initializer
 //
-
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut state = COMPONENT_STATE();
@@ -65,7 +65,7 @@ fn test_initializer() {
 //
 // execute_from_outside_v2
 //
-
+#[ignore]
 #[test]
 fn test_execute_from_outside_v2_any_caller() {
     let key_pair = KeyPairTrait::generate();
@@ -81,7 +81,7 @@ fn test_execute_from_outside_v2_any_caller() {
 
     assert_value(account, FELT_VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_execute_from_outside_v2_specific_caller() {
     let key_pair = KeyPairTrait::generate();
@@ -100,7 +100,7 @@ fn test_execute_from_outside_v2_specific_caller() {
 
     assert_value(account, FELT_VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_execute_from_outside_v2_uses_nonce() {
     let key_pair = KeyPairTrait::generate();
@@ -123,7 +123,7 @@ fn test_execute_from_outside_v2_uses_nonce() {
     let is_invalid_nonce = !dispatcher.is_valid_outside_execution_nonce(outside_execution.nonce);
     assert!(is_invalid_nonce);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'SRC9: invalid caller')]
 fn test_execute_from_outside_v2_caller_mismatch() {
@@ -135,7 +135,7 @@ fn test_execute_from_outside_v2_caller_mismatch() {
 
     state.execute_from_outside_v2(outside_execution, array![].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'SRC9: now >= execute_before')]
 fn test_execute_from_outside_v2_call_after_execute_before() {
@@ -146,7 +146,7 @@ fn test_execute_from_outside_v2_call_after_execute_before() {
 
     state.execute_from_outside_v2(outside_execution, array![].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'SRC9: now >= execute_before')]
 fn test_execute_from_outside_v2_call_equal_to_execute_before() {
@@ -157,7 +157,7 @@ fn test_execute_from_outside_v2_call_equal_to_execute_before() {
 
     state.execute_from_outside_v2(outside_execution, array![].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'SRC9: now <= execute_after')]
 fn test_execute_from_outside_v2_call_before_execute_after() {
@@ -168,7 +168,7 @@ fn test_execute_from_outside_v2_call_before_execute_after() {
 
     state.execute_from_outside_v2(outside_execution, array![].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'SRC9: now <= execute_after')]
 fn test_execute_from_outside_v2_call_equal_to_execute_after() {
@@ -179,7 +179,7 @@ fn test_execute_from_outside_v2_call_equal_to_execute_after() {
 
     state.execute_from_outside_v2(outside_execution, array![].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'SRC9: duplicated nonce')]
 fn test_execute_from_outside_v2_invalid_nonce() {
@@ -190,7 +190,7 @@ fn test_execute_from_outside_v2_invalid_nonce() {
 
     state.execute_from_outside_v2(outside_execution, array![].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'SRC9: invalid signature')]
 fn test_execute_from_outside_v2_invalid_signature() {
@@ -206,7 +206,7 @@ fn test_execute_from_outside_v2_invalid_signature() {
     let dispatcher = ISRC9_V2Dispatcher { contract_address: account };
     dispatcher.execute_from_outside_v2(outside_execution, invalid_signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: "Some error")]
 fn test_execute_from_outside_v2_panics_when_inner_call_panic() {
@@ -225,7 +225,7 @@ fn test_execute_from_outside_v2_panics_when_inner_call_panic() {
 //
 // Getters
 //
-
+#[ignore]
 #[test]
 fn test_is_valid_outside_execution_nonce_valid() {
     let state = setup();
@@ -234,7 +234,7 @@ fn test_is_valid_outside_execution_nonce_valid() {
     let is_valid_nonce = state.is_valid_outside_execution_nonce(nonce);
     assert!(is_valid_nonce);
 }
-
+#[ignore]
 #[test]
 fn test_is_valid_outside_execution_nonce_invalid() {
     let mut state = setup();

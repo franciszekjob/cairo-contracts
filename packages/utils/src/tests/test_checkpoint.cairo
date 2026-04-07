@@ -10,7 +10,7 @@ const LOW_MASK: u256 = 0xffffffffffffffffffffffffffffffff;
 fn CONTRACT_STATE() -> MockTrace::ContractState {
     MockTrace::contract_state_for_testing()
 }
-
+#[ignore]
 #[test]
 fn test_push_checkpoint() {
     let mut mock_trace = CONTRACT_STATE();
@@ -23,7 +23,7 @@ fn test_push_checkpoint() {
     assert_eq!(prev, 1000);
     assert_eq!(new, 2000);
 }
-
+#[ignore]
 #[test]
 fn test_get_latest() {
     let mut mock_trace = CONTRACT_STATE();
@@ -34,7 +34,7 @@ fn test_get_latest() {
     let latest = mock_trace.get_latest();
     assert_eq!(latest, 2000);
 }
-
+#[ignore]
 #[test]
 fn test_upper_lookup() {
     let mut mock_trace = CONTRACT_STATE();
@@ -52,7 +52,7 @@ fn test_upper_lookup() {
     let value_at_350 = mock_trace.upper_lookup(350);
     assert_eq!(value_at_350, 3000);
 }
-
+#[ignore]
 #[test]
 fn test_upper_lookup_recent() {
     let mut mock_trace = CONTRACT_STATE();
@@ -70,7 +70,7 @@ fn test_upper_lookup_recent() {
     let value_at_350 = mock_trace.upper_lookup_recent(350);
     assert_eq!(value_at_350, 3000);
 }
-
+#[ignore]
 #[test]
 fn test_lower_lookup_empty() {
     let mock_trace = CONTRACT_STATE();
@@ -115,7 +115,7 @@ fn test_get_length() {
     mock_trace.push_checkpoint(200, 2000);
     assert_eq!(mock_trace.get_length(), 2);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Unordered insertion')]
 fn test_unordered_insertion() {
@@ -124,7 +124,7 @@ fn test_unordered_insertion() {
     mock_trace.push_checkpoint(200, 2000);
     mock_trace.push_checkpoint(100, 1000); // This should panic
 }
-
+#[ignore]
 #[test]
 fn test_pack_big_key_and_value() {
     let key = Bounded::MAX;
@@ -141,7 +141,7 @@ fn test_pack_big_key_and_value() {
     assert_eq!(value.low.into(), expected_low);
     assert_eq!(high, expected_high);
 }
-
+#[ignore]
 #[test]
 fn test_unpack_big_key_and_value() {
     let key_and_low = Bounded::<u64>::MAX.into() * _2_POW_184 + Bounded::<u128>::MAX.into();

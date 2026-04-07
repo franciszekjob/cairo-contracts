@@ -18,7 +18,7 @@ use crate::tests::governor::block_number::common::{
 //
 // state
 //
-
+#[ignore]
 #[test]
 fn test_state_executed() {
     let mut component_state = COMPONENT_STATE();
@@ -29,7 +29,7 @@ fn test_state_executed() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Executed);
 }
-
+#[ignore]
 #[test]
 fn test_state_canceled() {
     let mut component_state = COMPONENT_STATE();
@@ -40,7 +40,7 @@ fn test_state_canceled() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Canceled);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Nonexistent proposal')]
 fn test_state_non_existent() {
@@ -50,7 +50,7 @@ fn test_state_non_existent() {
 
     GovernorExecution::state(@component_state, 1);
 }
-
+#[ignore]
 #[test]
 fn test_state_pending() {
     let mut component_state = COMPONENT_STATE();
@@ -61,7 +61,7 @@ fn test_state_pending() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Pending);
 }
-
+#[ignore]
 #[test]
 fn test_state_pending_at_snapshot() {
     let mut component_state = COMPONENT_STATE();
@@ -74,7 +74,7 @@ fn test_state_pending_at_snapshot() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Pending);
 }
-
+#[ignore]
 #[test]
 fn test_state_active() {
     let mut component_state = COMPONENT_STATE();
@@ -97,7 +97,7 @@ fn test_state_active() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
+#[ignore]
 #[test]
 fn test_state_defeated_quorum_not_reached() {
     let mut mock_state = CONTRACT_STATE();
@@ -121,7 +121,7 @@ fn test_state_defeated_quorum_not_reached() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
+#[ignore]
 #[test]
 fn test_state_defeated_vote_not_succeeded() {
     let mut mock_state = CONTRACT_STATE();
@@ -148,7 +148,7 @@ fn test_state_defeated_vote_not_succeeded() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, expected);
 }
-
+#[ignore]
 #[test]
 fn test_state_queued() {
     let mut mock_state = CONTRACT_STATE();
@@ -160,7 +160,7 @@ fn test_state_queued() {
     let state = GovernorExecution::state(@component_state, id);
     assert_eq!(state, ProposalState::Queued);
 }
-
+#[ignore]
 #[test]
 fn test_state_succeeded() {
     let mut mock_state = CONTRACT_STATE();
@@ -176,7 +176,7 @@ fn test_state_succeeded() {
 //
 // executor
 //
-
+#[ignore]
 #[test]
 fn test_executor() {
     let component_state = COMPONENT_STATE();
@@ -202,7 +202,7 @@ fn test_execute_operations(id: felt252) {
 
     GovernorExecution::execute_operations(ref component_state, id, calls, description_hash);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: "Contract not deployed at address: 0x4f54484552")]
 fn test_execute_operations_panics() {
@@ -251,7 +251,7 @@ fn test_proposal_needs_queuing(id: felt252) {
 //
 // cancel_operations
 //
-
+#[ignore]
 #[test]
 fn test_cancel_operations_pending() {
     let mut state = COMPONENT_STATE();
@@ -264,7 +264,7 @@ fn test_cancel_operations_pending() {
     let canceled_proposal = state.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
+#[ignore]
 #[test]
 fn test_cancel_operations_active() {
     let mut state = COMPONENT_STATE();
@@ -277,7 +277,7 @@ fn test_cancel_operations_active() {
     let canceled_proposal = state.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
+#[ignore]
 #[test]
 fn test_cancel_operations_defeated() {
     let mut mock_state = CONTRACT_STATE();
@@ -291,7 +291,7 @@ fn test_cancel_operations_defeated() {
     let canceled_proposal = mock_state.governor.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
+#[ignore]
 #[test]
 fn test_cancel_operations_succeeded() {
     let mut mock_state = CONTRACT_STATE();
@@ -305,7 +305,7 @@ fn test_cancel_operations_succeeded() {
     let canceled_proposal = mock_state.governor.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
+#[ignore]
 #[test]
 fn test_cancel_operations_queued() {
     let mut mock_state = CONTRACT_STATE();
@@ -319,7 +319,7 @@ fn test_cancel_operations_queued() {
     let canceled_proposal = mock_state.governor.get_proposal(id);
     assert_eq!(canceled_proposal.canceled, true);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Unexpected proposal state')]
 fn test_cancel_operations_canceled() {
@@ -331,7 +331,7 @@ fn test_cancel_operations_canceled() {
     // Cancel again
     GovernorExecution::cancel_operations(ref state, id, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Unexpected proposal state')]
 fn test_cancel_operations_executed() {

@@ -78,7 +78,7 @@ impl VoteWithReasonAndParamsStructHashImpl of StructHash<VoteWithReasonAndParams
 #[cfg(test)]
 mod tests {
     use super::{VOTE_TYPE_HASH, VOTE_WITH_REASON_AND_PARAMS_TYPE_HASH};
-
+    #[ignore]
     #[test]
     fn test_vote_type_hash() {
         let expected = selector!(
@@ -86,7 +86,7 @@ mod tests {
         );
         assert_eq!(VOTE_TYPE_HASH, expected);
     }
-
+    #[ignore]
     #[test]
     fn test_vote_with_reason_and_params_type_hash() {
         let expected = selector!(

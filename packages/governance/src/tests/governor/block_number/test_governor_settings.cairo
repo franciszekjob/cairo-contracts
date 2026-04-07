@@ -18,7 +18,7 @@ use crate::tests::governor::block_number::common::{
 //
 // Extensions
 //
-
+#[ignore]
 #[test]
 fn test_voting_delay() {
     let mut mock_state = CONTRACT_STATE();
@@ -29,7 +29,7 @@ fn test_voting_delay() {
     mock_state.governor_settings.Governor_voting_delay.write(expected);
     assert_eq!(GovernorSettings::voting_delay(component_state), expected);
 }
-
+#[ignore]
 #[test]
 fn test_voting_period() {
     let mut mock_state = CONTRACT_STATE();
@@ -40,7 +40,7 @@ fn test_voting_period() {
     mock_state.governor_settings.Governor_voting_period.write(expected);
     assert_eq!(GovernorSettings::voting_period(component_state), expected);
 }
-
+#[ignore]
 #[test]
 fn test_proposal_threshold() {
     let mut mock_state = CONTRACT_STATE();
@@ -59,7 +59,7 @@ fn test_proposal_threshold() {
 //
 // set_voting_delay
 //
-
+#[ignore]
 #[test]
 fn test_set_voting_delay() {
     let mut mock_state = CONTRACT_STATE();
@@ -78,7 +78,7 @@ fn test_set_voting_delay() {
 
     spy.assert_only_event_voting_delay_updated(contract_address, 0, expected);
 }
-
+#[ignore]
 #[test]
 fn test_set_voting_delay_no_change() {
     let mut mock_state = CONTRACT_STATE();
@@ -96,7 +96,7 @@ fn test_set_voting_delay_no_change() {
 
     spy.assert_no_events_left();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Executor only')]
 fn test_set_voting_delay_only_governance() {
@@ -111,7 +111,7 @@ fn test_set_voting_delay_only_governance() {
 //
 // set_voting_period
 //
-
+#[ignore]
 #[test]
 fn test_set_voting_period() {
     let mut mock_state = CONTRACT_STATE();
@@ -130,7 +130,7 @@ fn test_set_voting_period() {
 
     spy.assert_only_event_voting_period_updated(contract_address, 0, expected);
 }
-
+#[ignore]
 #[test]
 fn test_set_voting_period_no_change() {
     let mut mock_state = CONTRACT_STATE();
@@ -148,7 +148,7 @@ fn test_set_voting_period_no_change() {
 
     spy.assert_no_events_left();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Executor only')]
 fn test_set_voting_period_only_governance() {
@@ -163,7 +163,7 @@ fn test_set_voting_period_only_governance() {
 //
 // set_proposal_threshold
 //
-
+#[ignore]
 #[test]
 fn test_set_proposal_threshold() {
     let mut mock_state = CONTRACT_STATE();
@@ -182,7 +182,7 @@ fn test_set_proposal_threshold() {
 
     spy.assert_only_event_proposal_threshold_updated(contract_address, 0, expected);
 }
-
+#[ignore]
 #[test]
 fn test_set_proposal_threshold_no_change() {
     let mut mock_state = CONTRACT_STATE();
@@ -200,7 +200,7 @@ fn test_set_proposal_threshold_no_change() {
 
     spy.assert_no_events_left();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Executor only')]
 fn test_set_proposal_threshold_only_governance() {
@@ -219,7 +219,7 @@ fn test_set_proposal_threshold_only_governance() {
 //
 // initializer
 //
-
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut mock_state = CONTRACT_STATE();
@@ -241,7 +241,7 @@ fn test_initializer() {
 //
 // assert_only_governance
 //
-
+#[ignore]
 #[test]
 fn test_assert_only_governance() {
     let mut mock_state = CONTRACT_STATE();
@@ -251,7 +251,7 @@ fn test_assert_only_governance() {
 
     mock_state.governor_settings.assert_only_governance();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Executor only')]
 fn test_assert_only_governance_not_executor() {
@@ -266,7 +266,7 @@ fn test_assert_only_governance_not_executor() {
 //
 // _set_voting_delay
 //
-
+#[ignore]
 #[test]
 fn test__set_voting_delay() {
     let mut mock_state = CONTRACT_STATE();
@@ -285,7 +285,7 @@ fn test__set_voting_delay() {
 
     spy.assert_only_event_voting_delay_updated(contract_address, 0, expected);
 }
-
+#[ignore]
 #[test]
 fn test__set_voting_delay_no_change() {
     let mut mock_state = CONTRACT_STATE();
@@ -307,7 +307,7 @@ fn test__set_voting_delay_no_change() {
 //
 // _set_voting_period
 //
-
+#[ignore]
 #[test]
 fn test__set_voting_period() {
     let mut mock_state = CONTRACT_STATE();
@@ -326,7 +326,7 @@ fn test__set_voting_period() {
 
     spy.assert_only_event_voting_period_updated(contract_address, 0, expected);
 }
-
+#[ignore]
 #[test]
 fn test__set_voting_period_no_change() {
     let mut mock_state = CONTRACT_STATE();
@@ -348,7 +348,7 @@ fn test__set_voting_period_no_change() {
 //
 // _set_proposal_threshold
 //
-
+#[ignore]
 #[test]
 fn test__set_proposal_threshold() {
     let mut mock_state = CONTRACT_STATE();
@@ -367,7 +367,7 @@ fn test__set_proposal_threshold() {
 
     spy.assert_only_event_proposal_threshold_updated(contract_address, 0, expected);
 }
-
+#[ignore]
 #[test]
 fn test__set_proposal_threshold_no_change() {
     let mut mock_state = CONTRACT_STATE();

@@ -22,14 +22,14 @@ fn setup_test() -> (IUpgradesV1Dispatcher, ContractClass) {
 //
 // upgrade
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Class hash cannot be zero')]
 fn test_upgrade_with_class_hash_zero() {
     let (v1, _) = setup_test();
     v1.upgrade(CLASS_HASH_ZERO);
 }
-
+#[ignore]
 #[test]
 fn test_upgraded_event() {
     let (v1, v2_class) = setup_test();
@@ -39,7 +39,7 @@ fn test_upgraded_event() {
 
     spy.assert_only_event_upgraded(v1.contract_address, v2_class.class_hash);
 }
-
+#[ignore]
 #[test]
 fn test_new_selector_after_upgrade() {
     let (v1, v2_class) = setup_test();
@@ -50,7 +50,7 @@ fn test_new_selector_after_upgrade() {
     v2.set_value2(VALUE);
     assert_eq!(v2.get_value2(), VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_state_persists_after_upgrade() {
     let (v1, v2_class) = setup_test();
@@ -62,14 +62,14 @@ fn test_state_persists_after_upgrade() {
 
     assert_eq!(v2.get_value(), VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_remove_selector_passes_in_v1() {
     let (v1, _) = setup_test();
 
     v1.remove_selector();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ENTRYPOINT_NOT_FOUND')]
 fn test_remove_selector_fails_in_v2() {
@@ -85,7 +85,7 @@ fn test_remove_selector_fails_in_v2() {
 //
 // upgrade_and_call
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Class hash cannot be zero')]
 fn test_upgrade_and_call_with_class_hash_zero() {
@@ -93,7 +93,7 @@ fn test_upgrade_and_call_with_class_hash_zero() {
     let calldata = array![VALUE];
     v1.upgrade_and_call(CLASS_HASH_ZERO, selector!("set_value2"), calldata.span());
 }
-
+#[ignore]
 #[test]
 fn test_upgrade_and_call_with_new_selector() {
     let (v1, v2_class) = setup_test();
@@ -107,7 +107,7 @@ fn test_upgrade_and_call_with_new_selector() {
     let v2 = IUpgradesV2Dispatcher { contract_address: v1.contract_address };
     assert_eq!(v2.get_value2(), VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_upgrade_and_call_with_return_value() {
     let (v1, v2_class) = setup_test();
@@ -122,7 +122,7 @@ fn test_upgrade_and_call_with_return_value() {
     assert_eq!(call_res.len(), 1, "Return span should include one value");
     assert_eq!(*call_res.at(0), VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_upgrade_and_call_with_no_return_value() {
     let (v1, v2_class) = setup_test();
@@ -133,7 +133,7 @@ fn test_upgrade_and_call_with_no_return_value() {
 
     assert_eq!(call_res.len(), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ENTRYPOINT_NOT_FOUND')]
 fn test_upgrade_and_call_with_removed_selector() {

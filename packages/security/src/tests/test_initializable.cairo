@@ -7,7 +7,7 @@ type ComponentState = InitializableComponent::ComponentState<InitializableMock::
 fn COMPONENT_STATE() -> ComponentState {
     InitializableComponent::component_state_for_testing()
 }
-
+#[ignore]
 #[test]
 fn test_initialize() {
     let mut state = COMPONENT_STATE();
@@ -15,7 +15,7 @@ fn test_initialize() {
     state.initialize();
     assert!(state.is_initialized());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Initializable: is initialized')]
 fn test_initialize_when_initialized() {

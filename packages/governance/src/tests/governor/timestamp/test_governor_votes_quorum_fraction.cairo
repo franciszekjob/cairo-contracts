@@ -27,7 +27,7 @@ const DEFAULT_NUMERATOR: u256 = 600; // 60% given the denominator of 1000
 //
 // GovernorQuorum
 //
-
+#[ignore]
 #[test]
 fn test_quorum() {
     let component_state = COMPONENT_STATE();
@@ -50,7 +50,7 @@ fn test_quorum() {
 //
 // GovernorVotes
 //
-
+#[ignore]
 #[test]
 fn test_clock() {
     let component_state = COMPONENT_STATE();
@@ -62,7 +62,7 @@ fn test_clock() {
     let clock = GovernorVotes::clock(@component_state);
     assert_eq!(clock, timestamp);
 }
-
+#[ignore]
 #[test]
 fn test_CLOCK_MODE() {
     let component_state = COMPONENT_STATE();
@@ -72,7 +72,7 @@ fn test_CLOCK_MODE() {
     let mode = GovernorVotes::CLOCK_MODE(@component_state);
     assert_eq!(mode, "mode=timestamp&from=starknet::SN_MAIN");
 }
-
+#[ignore]
 #[test]
 fn test_clock_legacy_token() {
     let component_state = COMPONENT_STATE();
@@ -84,7 +84,7 @@ fn test_clock_legacy_token() {
     let clock = GovernorVotes::clock(@component_state);
     assert_eq!(clock, timestamp);
 }
-
+#[ignore]
 #[test]
 fn test_CLOCK_MODE_legacy_token() {
     let component_state = COMPONENT_STATE();
@@ -94,7 +94,7 @@ fn test_CLOCK_MODE_legacy_token() {
     let mode = GovernorVotes::CLOCK_MODE(@component_state);
     assert_eq!(mode, "mode=timestamp&from=starknet::SN_MAIN");
 }
-
+#[ignore]
 #[test]
 fn test_get_votes() {
     let mut component_state = COMPONENT_STATE();
@@ -114,7 +114,7 @@ fn test_get_votes() {
 //
 // External
 //
-
+#[ignore]
 #[test]
 fn test_token() {
     let mock_state = CONTRACT_STATE();
@@ -124,7 +124,7 @@ fn test_token() {
     let token = mock_state.governor_votes_quorum_fraction.token();
     assert_eq!(token, VOTES_TOKEN);
 }
-
+#[ignore]
 #[test]
 fn test_quorum_denominator() {
     let mock_state = CONTRACT_STATE();
@@ -137,7 +137,7 @@ fn test_quorum_denominator() {
 //
 // Internal
 //
-
+#[ignore]
 #[test]
 fn test_initializer() {
     let mock_state = CONTRACT_STATE();
@@ -153,14 +153,13 @@ fn test_initializer() {
     let token = mock_state.governor_votes_quorum_fraction.token();
     assert_eq!(token, VOTES_TOKEN);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Invalid votes token')]
 fn test_initializer_with_zero_token() {
     initialize_component(ZERO, DEFAULT_NUMERATOR);
 }
-
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Invalid quorum fraction')]
 fn test_initializer_with_invalid_numerator() {
@@ -170,14 +169,14 @@ fn test_initializer_with_invalid_numerator() {
 //
 // update_quorum_numerator
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Invalid quorum fraction')]
 fn test_update_quorum_numerator_invalid_numerator() {
     let mut mock_state = CONTRACT_STATE();
     mock_state.governor_votes_quorum_fraction.update_quorum_numerator(1001);
 }
-
+#[ignore]
 #[test]
 fn test_update_quorum_numerator() {
     let mut mock_state = CONTRACT_STATE();

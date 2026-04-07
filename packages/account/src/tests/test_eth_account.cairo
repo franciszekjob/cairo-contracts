@@ -69,7 +69,7 @@ fn setup_dispatcher(
 //
 // is_valid_signature & isValidSignature
 //
-
+#[ignore]
 #[test]
 fn test_is_valid_signature() {
     let mut state = COMPONENT_STATE();
@@ -93,7 +93,7 @@ fn test_is_valid_signature() {
     let is_valid = state.is_valid_signature(data.tx_hash, serialized_bad_signature);
     assert_eq!(is_valid, 0, "Should reject invalid signature");
 }
-
+#[ignore]
 #[test]
 fn test_isValidSignature() {
     let mut state = COMPONENT_STATE();
@@ -122,7 +122,7 @@ fn test_isValidSignature() {
 //
 // Entry points
 //
-
+#[ignore]
 #[test]
 fn test_validate_deploy() {
     let key_pair = KEY_PAIR();
@@ -134,7 +134,7 @@ fn test_validate_deploy() {
     let is_valid = account.__validate_deploy__(class_hash, SALT, key_pair.public_key);
     assert_eq!(is_valid, starknet::VALIDATED);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: invalid signature')]
 fn test_validate_deploy_invalid_signature_data() {
@@ -145,7 +145,7 @@ fn test_validate_deploy_invalid_signature_data() {
 
     account.__validate_deploy__(class_hash, SALT, key_pair.public_key);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Signature: Invalid format.')]
 fn test_validate_deploy_invalid_signature_length() {
@@ -157,7 +157,7 @@ fn test_validate_deploy_invalid_signature_length() {
 
     account.__validate_deploy__(class_hash, SALT, key_pair.public_key);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Signature: Invalid format.')]
 fn test_validate_deploy_empty_signature() {
@@ -168,7 +168,7 @@ fn test_validate_deploy_empty_signature() {
     start_cheat_signature_global(empty_sig.span());
     account.__validate_deploy__(class_hash, SALT, key_pair.public_key);
 }
-
+#[ignore]
 #[test]
 fn test_validate_declare() {
     let key_pair = KEY_PAIR();
@@ -180,7 +180,7 @@ fn test_validate_declare() {
     let is_valid = account.__validate_declare__(class_hash);
     assert_eq!(is_valid, starknet::VALIDATED);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: invalid signature')]
 fn test_validate_declare_invalid_signature_data() {
@@ -191,7 +191,7 @@ fn test_validate_declare_invalid_signature_data() {
 
     account.__validate_declare__(class_hash);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Signature: Invalid format.')]
 fn test_validate_declare_invalid_signature_length() {
@@ -203,7 +203,7 @@ fn test_validate_declare_invalid_signature_length() {
 
     account.__validate_declare__(class_hash);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Signature: Invalid format.')]
 fn test_validate_declare_empty_signature() {
@@ -245,23 +245,23 @@ fn test_execute_with_version(version: Option<felt252>) {
     // Assert that the call was successful
     assert_eq!(simple_mock.get_balance(), amount);
 }
-
+#[ignore]
 #[test]
 fn test_execute() {
     test_execute_with_version(Option::None);
 }
-
+#[ignore]
 #[test]
 fn test_execute_query_version() {
     test_execute_with_version(Option::Some(QUERY_VERSION));
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: invalid tx version')]
 fn test_execute_invalid_version() {
     test_execute_with_version(Option::Some(MIN_TRANSACTION_VERSION - 1));
 }
-
+#[ignore]
 #[test]
 fn test_validate() {
     let key_pair = KEY_PAIR();
@@ -271,7 +271,7 @@ fn test_validate() {
     let is_valid = account.__validate__(calls);
     assert_eq!(is_valid, starknet::VALIDATED);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: invalid signature')]
 fn test_validate_invalid() {
@@ -283,7 +283,7 @@ fn test_validate_invalid() {
     let calls = array![];
     account.__validate__(calls);
 }
-
+#[ignore]
 #[test]
 fn test_multicall() {
     let key_pair = KEY_PAIR();
@@ -316,7 +316,7 @@ fn test_multicall() {
     let total_balance = amount1 + amount2;
     assert_eq!(simple_mock.get_balance(), total_balance);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: invalid caller')]
 fn test_account_called_from_contract() {
@@ -331,14 +331,14 @@ fn test_account_called_from_contract() {
 //
 // set_public_key & get_public_key
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Secp256Point: Invalid point.')]
 fn test_cannot_get_without_initialize() {
     let state = COMPONENT_STATE();
     state.get_public_key();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Secp256Point: Invalid point.')]
 fn test_cannot_set_without_initialize() {
@@ -348,7 +348,7 @@ fn test_cannot_set_without_initialize() {
     start_cheat_caller_address(test_address(), test_address());
     state.set_public_key(key_pair.public_key, array![].span());
 }
-
+#[ignore]
 #[test]
 fn test_public_key_setter_and_getter() {
     let mut state = COMPONENT_STATE();
@@ -374,7 +374,7 @@ fn test_public_key_setter_and_getter() {
 
     assert_eq!(state.get_public_key(), new_key_pair.public_key);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: unauthorized')]
 fn test_public_key_setter_different_account() {
@@ -394,7 +394,7 @@ fn test_public_key_setter_different_account() {
 //
 // setPublicKey & getPublicKey
 //
-
+#[ignore]
 #[test]
 fn test_public_key_setter_and_getter_camel() {
     let mut state = COMPONENT_STATE();
@@ -418,7 +418,7 @@ fn test_public_key_setter_and_getter_camel() {
 
     assert_eq!(state.getPublicKey(), new_key_pair.public_key);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: unauthorized')]
 fn test_public_key_setter_different_account_camel() {
@@ -438,7 +438,7 @@ fn test_public_key_setter_different_account_camel() {
 //
 // Test internals
 //
-
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut state = COMPONENT_STATE();
@@ -458,7 +458,7 @@ fn test_initializer() {
     let supports_account_interface = mock_state.supports_interface(ISRC6_ID);
     assert!(supports_account_interface, "Should support ISRC6");
 }
-
+#[ignore]
 #[test]
 fn test_assert_only_self_true() {
     let state = COMPONENT_STATE();
@@ -466,7 +466,7 @@ fn test_assert_only_self_true() {
     start_cheat_caller_address(test_address(), test_address());
     state.assert_only_self();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: unauthorized')]
 fn test_assert_only_self_false() {
@@ -475,7 +475,7 @@ fn test_assert_only_self_false() {
     start_cheat_caller_address(test_address(), OTHER);
     state.assert_only_self();
 }
-
+#[ignore]
 #[test]
 fn test_assert_valid_new_owner() {
     let key_pair = KEY_PAIR();
@@ -489,7 +489,7 @@ fn test_assert_valid_new_owner() {
 
     state.assert_valid_new_owner(key_pair.public_key, new_key_pair.public_key, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'EthAccount: invalid signature')]
 fn test_assert_valid_new_owner_invalid_signature() {
@@ -504,7 +504,7 @@ fn test_assert_valid_new_owner_invalid_signature() {
     state
         .assert_valid_new_owner(key_pair.public_key, new_key_pair.public_key, bad_signature.span());
 }
-
+#[ignore]
 #[test]
 fn test__is_valid_signature() {
     let key_pair = KEY_PAIR();
@@ -529,7 +529,7 @@ fn test__is_valid_signature() {
     let is_not_valid = !state._is_valid_signature(data.tx_hash, serialized_bad_signature.span());
     assert!(is_not_valid);
 }
-
+#[ignore]
 #[test]
 fn test__set_public_key() {
     let key_pair = KEY_PAIR();

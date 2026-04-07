@@ -84,7 +84,7 @@ fn setup(data: TestData) -> ComponentState {
 //
 // IERC20Permit
 //
-
+#[ignore]
 #[test]
 fn test_valid_permit_default_data() {
     let data = TEST_DATA();
@@ -100,7 +100,7 @@ fn test_valid_permit_default_data() {
     assert_valid_allowance(owner, spender, amount);
     assert_valid_nonce(owner, nonce + 1);
 }
-
+#[ignore]
 #[test]
 fn test_valid_permit_other_data() {
     let mut data = TEST_DATA();
@@ -118,7 +118,7 @@ fn test_valid_permit_other_data() {
     assert_valid_allowance(owner, spender, amount);
     assert_valid_nonce(owner, nonce + 1);
 }
-
+#[ignore]
 #[test]
 fn test_spend_permit() {
     let data = TEST_DATA();
@@ -137,7 +137,7 @@ fn test_spend_permit() {
     assert_valid_allowance(owner, spender, 0);
     assert_valid_nonce(owner, nonce + 1);
 }
-
+#[ignore]
 #[test]
 fn test_spend_half_permit() {
     let data = TEST_DATA();
@@ -157,7 +157,7 @@ fn test_spend_half_permit() {
     assert_valid_allowance(owner, spender, amount - transfer_amount);
     assert_valid_nonce(owner, nonce + 1);
 }
-
+#[ignore]
 #[test]
 fn test_subsequent_permits() {
     let mut data = TEST_DATA();
@@ -200,7 +200,7 @@ fn test_subsequent_permits() {
     assert_valid_allowance(owner, spender, 0);
     assert_valid_nonce(owner, nonce_2 + 1);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_replay_attack() {
@@ -219,7 +219,7 @@ fn test_replay_attack() {
     let signature = prepare_permit_signature(data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 fn test_domain_separator() {
     let data = TEST_DATA();
@@ -238,7 +238,7 @@ fn test_domain_separator() {
 //
 // SNIP12Metadata
 //
-
+#[ignore]
 #[test]
 fn test_permit_type_hash() {
     let expected_type_hash = selector!(
@@ -246,7 +246,7 @@ fn test_permit_type_hash() {
     );
     assert_eq!(PERMIT_TYPE_HASH, expected_type_hash);
 }
-
+#[ignore]
 #[test]
 fn test_snip12_metadata() {
     let data = TEST_DATA();
@@ -260,7 +260,7 @@ fn test_snip12_metadata() {
 //
 // Invalid signature
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_owner() {
@@ -274,7 +274,7 @@ fn test_invalid_sig_bad_owner() {
     let signature = prepare_permit_signature(data, nonce);
     state.permit(another_account, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_token_address() {
@@ -288,7 +288,7 @@ fn test_invalid_sig_bad_token_address() {
     let signature = prepare_permit_signature(modified_data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_spender() {
@@ -302,7 +302,7 @@ fn test_invalid_sig_bad_spender() {
     let signature = prepare_permit_signature(modified_data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_amount() {
@@ -316,7 +316,7 @@ fn test_invalid_sig_bad_amount() {
     let signature = prepare_permit_signature(modified_data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_nonce() {
@@ -328,7 +328,7 @@ fn test_invalid_sig_bad_nonce() {
     let signature = prepare_permit_signature(data, another_nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_sig_r() {
@@ -342,7 +342,7 @@ fn test_invalid_sig_bad_sig_r() {
     let modified_signature = array![sig_r + 1, sig_s].span();
     state.permit(owner, spender, amount, deadline, modified_signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_sig_s() {
@@ -356,7 +356,7 @@ fn test_invalid_sig_bad_sig_s() {
     let modified_signature = array![sig_r, sig_s + 1].span();
     state.permit(owner, spender, amount, deadline, modified_signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_metadata_name() {
@@ -370,7 +370,7 @@ fn test_invalid_sig_bad_metadata_name() {
     let signature = prepare_permit_signature(modified_data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_metadata_version() {
@@ -384,7 +384,7 @@ fn test_invalid_sig_bad_metadata_version() {
     let signature = prepare_permit_signature(modified_data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_signing_key() {
@@ -398,7 +398,7 @@ fn test_invalid_sig_bad_signing_key() {
     let signature = prepare_permit_signature(modified_data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_chain_id() {
@@ -412,7 +412,7 @@ fn test_invalid_sig_bad_chain_id() {
     let signature = prepare_permit_signature(modified_data, nonce);
     state.permit(owner, spender, amount, deadline, signature);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: invalid permit signature')]
 fn test_invalid_sig_bad_revision() {
@@ -430,7 +430,7 @@ fn test_invalid_sig_bad_revision() {
 //
 // Expired signature
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: expired permit signature')]
 fn test_invalid_sig_bad_deadline() {

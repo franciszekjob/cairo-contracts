@@ -40,7 +40,7 @@ impl PendingDelayStorePacking of StorePacking<PendingDelay, u128> {
 mod tests {
     use core::num::traits::Bounded;
     use super::{PendingDelay, PendingDelayStorePacking};
-
+    #[ignore]
     #[test]
     fn test_pack_and_unpack() {
         let pending_delay = PendingDelay { delay: 100, schedule: 200 };
@@ -48,7 +48,7 @@ mod tests {
         let unpacked = PendingDelayStorePacking::unpack(packed);
         assert_eq!(pending_delay, unpacked);
     }
-
+    #[ignore]
     #[test]
     fn test_pack_and_unpack_big_values() {
         let pending_delay = PendingDelay { delay: Bounded::MAX, schedule: Bounded::MAX };

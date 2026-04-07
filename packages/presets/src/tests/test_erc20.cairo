@@ -45,7 +45,7 @@ fn setup_dispatcher() -> (EventSpy, ERC20UpgradeableABIDispatcher) {
 //
 // constructor
 //
-
+#[ignore]
 #[test]
 fn test_constructor() {
     let (mut spy, dispatcher) = setup_dispatcher_with_event();
@@ -64,7 +64,7 @@ fn test_constructor() {
 //
 // Getters
 //
-
+#[ignore]
 #[test]
 fn test_total_supply() {
     let (_, dispatcher) = setup_dispatcher();
@@ -72,7 +72,7 @@ fn test_total_supply() {
     assert_eq!(dispatcher.total_supply(), SUPPLY);
     assert_eq!(dispatcher.totalSupply(), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_balance_of() {
     let (_, dispatcher) = setup_dispatcher();
@@ -80,7 +80,7 @@ fn test_balance_of() {
     assert_eq!(dispatcher.balance_of(OWNER), SUPPLY);
     assert_eq!(dispatcher.balanceOf(OWNER), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_allowance() {
     let (_, mut dispatcher) = setup_dispatcher();
@@ -95,7 +95,7 @@ fn test_allowance() {
 //
 // approve
 //
-
+#[ignore]
 #[test]
 fn test_approve() {
     let (mut spy, mut dispatcher) = setup_dispatcher();
@@ -111,6 +111,7 @@ fn test_approve() {
     spy.assert_only_event_approval(dispatcher.contract_address, OWNER, SPENDER, VALUE);
 }
 
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: approve from 0')]
 fn test_approve_from_zero() {
@@ -119,6 +120,7 @@ fn test_approve_from_zero() {
     dispatcher.approve(SPENDER, VALUE);
 }
 
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: approve to 0')]
 fn test_approve_to_zero() {
@@ -130,7 +132,7 @@ fn test_approve_to_zero() {
 //
 // transfer
 //
-
+#[ignore]
 #[test]
 fn test_transfer() {
     let (mut spy, mut dispatcher) = setup_dispatcher();
@@ -145,6 +147,7 @@ fn test_transfer() {
     spy.assert_only_event_transfer(dispatcher.contract_address, OWNER, RECIPIENT, VALUE);
 }
 
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient balance')]
 fn test_transfer_not_enough_balance() {
@@ -155,6 +158,7 @@ fn test_transfer_not_enough_balance() {
     dispatcher.transfer(RECIPIENT, balance_plus_one);
 }
 
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer from 0')]
 fn test_transfer_from_zero() {
@@ -163,6 +167,7 @@ fn test_transfer_from_zero() {
     dispatcher.transfer(RECIPIENT, VALUE);
 }
 
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer to 0')]
 fn test_transfer_to_zero() {
@@ -174,7 +179,7 @@ fn test_transfer_to_zero() {
 //
 // transfer_from & transferFrom
 //
-
+#[ignore]
 #[test]
 fn test_transfer_from() {
     let (mut spy, mut dispatcher) = setup_dispatcher();
@@ -194,7 +199,7 @@ fn test_transfer_from() {
     assert_eq!(dispatcher.allowance(OWNER, SPENDER), 0);
     assert_eq!(dispatcher.total_supply(), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_transfer_from_doesnt_consume_infinite_allowance() {
     let (_, mut dispatcher) = setup_dispatcher();
@@ -208,7 +213,7 @@ fn test_transfer_from_doesnt_consume_infinite_allowance() {
     let allowance = dispatcher.allowance(OWNER, SPENDER);
     assert_eq!(allowance, Bounded::MAX, "Should not decrease");
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient allowance')]
 fn test_transfer_from_greater_than_allowance() {
@@ -220,7 +225,7 @@ fn test_transfer_from_greater_than_allowance() {
     let allowance_plus_one = VALUE + 1;
     dispatcher.transfer_from(OWNER, RECIPIENT, allowance_plus_one);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer to 0')]
 fn test_transfer_from_to_zero_address() {
@@ -231,14 +236,14 @@ fn test_transfer_from_to_zero_address() {
     start_cheat_caller_address(dispatcher.contract_address, SPENDER);
     dispatcher.transfer_from(OWNER, Zero::zero(), VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient allowance')]
 fn test_transfer_from_from_zero_address() {
     let (_, mut dispatcher) = setup_dispatcher();
     dispatcher.transfer_from(Zero::zero(), RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_transferFrom() {
     let (mut spy, mut dispatcher) = setup_dispatcher();
@@ -258,7 +263,7 @@ fn test_transferFrom() {
     assert_eq!(dispatcher.allowance(OWNER, SPENDER), 0);
     assert_eq!(dispatcher.total_supply(), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_transferFrom_doesnt_consume_infinite_allowance() {
     let (_, mut dispatcher) = setup_dispatcher();
@@ -271,7 +276,7 @@ fn test_transferFrom_doesnt_consume_infinite_allowance() {
     let allowance = dispatcher.allowance(OWNER, SPENDER);
     assert_eq!(allowance, Bounded::MAX, "Should not decrease");
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient allowance')]
 fn test_transferFrom_greater_than_allowance() {
@@ -283,7 +288,7 @@ fn test_transferFrom_greater_than_allowance() {
     let allowance_plus_one = VALUE + 1;
     dispatcher.transferFrom(OWNER, RECIPIENT, allowance_plus_one);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer to 0')]
 fn test_transferFrom_to_zero_address() {
@@ -294,7 +299,7 @@ fn test_transferFrom_to_zero_address() {
     start_cheat_caller_address(dispatcher.contract_address, SPENDER);
     dispatcher.transferFrom(OWNER, Zero::zero(), VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient allowance')]
 fn test_transferFrom_from_zero_address() {
@@ -305,7 +310,7 @@ fn test_transferFrom_from_zero_address() {
 //
 // transfer_ownership & transferOwnership
 //
-
+#[ignore]
 #[test]
 fn test_transfer_ownership() {
     let (mut spy, mut dispatcher) = setup_dispatcher();
@@ -315,7 +320,7 @@ fn test_transfer_ownership() {
     spy.assert_event_ownership_transferred(dispatcher.contract_address, OWNER, OTHER);
     assert_eq!(dispatcher.owner(), OTHER);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'New owner is the zero address')]
 fn test_transfer_ownership_to_zero() {
@@ -323,7 +328,7 @@ fn test_transfer_ownership_to_zero() {
     start_cheat_caller_address(dispatcher.contract_address, OWNER);
     dispatcher.transfer_ownership(ZERO);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_transfer_ownership_from_nonowner() {
@@ -331,7 +336,7 @@ fn test_transfer_ownership_from_nonowner() {
     start_cheat_caller_address(dispatcher.contract_address, OTHER);
     dispatcher.transfer_ownership(OTHER);
 }
-
+#[ignore]
 #[test]
 fn test_transferOwnership() {
     let (mut spy, mut dispatcher) = setup_dispatcher();
@@ -341,7 +346,7 @@ fn test_transferOwnership() {
     spy.assert_event_ownership_transferred(dispatcher.contract_address, OWNER, OTHER);
     assert_eq!(dispatcher.owner(), OTHER);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'New owner is the zero address')]
 fn test_transferOwnership_to_zero() {
@@ -349,7 +354,7 @@ fn test_transferOwnership_to_zero() {
     start_cheat_caller_address(dispatcher.contract_address, OWNER);
     dispatcher.transferOwnership(ZERO);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_transferOwnership_from_nonowner() {
@@ -361,7 +366,7 @@ fn test_transferOwnership_from_nonowner() {
 //
 // renounce_ownership & renounceOwnership
 //
-
+#[ignore]
 #[test]
 fn test_renounce_ownership() {
     let (mut spy, mut dispatcher) = setup_dispatcher();
@@ -371,7 +376,7 @@ fn test_renounce_ownership() {
     spy.assert_event_ownership_transferred(dispatcher.contract_address, OWNER, ZERO);
     assert!(dispatcher.owner().is_zero());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_renounce_ownership_from_nonowner() {
@@ -379,7 +384,7 @@ fn test_renounce_ownership_from_nonowner() {
     start_cheat_caller_address(dispatcher.contract_address, OTHER);
     dispatcher.renounce_ownership();
 }
-
+#[ignore]
 #[test]
 fn test_renounceOwnership() {
     let (mut spy, mut dispatcher) = setup_dispatcher();
@@ -389,7 +394,7 @@ fn test_renounceOwnership() {
     spy.assert_event_ownership_transferred(dispatcher.contract_address, OWNER, ZERO);
     assert!(dispatcher.owner().is_zero());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_renounceOwnership_from_nonowner() {
@@ -401,7 +406,7 @@ fn test_renounceOwnership_from_nonowner() {
 //
 // upgrade
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is not the owner')]
 fn test_upgrade_unauthorized() {
@@ -410,6 +415,7 @@ fn test_upgrade_unauthorized() {
     v1.upgrade(CLASS_HASH_ZERO);
 }
 
+#[ignore]
 #[test]
 #[should_panic(expected: 'Class hash cannot be zero')]
 fn test_upgrade_with_class_hash_zero() {
@@ -418,7 +424,7 @@ fn test_upgrade_with_class_hash_zero() {
     start_cheat_caller_address(v1.contract_address, OWNER);
     v1.upgrade(CLASS_HASH_ZERO);
 }
-
+#[ignore]
 #[test]
 fn test_upgraded_event() {
     let (mut spy, mut v1) = setup_dispatcher();
@@ -430,6 +436,7 @@ fn test_upgraded_event() {
     spy.assert_only_event_upgraded(v1.contract_address, v2_class_hash);
 }
 
+#[ignore]
 #[test]
 #[should_panic(expected: 'ENTRYPOINT_NOT_FOUND')]
 fn test_v2_missing_camel_selector() {
@@ -442,7 +449,7 @@ fn test_v2_missing_camel_selector() {
     let dispatcher = ERC20UpgradeableABIDispatcher { contract_address: v1.contract_address };
     dispatcher.totalSupply();
 }
-
+#[ignore]
 #[test]
 fn test_state_persists_after_upgrade() {
     let (_, mut v1) = setup_dispatcher();

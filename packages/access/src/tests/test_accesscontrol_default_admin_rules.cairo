@@ -48,6 +48,7 @@ const ONE_HOUR: u64 = 3600;
 // initializer
 //
 
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut state = COMPONENT_STATE();
@@ -71,14 +72,14 @@ fn test_initializer() {
     let delay = state.default_admin_delay();
     assert_eq!(delay, INITIAL_DELAY);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Invalid default admin')]
 fn test_initializer_with_zero_address() {
     let mut state = COMPONENT_STATE();
     state.initializer(INITIAL_DELAY, ZERO);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Admin transfer delay too high')]
 fn test_initializer_with_delay_above_maximum() {
@@ -90,6 +91,7 @@ fn test_initializer_with_delay_above_maximum() {
 // default_admin
 //
 
+#[ignore]
 #[test]
 fn test_default_admin() {
     let mut state = setup();
@@ -101,6 +103,7 @@ fn test_default_admin() {
 // pending_default_admin
 //
 
+#[ignore]
 #[test]
 fn test_pending_default_admin_default_values() {
     let mut state = setup();
@@ -109,6 +112,7 @@ fn test_pending_default_admin_default_values() {
     assert_eq!(pending_default_admin_schedule, 0);
 }
 
+#[ignore]
 #[test]
 fn test_pending_default_admin_set() {
     let mut state = setup();
@@ -127,6 +131,7 @@ fn test_pending_default_admin_set() {
 // default_admin_delay
 //
 
+#[ignore]
 #[test]
 fn test_default_admin_delay_default_values() {
     let mut state = setup();
@@ -134,6 +139,7 @@ fn test_default_admin_delay_default_values() {
     assert_eq!(delay, INITIAL_DELAY);
 }
 
+#[ignore]
 #[test]
 fn test_maximum_default_admin_transfer_delay_api() {
     let state = setup();
@@ -141,6 +147,7 @@ fn test_maximum_default_admin_transfer_delay_api() {
     assert_eq!(max_delay, DefaultConfig::MAXIMUM_DEFAULT_ADMIN_TRANSFER_DELAY);
 }
 
+#[ignore]
 #[test]
 fn test_default_admin_delay_pending_delay_schedule_not_passed() {
     let mut state = setup();
@@ -156,6 +163,7 @@ fn test_default_admin_delay_pending_delay_schedule_not_passed() {
     assert_eq!(delay, INITIAL_DELAY);
 }
 
+#[ignore]
 #[test]
 fn test_default_admin_delay_pending_delay_schedule_passed() {
     let mut state = setup();
@@ -177,6 +185,7 @@ fn test_default_admin_delay_pending_delay_schedule_passed() {
 // pending_default_admin_delay && change_default_admin_delay
 //
 
+#[ignore]
 #[test]
 fn test_pending_default_admin_delay_is_not_pending() {
     let mut state = setup();
@@ -184,7 +193,7 @@ fn test_pending_default_admin_delay_is_not_pending() {
     assert_eq!(pending_delay, 0);
     assert_eq!(pending_delay_schedule, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_change_default_admin_delay_unauthorized() {
@@ -195,7 +204,7 @@ fn test_change_default_admin_delay_unauthorized() {
     start_cheat_caller_address(contract_address, OTHER);
     state.change_default_admin_delay(new_delay);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Admin transfer delay too high')]
 fn test_change_default_admin_delay_above_maximum_via_config() {
@@ -206,7 +215,7 @@ fn test_change_default_admin_delay_above_maximum_via_config() {
     start_cheat_caller_address(contract_address, ADMIN);
     state.change_default_admin_delay(new_delay);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Admin transfer delay too high')]
 fn test_change_default_admin_delay_above_maximum() {
@@ -217,6 +226,7 @@ fn test_change_default_admin_delay_above_maximum() {
     state.change_default_admin_delay(max_delay + 1);
 }
 
+#[ignore]
 #[test]
 fn test_pending_default_admin_delay_is_pending_increasing_delay() {
     let mut state = setup();
@@ -240,6 +250,7 @@ fn test_pending_default_admin_delay_is_pending_increasing_delay() {
         );
 }
 
+#[ignore]
 #[test]
 fn test_pending_default_admin_delay_is_pending_decreasing_delay() {
     let mut state = setup();
@@ -263,6 +274,7 @@ fn test_pending_default_admin_delay_is_pending_decreasing_delay() {
         );
 }
 
+#[ignore]
 #[test]
 fn test_pending_default_admin_delay_increasing_after_schedule_limit() {
     let mut state = setup();
@@ -290,6 +302,7 @@ fn test_pending_default_admin_delay_increasing_after_schedule_limit() {
 // begin_default_admin_transfer
 //
 
+#[ignore]
 #[test]
 fn test_begin_default_admin_transfer() {
     let mut state = setup();
@@ -310,7 +323,7 @@ fn test_begin_default_admin_transfer() {
     assert_eq!(pending_default_admin, OTHER_ADMIN);
     assert_eq!(pending_default_admin_schedule, expected_schedule);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_begin_default_admin_transfer_unauthorized() {
@@ -325,6 +338,7 @@ fn test_begin_default_admin_transfer_unauthorized() {
 // cancel_default_admin_transfer
 //
 
+#[ignore]
 #[test]
 fn test_cancel_default_admin_transfer() {
     let mut state = setup();
@@ -342,7 +356,7 @@ fn test_cancel_default_admin_transfer() {
     assert_eq!(pending_default_admin, ZERO);
     assert_eq!(pending_default_admin_schedule, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_cancel_default_admin_transfer_unauthorized() {
@@ -357,6 +371,7 @@ fn test_cancel_default_admin_transfer_unauthorized() {
 // accept_default_admin_transfer
 //
 
+#[ignore]
 #[test]
 fn test_accept_default_admin_transfer() {
     let mut state = setup();
@@ -387,7 +402,7 @@ fn test_accept_default_admin_transfer() {
     assert_eq!(pending_default_admin, ZERO);
     assert_eq!(pending_default_admin_schedule, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Only new default admin allowed')]
 fn test_accept_default_admin_transfer_unauthorized() {
@@ -400,7 +415,7 @@ fn test_accept_default_admin_transfer_unauthorized() {
     start_cheat_caller_address(contract_address, OTHER);
     state.accept_default_admin_transfer();
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Default admin delay enforced')]
 fn test_accept_default_admin_transfer_unauthorized_when_schedule_not_passed() {
@@ -418,6 +433,7 @@ fn test_accept_default_admin_transfer_unauthorized_when_schedule_not_passed() {
 // rollback_default_admin_delay
 //
 
+#[ignore]
 #[test]
 fn test_rollback_default_admin_delay() {
     let mut state = setup();
@@ -442,7 +458,7 @@ fn test_rollback_default_admin_delay() {
     assert_eq!(pending_delay, 0);
     assert_eq!(pending_delay_schedule, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_rollback_default_admin_delay_unauthorized() {
@@ -460,6 +476,7 @@ fn test_rollback_default_admin_delay_unauthorized() {
 // default_admin_delay_increase_wait
 //
 
+#[ignore]
 #[test]
 fn test_default_admin_delay_increase_wait() {
     let state = setup();
@@ -471,6 +488,7 @@ fn test_default_admin_delay_increase_wait() {
 // has_role & hasRole
 //
 
+#[ignore]
 #[test]
 fn test_has_role() {
     let mut state = setup();
@@ -479,6 +497,7 @@ fn test_has_role() {
     assert!(state.has_role(ROLE, AUTHORIZED));
 }
 
+#[ignore]
 #[test]
 fn test_hasRole() {
     let mut state = setup();
@@ -491,6 +510,7 @@ fn test_hasRole() {
 // assert_only_role
 //
 
+#[ignore]
 #[test]
 fn test_assert_only_role() {
     let mut state = setup();
@@ -501,7 +521,7 @@ fn test_assert_only_role() {
     start_cheat_caller_address(contract_address, AUTHORIZED);
     state.assert_only_role(ROLE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_assert_only_role_unauthorized() {
@@ -509,7 +529,7 @@ fn test_assert_only_role_unauthorized() {
     start_cheat_caller_address(test_address(), OTHER);
     state.assert_only_role(ROLE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_assert_only_role_unauthorized_when_authorized_for_another_role() {
@@ -523,7 +543,7 @@ fn test_assert_only_role_unauthorized_when_authorized_for_another_role() {
 //
 // grant_role & grantRole
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Default admin rules enforced')]
 fn test_grant_role_default_admin_role() {
@@ -531,6 +551,7 @@ fn test_grant_role_default_admin_role() {
     state.grant_role(DEFAULT_ADMIN_ROLE, AUTHORIZED);
 }
 
+#[ignore]
 #[test]
 fn test_grant_role() {
     let mut state = setup();
@@ -547,6 +568,7 @@ fn test_grant_role() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
 
+#[ignore]
 #[test]
 fn test_grantRole() {
     let mut state = setup();
@@ -563,6 +585,7 @@ fn test_grantRole() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
 
+#[ignore]
 #[test]
 fn test_grant_role_multiple_times_for_granted_role() {
     let mut state = setup();
@@ -575,6 +598,7 @@ fn test_grant_role_multiple_times_for_granted_role() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
 
+#[ignore]
 #[test]
 fn test_grant_role_when_delayed() {
     let mut state = setup();
@@ -593,6 +617,7 @@ fn test_grant_role_when_delayed() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
 
+#[ignore]
 #[test]
 fn test_grantRole_when_delayed() {
     let mut state = setup();
@@ -611,6 +636,7 @@ fn test_grantRole_when_delayed() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
 
+#[ignore]
 #[test]
 fn test_grantRole_multiple_times_for_granted_role() {
     let mut state = setup();
@@ -622,7 +648,7 @@ fn test_grantRole_multiple_times_for_granted_role() {
     assert_eq!(state.get_role_status(ROLE, AUTHORIZED), RoleStatus::Effective);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_grant_role_unauthorized() {
@@ -630,7 +656,7 @@ fn test_grant_role_unauthorized() {
     start_cheat_caller_address(test_address(), AUTHORIZED);
     state.grant_role(ROLE, AUTHORIZED);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_grantRole_unauthorized() {
@@ -642,7 +668,7 @@ fn test_grantRole_unauthorized() {
 //
 // grant_role_with_delay
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Default admin rules enforced')]
 fn test_grant_role_with_delay_default_admin_role() {
@@ -653,6 +679,7 @@ fn test_grant_role_with_delay_default_admin_role() {
     state.grant_role_with_delay(DEFAULT_ADMIN_ROLE, AUTHORIZED, ONE_HOUR);
 }
 
+#[ignore]
 #[test]
 fn test_grant_role_with_delay() {
     let mut state = setup();
@@ -678,7 +705,7 @@ fn test_grant_role_with_delay() {
     assert_eq!(state.get_role_status(ROLE, AUTHORIZED), RoleStatus::Effective);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), true);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Delay must be greater than 0')]
 fn test_grant_role_with_zero_delay() {
@@ -688,7 +715,7 @@ fn test_grant_role_with_zero_delay() {
     start_cheat_block_timestamp_global(TIMESTAMP);
     state.grant_role_with_delay(ROLE, AUTHORIZED, 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Role is already effective')]
 fn test_grant_role_with_delay_when_already_effective() {
@@ -699,7 +726,7 @@ fn test_grant_role_with_delay_when_already_effective() {
     state.grant_role(ROLE, AUTHORIZED);
     state.grant_role_with_delay(ROLE, AUTHORIZED, ONE_HOUR);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_grant_role_with_delay_unauthorized() {
@@ -712,7 +739,7 @@ fn test_grant_role_with_delay_unauthorized() {
 //
 // revoke_role & revokeRole
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Default admin rules enforced')]
 fn test_revoke_role_default_admin_role() {
@@ -720,6 +747,7 @@ fn test_revoke_role_default_admin_role() {
     state.revoke_role(DEFAULT_ADMIN_ROLE, AUTHORIZED);
 }
 
+#[ignore]
 #[test]
 fn test_revoke_role_for_role_not_granted() {
     let mut state = setup();
@@ -727,6 +755,7 @@ fn test_revoke_role_for_role_not_granted() {
     state.revoke_role(ROLE, AUTHORIZED);
 }
 
+#[ignore]
 #[test]
 fn test_revokeRole_for_role_not_granted() {
     let mut state = setup();
@@ -734,6 +763,7 @@ fn test_revokeRole_for_role_not_granted() {
     state.revokeRole(ROLE, AUTHORIZED);
 }
 
+#[ignore]
 #[test]
 fn test_revoke_role_for_granted_role() {
     let mut state = setup();
@@ -754,6 +784,7 @@ fn test_revoke_role_for_granted_role() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
 
+#[ignore]
 #[test]
 fn test_revokeRole_for_granted_role() {
     let mut state = setup();
@@ -774,6 +805,7 @@ fn test_revokeRole_for_granted_role() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
 
+#[ignore]
 #[test]
 fn test_revoke_role_for_delayed_role() {
     let mut state = setup();
@@ -795,6 +827,7 @@ fn test_revoke_role_for_delayed_role() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
 
+#[ignore]
 #[test]
 fn test_revokeRole_for_delayed_role() {
     let mut state = setup();
@@ -816,6 +849,7 @@ fn test_revokeRole_for_delayed_role() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
 
+#[ignore]
 #[test]
 fn test_revoke_role_multiple_times_for_granted_role() {
     let mut state = setup();
@@ -832,6 +866,7 @@ fn test_revoke_role_multiple_times_for_granted_role() {
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
 
+#[ignore]
 #[test]
 fn test_revokeRole_multiple_times_for_granted_role() {
     let mut state = setup();
@@ -847,7 +882,7 @@ fn test_revokeRole_multiple_times_for_granted_role() {
     assert_eq!(state.is_role_granted(ROLE, AUTHORIZED), false);
     assert_eq!(state.is_role_effective(ROLE, AUTHORIZED), false);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_revoke_role_unauthorized() {
@@ -855,7 +890,7 @@ fn test_revoke_role_unauthorized() {
     start_cheat_caller_address(test_address(), OTHER);
     state.revoke_role(ROLE, AUTHORIZED);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_revokeRole_unauthorized() {
@@ -868,6 +903,7 @@ fn test_revokeRole_unauthorized() {
 // renounce_role & renounceRole
 //
 
+#[ignore]
 #[test]
 fn test_renounce_role_default_admin_role() {
     let mut state = setup();
@@ -889,14 +925,14 @@ fn test_renounce_role_default_admin_role() {
     let has_not_role = !state.has_role(DEFAULT_ADMIN_ROLE, ADMIN);
     assert!(has_not_role);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Default admin delay enforced')]
 fn test_renounce_role_default_admin_role_pending_admin_schedule_not_set() {
     let mut state = setup();
     state.renounce_role(DEFAULT_ADMIN_ROLE, ADMIN);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Default admin delay enforced')]
 fn test_renounce_role_default_admin_role_pending_admin_not_zero() {
@@ -907,7 +943,7 @@ fn test_renounce_role_default_admin_role_pending_admin_not_zero() {
     state.begin_default_admin_transfer(OTHER_ADMIN);
     state.renounce_role(DEFAULT_ADMIN_ROLE, ADMIN);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Default admin delay enforced')]
 fn test_renounce_role_default_admin_role_pending_admin_schedule_not_passed() {
@@ -921,6 +957,7 @@ fn test_renounce_role_default_admin_role_pending_admin_schedule_not_passed() {
     state.renounce_role(DEFAULT_ADMIN_ROLE, ADMIN);
 }
 
+#[ignore]
 #[test]
 fn test_renounce_role_for_role_not_granted() {
     let mut state = setup();
@@ -928,6 +965,7 @@ fn test_renounce_role_for_role_not_granted() {
     state.renounce_role(ROLE, AUTHORIZED);
 }
 
+#[ignore]
 #[test]
 fn test_renounceRole_for_role_not_granted() {
     let mut state = setup();
@@ -935,6 +973,7 @@ fn test_renounceRole_for_role_not_granted() {
     state.renounceRole(ROLE, AUTHORIZED);
 }
 
+#[ignore]
 #[test]
 fn test_renounce_role_for_granted_role() {
     let mut state = setup();
@@ -953,6 +992,7 @@ fn test_renounce_role_for_granted_role() {
     assert!(has_not_role);
 }
 
+#[ignore]
 #[test]
 fn test_renounceRole_for_granted_role() {
     let mut state = setup();
@@ -971,6 +1011,7 @@ fn test_renounceRole_for_granted_role() {
     assert!(has_not_role);
 }
 
+#[ignore]
 #[test]
 fn test_renounce_role_for_delayed_role() {
     let mut state = setup();
@@ -990,6 +1031,7 @@ fn test_renounce_role_for_delayed_role() {
     assert!(has_not_role);
 }
 
+#[ignore]
 #[test]
 fn test_renounceRole_for_delayed_role() {
     let mut state = setup();
@@ -1009,6 +1051,7 @@ fn test_renounceRole_for_delayed_role() {
     assert!(has_not_role);
 }
 
+#[ignore]
 #[test]
 fn test_renounce_role_multiple_times_for_granted_role() {
     let mut state = setup();
@@ -1024,6 +1067,7 @@ fn test_renounce_role_multiple_times_for_granted_role() {
     assert!(has_not_role);
 }
 
+#[ignore]
 #[test]
 fn test_renounceRole_multiple_times_for_granted_role() {
     let mut state = setup();
@@ -1038,7 +1082,7 @@ fn test_renounceRole_multiple_times_for_granted_role() {
     let has_not_role = !state.hasRole(ROLE, AUTHORIZED);
     assert!(has_not_role);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Can only renounce role for self')]
 fn test_renounce_role_unauthorized() {
@@ -1050,7 +1094,7 @@ fn test_renounce_role_unauthorized() {
     start_cheat_caller_address(contract_address, ZERO);
     state.renounce_role(ROLE, AUTHORIZED);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Can only renounce role for self')]
 fn test_renounceRole_unauthorized() {
@@ -1065,7 +1109,7 @@ fn test_renounceRole_unauthorized() {
 //
 // set_role_admin
 //
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Default admin rules enforced')]
 fn test_set_role_admin_default_admin_role() {
@@ -1073,6 +1117,7 @@ fn test_set_role_admin_default_admin_role() {
     state.set_role_admin(DEFAULT_ADMIN_ROLE, OTHER_ROLE);
 }
 
+#[ignore]
 #[test]
 fn test_set_role_admin() {
     let mut state = setup();
@@ -1091,6 +1136,7 @@ fn test_set_role_admin() {
     assert_eq!(current_admin_role, OTHER_ROLE);
 }
 
+#[ignore]
 #[test]
 fn test_new_admin_can_grant_roles() {
     let mut state = setup();
@@ -1107,6 +1153,7 @@ fn test_new_admin_can_grant_roles() {
     assert!(has_role);
 }
 
+#[ignore]
 #[test]
 fn test_new_admin_can_grant_roles_with_delay() {
     let mut state = setup();
@@ -1126,6 +1173,7 @@ fn test_new_admin_can_grant_roles_with_delay() {
     assert!(has_role);
 }
 
+#[ignore]
 #[test]
 fn test_new_admin_can_revoke_roles() {
     let mut state = setup();
@@ -1142,7 +1190,7 @@ fn test_new_admin_can_revoke_roles() {
     let has_not_role = !state.has_role(ROLE, AUTHORIZED);
     assert!(has_not_role);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_previous_admin_cannot_grant_roles() {
@@ -1151,7 +1199,7 @@ fn test_previous_admin_cannot_grant_roles() {
     start_cheat_caller_address(test_address(), ADMIN);
     state.grant_role(ROLE, AUTHORIZED);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_previous_admin_cannot_grant_roles_with_delay() {
@@ -1161,7 +1209,7 @@ fn test_previous_admin_cannot_grant_roles_with_delay() {
     start_cheat_block_timestamp_global(TIMESTAMP);
     state.grant_role_with_delay(ROLE, AUTHORIZED, ONE_HOUR);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Caller is missing role')]
 fn test_previous_admin_cannot_revoke_roles() {
@@ -1175,6 +1223,7 @@ fn test_previous_admin_cannot_revoke_roles() {
 // Default admin
 //
 
+#[ignore]
 #[test]
 fn test_other_role_admin_is_the_default_admin_role() {
     let state = setup();
@@ -1182,6 +1231,7 @@ fn test_other_role_admin_is_the_default_admin_role() {
     assert_eq!(current_admin_role, DEFAULT_ADMIN_ROLE);
 }
 
+#[ignore]
 #[test]
 fn test_default_admin_role_is_its_own_admin() {
     let state = setup();

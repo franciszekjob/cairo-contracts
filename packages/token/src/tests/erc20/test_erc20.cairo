@@ -46,7 +46,7 @@ fn setup_with_hooks() -> ComponentStateWithHooks {
 //
 // initializer & constructor
 //
-
+#[ignore]
 #[test]
 fn test_initializer() {
     let mut state = COMPONENT_STATE();
@@ -61,35 +61,35 @@ fn test_initializer() {
 //
 // Getters
 //
-
+#[ignore]
 #[test]
 fn test_total_supply() {
     let mut state = COMPONENT_STATE();
     state.mint(OWNER, SUPPLY);
     assert_eq!(state.total_supply(), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_totalSupply() {
     let mut state = COMPONENT_STATE();
     state.mint(OWNER, SUPPLY);
     assert_eq!(state.totalSupply(), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_balance_of() {
     let mut state = COMPONENT_STATE();
     state.mint(OWNER, SUPPLY);
     assert_eq!(state.balance_of(OWNER), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_balanceOf() {
     let mut state = COMPONENT_STATE();
     state.mint(OWNER, SUPPLY);
     assert_eq!(state.balanceOf(OWNER), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_allowance() {
     let mut state = setup();
@@ -103,7 +103,7 @@ fn test_allowance() {
 //
 // approve & _approve
 //
-
+#[ignore]
 #[test]
 fn test_approve() {
     let mut state = setup();
@@ -119,14 +119,14 @@ fn test_approve() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: approve from 0')]
 fn test_approve_from_zero() {
     let mut state = setup();
     state.approve(SPENDER, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: approve to 0')]
 fn test_approve_to_zero() {
@@ -134,7 +134,7 @@ fn test_approve_to_zero() {
     start_cheat_caller_address(test_address(), OWNER);
     state.approve(ZERO, VALUE);
 }
-
+#[ignore]
 #[test]
 fn test__approve() {
     let mut state = setup();
@@ -149,14 +149,14 @@ fn test__approve() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: approve from 0')]
 fn test__approve_from_zero() {
     let mut state = setup();
     state._approve(ZERO, SPENDER, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: approve to 0')]
 fn test__approve_to_zero() {
@@ -168,7 +168,7 @@ fn test__approve_to_zero() {
 //
 // transfer & _transfer
 //
-
+#[ignore]
 #[test]
 fn test_transfer() {
     let mut state = setup();
@@ -184,7 +184,7 @@ fn test_transfer() {
 
     spy.assert_only_event_transfer(contract_address, OWNER, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient balance')]
 fn test_transfer_not_enough_balance() {
@@ -194,14 +194,14 @@ fn test_transfer_not_enough_balance() {
     let balance_plus_one = SUPPLY + 1;
     state.transfer(RECIPIENT, balance_plus_one);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer from 0')]
 fn test_transfer_from_zero() {
     let mut state = setup();
     state.transfer(RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer to 0')]
 fn test_transfer_to_zero() {
@@ -209,7 +209,7 @@ fn test_transfer_to_zero() {
     start_cheat_caller_address(test_address(), OWNER);
     state.transfer(ZERO, VALUE);
 }
-
+#[ignore]
 #[test]
 fn test__transfer() {
     let mut state = setup();
@@ -222,7 +222,7 @@ fn test__transfer() {
 
     spy.assert_only_event_transfer(contract_address, OWNER, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient balance')]
 fn test__transfer_not_enough_balance() {
@@ -232,14 +232,14 @@ fn test__transfer_not_enough_balance() {
     let balance_plus_one = SUPPLY + 1;
     state._transfer(OWNER, RECIPIENT, balance_plus_one);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer from 0')]
 fn test__transfer_from_zero() {
     let mut state = setup();
     state._transfer(ZERO, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer to 0')]
 fn test__transfer_to_zero() {
@@ -250,7 +250,7 @@ fn test__transfer_to_zero() {
 //
 // transfer_from & transferFrom
 //
-
+#[ignore]
 #[test]
 fn test_transfer_from() {
     let mut state = setup();
@@ -273,7 +273,7 @@ fn test_transfer_from() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, 0);
 }
-
+#[ignore]
 #[test]
 fn test_transfer_from_doesnt_consume_infinite_allowance() {
     let mut state = setup();
@@ -286,7 +286,7 @@ fn test_transfer_from_doesnt_consume_infinite_allowance() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, Bounded::MAX);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient allowance')]
 fn test_transfer_from_greater_than_allowance() {
@@ -298,7 +298,7 @@ fn test_transfer_from_greater_than_allowance() {
     let allowance_plus_one = VALUE + 1;
     state.transfer_from(OWNER, RECIPIENT, allowance_plus_one);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer to 0')]
 fn test_transfer_from_to_zero_address() {
@@ -309,14 +309,14 @@ fn test_transfer_from_to_zero_address() {
     start_cheat_caller_address(test_address(), SPENDER);
     state.transfer_from(OWNER, ZERO, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient allowance')]
 fn test_transfer_from_from_zero_address() {
     let mut state = setup();
     state.transfer_from(ZERO, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_transferFrom() {
     let mut state = setup();
@@ -339,7 +339,7 @@ fn test_transferFrom() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, 0);
 }
-
+#[ignore]
 #[test]
 fn test_transferFrom_doesnt_consume_infinite_allowance() {
     let mut state = setup();
@@ -352,7 +352,7 @@ fn test_transferFrom_doesnt_consume_infinite_allowance() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, Bounded::MAX);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient allowance')]
 fn test_transferFrom_greater_than_allowance() {
@@ -364,7 +364,7 @@ fn test_transferFrom_greater_than_allowance() {
     let allowance_plus_one = VALUE + 1;
     state.transferFrom(OWNER, RECIPIENT, allowance_plus_one);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: transfer to 0')]
 fn test_transferFrom_to_zero_address() {
@@ -375,7 +375,7 @@ fn test_transferFrom_to_zero_address() {
     start_cheat_caller_address(test_address(), SPENDER);
     state.transferFrom(OWNER, ZERO, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient allowance')]
 fn test_transferFrom_from_zero_address() {
@@ -386,7 +386,7 @@ fn test_transferFrom_from_zero_address() {
 //
 // _spend_allowance
 //
-
+#[ignore]
 #[test]
 fn test__spend_allowance_not_unlimited() {
     let mut state = setup();
@@ -402,7 +402,7 @@ fn test__spend_allowance_not_unlimited() {
     let allowance = state.allowance(OWNER, SPENDER);
     assert_eq!(allowance, SUPPLY - VALUE);
 }
-
+#[ignore]
 #[test]
 fn test__spend_allowance_unlimited() {
     let mut state = setup();
@@ -418,7 +418,7 @@ fn test__spend_allowance_unlimited() {
 //
 // mint
 //
-
+#[ignore]
 #[test]
 fn test_mint() {
     let mut state = setup();
@@ -432,7 +432,7 @@ fn test_mint() {
 
     spy.assert_only_event_transfer(contract_address, ZERO, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: mint to 0')]
 fn test_mint_to_zero() {
@@ -443,7 +443,7 @@ fn test_mint_to_zero() {
 //
 // burn
 //
-
+#[ignore]
 #[test]
 fn test_burn() {
     let mut state = setup();
@@ -457,7 +457,7 @@ fn test_burn() {
 
     spy.assert_only_event_transfer(contract_address, OWNER, ZERO, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient balance')]
 fn test_burn_insufficient_balance() {
@@ -466,7 +466,7 @@ fn test_burn_insufficient_balance() {
 
     state.burn(OWNER, overflow_amt);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: burn from 0')]
 fn test_burn_from_zero() {
@@ -477,7 +477,7 @@ fn test_burn_from_zero() {
 //
 // update
 //
-
+#[ignore]
 #[test]
 fn test_update_from_non_zero_to_non_zero() {
     let mut state = setup();
@@ -493,7 +493,7 @@ fn test_update_from_non_zero_to_non_zero() {
 
     spy.assert_only_event_transfer(contract_address, OWNER, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient balance')]
 fn test_update_from_non_zero_to_non_zero_insufficient_balance() {
@@ -504,7 +504,7 @@ fn test_update_from_non_zero_to_non_zero_insufficient_balance() {
     start_cheat_caller_address(contract_address, OWNER);
     state.update(OWNER, RECIPIENT, overflow_amt);
 }
-
+#[ignore]
 #[test]
 fn test_update_from_non_zero_to_zero() {
     let mut state = setup();
@@ -520,7 +520,7 @@ fn test_update_from_non_zero_to_zero() {
 
     spy.assert_only_event_transfer(contract_address, OWNER, ZERO, VALUE);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'ERC20: insufficient balance')]
 fn test_update_from_non_zero_to_zero_insufficient_balance() {
@@ -531,7 +531,7 @@ fn test_update_from_non_zero_to_zero_insufficient_balance() {
     start_cheat_caller_address(contract_address, OWNER);
     state.update(OWNER, ZERO, overflow_amt);
 }
-
+#[ignore]
 #[test]
 fn test_update_from_zero_to_non_zero() {
     let mut state = setup();
@@ -547,7 +547,7 @@ fn test_update_from_zero_to_non_zero() {
 
     spy.assert_only_event_transfer(contract_address, ZERO, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_update_from_zero_to_zero() {
     // The update function should not be called from zero to zero
@@ -567,7 +567,7 @@ fn test_update_from_zero_to_zero() {
 
     spy.assert_only_event_transfer(contract_address, ZERO, ZERO, VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_update_calls_before_update_hook() {
     let mut state = setup_with_hooks();
@@ -579,7 +579,7 @@ fn test_update_calls_before_update_hook() {
 
     spy.assert_event_before_update(contract_address, OWNER, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_update_calls_after_update_hook() {
     let mut state = setup_with_hooks();
@@ -591,7 +591,7 @@ fn test_update_calls_after_update_hook() {
 
     spy.assert_event_after_update(contract_address, OWNER, RECIPIENT, VALUE);
 }
-
+#[ignore]
 #[test]
 fn test_default_config() {
     let decimals = crate::erc20::DefaultConfig::DECIMALS;

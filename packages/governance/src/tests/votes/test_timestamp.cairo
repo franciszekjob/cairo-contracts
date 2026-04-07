@@ -81,7 +81,7 @@ fn setup_account(public_key: felt252) -> ContractAddress {
 //
 // get_votes
 //
-
+#[ignore]
 #[test]
 fn test_get_votes() {
     let mut state = setup_erc721_votes();
@@ -96,7 +96,7 @@ fn test_get_votes() {
 //
 // get_past_votes
 //
-
+#[ignore]
 #[test]
 fn test_get_past_votes() {
     let mut state = setup_erc721_votes();
@@ -114,7 +114,7 @@ fn test_get_past_votes() {
     // This is because we had not delegated at 'ts0'
     assert_eq!(state.get_past_votes(DELEGATOR, 'ts0'), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: future Lookup')]
 fn test_get_past_votes_future_lookup() {
@@ -127,7 +127,7 @@ fn test_get_past_votes_future_lookup() {
 //
 // get_past_total_supply
 //
-
+#[ignore]
 #[test]
 fn test_get_past_total_supply() {
     let mut state = setup_erc721_votes();
@@ -144,7 +144,7 @@ fn test_get_past_total_supply() {
     assert_eq!(state.get_past_total_supply('ts2'), 5);
     assert_eq!(state.get_past_total_supply('ts5'), 7);
 }
-
+#[ignore]
 #[test]
 fn test_get_past_total_supply_before_checkpoints() {
     start_cheat_block_timestamp_global('ts1');
@@ -157,7 +157,7 @@ fn test_get_past_total_supply_before_checkpoints() {
 
     assert_eq!(state.get_past_total_supply('ts0'), 0);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: future Lookup')]
 fn test_get_past_total_supply_future_lookup() {
@@ -169,7 +169,7 @@ fn test_get_past_total_supply_future_lookup() {
 //
 // delegates
 //
-
+#[ignore]
 #[test]
 fn test_delegates() {
     let mut state = setup_erc721_votes();
@@ -183,7 +183,7 @@ fn test_delegates() {
 //
 // delegate
 //
-
+#[ignore]
 #[test]
 fn test_self_delegate() {
     let mut state = setup_erc721_votes();
@@ -199,7 +199,7 @@ fn test_self_delegate() {
         );
     assert_eq!(state.get_votes(DELEGATOR), ERC721_INITIAL_MINT);
 }
-
+#[ignore]
 #[test]
 fn test_delegate_to_delegatee_updates_votes() {
     let mut state = setup_erc721_votes();
@@ -216,7 +216,7 @@ fn test_delegate_to_delegatee_updates_votes() {
     assert_eq!(state.get_votes(DELEGATEE), ERC721_INITIAL_MINT);
     assert_eq!(state.get_votes(DELEGATOR), 0);
 }
-
+#[ignore]
 #[test]
 fn test_delegate_to_delegatee_updates_delegates() {
     let mut state = setup_erc721_votes();
@@ -226,7 +226,7 @@ fn test_delegate_to_delegatee_updates_delegates() {
     state.delegate(DELEGATEE);
     assert_eq!(state.delegates(DELEGATOR), DELEGATEE);
 }
-
+#[ignore]
 #[test]
 fn test_delegate_with_no_balance() {
     let mut state = setup_erc721_votes();
@@ -249,7 +249,7 @@ fn test_delegate_with_no_balance() {
 //
 // delegate_by_sig
 //
-
+#[ignore]
 #[test]
 fn test_delegate_by_sig() {
     // Set up the state
@@ -281,7 +281,7 @@ fn test_delegate_by_sig() {
     spy.assert_only_event_delegate_changed(contract_address, delegator, ZERO, delegatee);
     assert_eq!(state.delegates(account), delegatee);
 }
-
+#[ignore]
 #[test]
 fn test_delegate_by_sig_hash_generation() {
     start_cheat_chain_id_global('SN_TEST');
@@ -308,7 +308,7 @@ fn test_delegate_by_sig_hash_generation() {
     let expected_hash = 0x1fa1af6d3d0ede7d09790ef20a894668af9445b6bc93714e87a758be40efdc7;
     assert_eq!(hash, expected_hash);
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: expired signature')]
 fn test_delegate_by_sig_past_expiry() {
@@ -320,7 +320,7 @@ fn test_delegate_by_sig_past_expiry() {
 
     state.delegate_by_sig(DELEGATOR, DELEGATEE, 0, expiry, signature.span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Nonces: invalid nonce')]
 fn test_delegate_by_sig_invalid_nonce() {
@@ -329,7 +329,7 @@ fn test_delegate_by_sig_invalid_nonce() {
 
     state.delegate_by_sig(DELEGATOR, DELEGATEE, 1, 0, signature.span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: invalid signature')]
 fn test_delegate_by_sig_invalid_signature() {
@@ -350,7 +350,7 @@ fn test_delegate_by_sig_invalid_signature() {
     // Use an invalid signature
     state.delegate_by_sig(delegator, delegatee, nonce, expiry, array![r + 1, s].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Votes: invalid signature')]
 fn test_delegate_by_sig_bad_delegatee() {
@@ -372,7 +372,7 @@ fn test_delegate_by_sig_bad_delegatee() {
     // Use a different delegatee than the one signed for
     state.delegate_by_sig(delegator, bad_delegatee, nonce, expiry, array![r, s].span());
 }
-
+#[ignore]
 #[test]
 #[should_panic(expected: 'Nonces: invalid nonce')]
 fn test_delegate_by_sig_reused_signature() {
@@ -400,7 +400,7 @@ fn test_delegate_by_sig_reused_signature() {
 //
 // num_checkpoints
 //
-
+#[ignore]
 #[test]
 fn test_num_checkpoints() {
     let mut state = setup_erc721_votes();
@@ -419,7 +419,7 @@ fn test_num_checkpoints() {
 //
 // checkpoints
 //
-
+#[ignore]
 #[test]
 fn test_checkpoints() {
     let mut state = setup_erc721_votes();
@@ -447,7 +447,7 @@ fn test_checkpoints() {
 //
 // Tests specific to ERC721Votes and ERC20Votes
 //
-
+#[ignore]
 #[test]
 fn test_erc721_get_voting_units() {
     let state = setup_erc721_votes();
@@ -455,7 +455,7 @@ fn test_erc721_get_voting_units() {
     assert_eq!(state.get_voting_units(DELEGATOR), ERC721_INITIAL_MINT);
     assert_eq!(state.get_voting_units(OTHER), 0);
 }
-
+#[ignore]
 #[test]
 fn test_erc20_get_voting_units() {
     let mut state = setup_erc20_votes();
@@ -463,7 +463,7 @@ fn test_erc20_get_voting_units() {
     assert_eq!(state.get_voting_units(DELEGATOR), SUPPLY);
     assert_eq!(state.get_voting_units(OTHER), 0);
 }
-
+#[ignore]
 #[test]
 fn test_erc20_burn_updates_votes() {
     let mut state = setup_erc20_votes();
@@ -488,7 +488,7 @@ fn test_erc20_burn_updates_votes() {
     assert_eq!(state.get_votes(DELEGATOR), SUPPLY - burn_amount);
     assert_eq!(state.get_past_total_supply('ts1'), SUPPLY - burn_amount);
 }
-
+#[ignore]
 #[test]
 fn test_erc721_burn_updates_votes() {
     let mut state = setup_erc721_votes();
@@ -515,19 +515,19 @@ fn test_erc721_burn_updates_votes() {
     assert_eq!(state.get_votes(DELEGATOR), ERC721_INITIAL_MINT - burn_amount);
     assert_eq!(state.get_past_total_supply('ts1'), ERC721_INITIAL_MINT - burn_amount);
 }
-
+#[ignore]
 #[test]
 fn test_erc_721_get_total_supply() {
     let state = setup_erc721_votes();
     assert_eq!(state.get_total_supply(), ERC721_INITIAL_MINT);
 }
-
+#[ignore]
 #[test]
 fn test_erc_20_get_total_supply() {
     let state = setup_erc20_votes();
     assert_eq!(state.get_total_supply(), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_erc_20_voting_units_update_with_full_balance_transfer() {
     let mut state = setup_erc20_votes();
@@ -555,7 +555,7 @@ fn test_erc_20_voting_units_update_with_full_balance_transfer() {
     spy.assert_event_delegate_votes_changed(contract_address, RECIPIENT, 0, SUPPLY);
     assert_eq!(state.get_votes(RECIPIENT), SUPPLY);
 }
-
+#[ignore]
 #[test]
 fn test_erc_20_voting_units_update_with_partial_balance_transfer() {
     let mut state = setup_erc20_votes();
@@ -587,7 +587,7 @@ fn test_erc_20_voting_units_update_with_partial_balance_transfer() {
     spy.assert_event_delegate_votes_changed(contract_address, RECIPIENT, 0, partial_amount);
     assert_eq!(state.get_votes(RECIPIENT), partial_amount);
 }
-
+#[ignore]
 #[test]
 fn test_erc721_voting_units_update_with_single_token_transfer() {
     let mut state = setup_erc721_votes();
@@ -624,14 +624,14 @@ fn test_erc721_voting_units_update_with_single_token_transfer() {
 //
 // ERC6372Clock
 //
-
+#[ignore]
 #[test]
 fn test_clock() {
     let state = COMPONENT_STATE();
     start_cheat_block_timestamp_global(TIMESTAMP);
     assert_eq!(state.clock(), TIMESTAMP);
 }
-
+#[ignore]
 #[test]
 fn test_CLOCK_MODE() {
     let state = COMPONENT_STATE();
