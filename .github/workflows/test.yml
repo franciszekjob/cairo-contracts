@@ -13,26 +13,24 @@ jobs:
   lint_and_test:
     name: Lint and test Cairo
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        partition: [ 1, 2, 3 ]
     steps:
       - uses: actions/checkout@v6
 
-      - name: Extract scarb version
-        run: |
-          SCARB_VERSION=$(grep 'scarb-version = ' Scarb.toml | sed 's/scarb-version = "\(.*\)"/\1/')
-          echo "SCARB_VERSION=$SCARB_VERSION" >> "$GITHUB_ENV"
-
       - uses: software-mansion/setup-scarb@v1
         with:
-          scarb-version: ${{ env.SCARB_VERSION }}
+          scarb-version: 2.15.1
 
-      - name: Extract foundry version
+      - name: Install asdf & tools
+        uses: asdf-vm/actions/install@v4
+
+      - name: Install starknet-foundry
         run: |
-          FOUNDRY_VERSION=$(grep 'snforge_std = ' Scarb.toml | sed 's/snforge_std = "\(.*\)"/\1/')
-          echo "FOUNDRY_VERSION=$FOUNDRY_VERSION" >> "$GITHUB_ENV"
-
-      - uses: foundry-rs/setup-snfoundry@v5.0.0
-        with:
-          starknet-foundry-version: ${{ env.FOUNDRY_VERSION }}
+          asdf plugin add starknet-foundry
+          asdf install starknet-foundry nightly-2026-01-23
+          asdf set starknet-foundry nightly-2026-01-23
 
       - name: Install cairo-coverage
         run: curl -L https://raw.githubusercontent.com/software-mansion/cairo-coverage/main/scripts/install.sh | sh
@@ -48,10 +46,10 @@ jobs:
         run: scarb fmt --check --workspace
 
       - name: Run tests
-        run: snforge test --workspace --features fuzzing --fuzzer-runs 200
+        run: snforge test --partition "${{ matrix.partition }}/3" --workspace --features fuzzing --fuzzer-runs 200
 
       - name: Run tests and generate coverage report
-        run: snforge test --workspace --coverage
+        run: snforge test --partition '${{ matrix.partition }}/3' --workspace --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
